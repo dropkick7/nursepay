@@ -32,15 +32,15 @@
     .filter-count { font-size: 12px; color: var(--text-muted); margin-left: auto; }
     .table-section { max-width: 960px; margin: 0 auto; padding: 0 2rem 4rem; }
     .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    thead { position: sticky; top: 60px; z-index: 10; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 0; }
+    thead { position: sticky; top: 60px; z-index: 10; box-shadow: 0 1px 0 var(--border); }
     thead th { background: var(--bg-soft); padding: 9px 12px; text-align: left; font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--border); white-space: normal; cursor: pointer; user-select: none; max-width: 120px; line-height: 1.3; }
     thead th::after { content: ' ⇅'; font-size: 11px; opacity: 1; color: #1a2fa0; font-weight: 900; }
     thead th.sort-asc::after { content: ' ▲'; opacity: 1; color: var(--blue); }
     thead th.sort-desc::after { content: ' ▼'; opacity: 1; color: var(--blue); }
     thead th.sort-asc, thead th.sort-desc { color: var(--blue); }
     thead th:hover { color: var(--blue); }
-    tbody tr.data-row { border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.1s; }
+    tbody tr.data-row { border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.1s; scroll-margin-top: 120px; }
     tbody tr.data-row:hover { background: #EEF2FF; cursor: pointer; }
     tbody tr.data-row:hover td { color: var(--blue); }
     tbody tr.data-row:hover .pay { color: #1a2fa0; }
@@ -125,19 +125,42 @@
     .page-current { font-size: 13px; color: var(--text); font-weight: 600; min-width: 80px; text-align: center; }
     .empty { text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-size: 14px; }
     .scroll-hint { display: none; font-size: 12px; color: var(--text-muted); text-align: right; padding: 0.4rem 0 0.25rem; }
+    /* Always-visible blue scrollbar on mobile */
+    .table-wrap { scrollbar-width: thin; scrollbar-color: #3461FF #EEF2FF; }
+    .table-wrap::-webkit-scrollbar { height: 8px; }
+    .table-wrap::-webkit-scrollbar-track { background: #EEF2FF; border-radius: 99px; }
+    .table-wrap::-webkit-scrollbar-thumb { background: #3461FF; border-radius: 99px; min-width: 40px; }
+    .table-wrap::-webkit-scrollbar-thumb:hover { background: #2347E0; }
     @media (max-width: 600px) {
       .scroll-hint { display: block; }
-      .table-wrap { scrollbar-width: thin; scrollbar-color: #3461FF #EEF2FF; }
-      .table-wrap::-webkit-scrollbar { height: 6px; }
-      .table-wrap::-webkit-scrollbar-track { background: #EEF2FF; border-radius: 99px; }
-      .table-wrap::-webkit-scrollbar-thumb { background: #3461FF; border-radius: 99px; }
+      .table-wrap::-webkit-scrollbar { height: 10px; }
     }
     @media (max-width: 600px) {
       nav { padding: 0 1rem; }
-      .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+      
       .page-header, .filters, .table-section { padding-left: 1rem; padding-right: 1rem; }
       .detail-panel { padding: 1rem; }
     }
+
+    /* HAMBURGER MOBILE NAV */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.2s; }
+    .mobile-menu { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; z-index: 99; flex-direction: column; gap: 0; }
+    .mobile-menu a { display: block; padding: 0.65rem 0; font-size: 15px; font-weight: 500; color: var(--text-mid); border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a.btn-nav-mobile { color: var(--blue); font-weight: 600; border-bottom: none; margin-top: 0.25rem; }
+    .mobile-menu.open { display: flex; }
+    @media (max-width: 700px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+    }
+
+    /* TOP SCROLL MIRROR */
+    .scroll-mirror-wrap { overflow-x: auto; overflow-y: hidden; height: 10px; scrollbar-width: thin; scrollbar-color: #3461FF #EEF2FF; }
+    .scroll-mirror-wrap::-webkit-scrollbar { height: 10px; }
+    .scroll-mirror-wrap::-webkit-scrollbar-track { background: #EEF2FF; border-radius: 99px; }
+    .scroll-mirror-wrap::-webkit-scrollbar-thumb { background: #3461FF; border-radius: 99px; min-width: 40px; }
+    .scroll-mirror-inner { height: 1px; }
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR556L6MGE"></script>
@@ -179,6 +202,9 @@
 </div>
 
 <div class="table-section">
+  <div class="scroll-mirror-wrap" id="scroll-mirror">
+    <div class="scroll-mirror-inner" id="scroll-mirror-inner"></div>
+  </div>
   <div class="scroll-hint" style="color:#3461FF; font-weight:600; font-size:12px; letter-spacing:0.03em;">← swipe to see more →</div>
   <div class="table-wrap">
     <table id="pay-table">
@@ -550,6 +576,45 @@ async function loadData() {
 }
 
 loadData();
+</script>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger-btn');
+    if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+<script>
+  (function() {
+    var mirror = document.getElementById('scroll-mirror');
+    var tableWrap = document.querySelector('.table-wrap');
+    var mirrorInner = document.getElementById('scroll-mirror-inner');
+
+    function syncWidth() {
+      if (tableWrap && mirrorInner) {
+        mirrorInner.style.width = tableWrap.scrollWidth + 'px';
+      }
+    }
+
+    if (mirror && tableWrap) {
+      syncWidth();
+      window.addEventListener('resize', syncWidth);
+      mirror.addEventListener('scroll', function() {
+        tableWrap.scrollLeft = mirror.scrollLeft;
+      });
+      tableWrap.addEventListener('scroll', function() {
+        mirror.scrollLeft = tableWrap.scrollLeft;
+      });
+    }
+  })();
 </script>
 </body>
 </html>
