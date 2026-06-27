@@ -9,20 +9,12 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --blue: #3461FF;
-      --blue-dark: #2347E0;
-      --blue-light: #EEF2FF;
-      --text: #1a1a1a;
-      --text-mid: #444;
-      --text-muted: #777;
-      --border: #e5e5e5;
-      --bg: #ffffff;
-      --bg-soft: #f9f9f9;
+      --blue: #3461FF; --blue-dark: #2347E0; --blue-light: #EEF2FF;
+      --text: #1a1a1a; --text-mid: #444; --text-muted: #777;
+      --border: #e5e5e5; --bg: #ffffff; --bg-soft: #f9f9f9;
     }
     body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); font-size: 15px; line-height: 1.6; }
     a { color: inherit; text-decoration: none; }
-
-    /* NAV */
     nav { display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 100; }
     .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; color: var(--blue); }
     .logo svg { width: 28px; height: 28px; }
@@ -30,20 +22,14 @@
     .nav-links a { font-size: 14px; color: var(--text-mid); font-weight: 500; }
     .nav-links a:hover { color: var(--blue); }
     .nav-links .btn-nav { background: var(--blue); color: #fff; padding: 6px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; }
-
-    /* PAGE HEADER */
     .page-header { max-width: 960px; margin: 0 auto; padding: 2.5rem 2rem 1.5rem; }
     .page-header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 0.25rem; }
     .page-header p { color: var(--text-muted); font-size: 14px; }
-
-    /* FILTERS */
     .filters { max-width: 960px; margin: 0 auto; padding: 0 2rem 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
     .filters input, .filters select { padding: 7px 12px; border: 1px solid var(--border); border-radius: 7px; font-size: 13px; font-family: inherit; color: var(--text); background: #fff; outline: none; }
     .filters input:focus, .filters select:focus { border-color: var(--blue); }
     .filters input { min-width: 280px; }
     .filter-count { font-size: 12px; color: var(--text-muted); margin-left: auto; }
-
-    /* TABLE */
     .table-section { max-width: 960px; margin: 0 auto; padding: 0 2rem 4rem; }
     .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
     table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -64,20 +50,14 @@
     .pay { font-weight: 600; color: var(--blue); }
     .arrow { font-size: 10px; color: var(--text-muted); margin-left: 4px; display: inline-block; transition: transform 0.2s; }
     .active .arrow { transform: rotate(180deg); color: var(--blue); }
-
-    /* BADGES */
     .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; white-space: nowrap; }
     .badge-va { background: #DCFCE7; color: #15803D; }
     .badge-a  { background: #FEF9C3; color: #854D0E; }
     .badge-c  { background: #FFEDD5; color: #C2410C; }
     .badge-vc { background: #FEE2E2; color: #DC2626; }
     .badge-context { font-size: 11px; color: var(--text-muted); margin-left: 4px; }
-
-    /* DETAIL PANEL */
     .detail-cell { padding: 0 !important; }
     .detail-panel { background: #FAFBFF; border-top: 1px solid #C5D0FF; padding: 1.25rem 1.5rem 1.5rem; max-width: 480px; }
-
-    /* GLANCE STORY */
     .glance-eyebrow { font-size: 11px; color: var(--text-muted); margin-bottom: 0.6rem; }
     .glance-row { display: flex; gap: 0; margin-bottom: 0.75rem; align-items: flex-end; flex-wrap: nowrap; }
     .glance-stat { display: flex; flex-direction: column; gap: 4px; flex: 1; }
@@ -89,15 +69,11 @@
     .glance-arrow { font-size: 12px; color: #ccc; padding-bottom: 3px; padding-left: 2px; padding-right: 2px; flex: 0; align-self: flex-end; }
     .glance-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; align-items: center; }
     .glance-pill { font-size: 11px; color: var(--text-muted); background: #f0f0f0; border-radius: 4px; padding: 2px 8px; }
-
-    /* BELL CURVE */
     .bell-wrap { margin-top: 0.75rem; }
     .bell-label { font-size: 11px; color: var(--text-mid); margin-bottom: 0.4rem; line-height: 1.5; }
     .bell-label strong { color: var(--text); }
     .bell-svg { width: 100%; overflow: visible; }
     .bell-axis { display: flex; justify-content: space-between; font-size: 10px; color: #bbb; margin-top: 2px; }
-
-    /* ACTION CARDS */
     .action-cards { display: flex; gap: 0.75rem; margin-top: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
     .action-card { flex: 1; min-width: 140px; border: 1.5px solid var(--border); border-radius: 10px; padding: 0.85rem; cursor: default; background: #fff; }
     .action-card-icon { font-size: 18px; margin-bottom: 0.4rem; }
@@ -107,11 +83,7 @@
     .action-card-sub a { color: var(--blue); text-decoration: underline; }
     .action-card-pd { border-color: #C5D0FF; background: #F5F7FF; }
     .action-card-pd .action-card-answer { color: #16A34A; }
-
-    /* TOGGLE */
     .detail-toggle { font-size: 12px; color: var(--blue); cursor: pointer; background: none; border: none; padding: 0; font-family: inherit; text-decoration: underline; display: block; }
-
-    /* EXPANDED */
     .detail-expanded { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); display: none; }
     .detail-expanded.open { display: block; }
     .exp-section { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #f0f0f0; }
@@ -124,47 +96,26 @@
     .calc-line:last-child { border-bottom: none; }
     .calc-label { color: var(--text-mid); }
     .calc-value.deduct { color: #999; font-weight: 500; }
-
-
     .tax-breakdown { font-size: 11px; background: #f4f4f4; border-radius: 5px; padding: 7px 9px; margin: 0.4rem 0; color: #999; }
     .tax-breakdown table { width: 100%; }
     .tax-breakdown td { padding: 2px 0; color: var(--text-muted); border: none; }
     .tax-breakdown td:last-child { text-align: right; font-weight: 500; color: var(--text-mid); }
     .tax-note { font-size: 11px; color: #bbb; line-height: 1.5; margin-top: 0.3rem; }
-
     .rent-stale { font-size: 11px; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.5; }
-
-    /* PER DIEM */
     .perdiem-teaser { margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px dashed #C5D0FF; }
     .pd-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.2rem; }
     .pd-number { font-size: 20px; font-weight: 700; color: var(--blue); margin-bottom: 0.2rem; }
     .pd-sub { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
     .pd-sub a { color: var(--blue); text-decoration: underline; }
-
-    /* SCORE */
     .score-cell { text-align: center; }
     .score-num { font-size: 18px; font-weight: 700; line-height: 1; }
     .score-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-top: 2px; }
-    .score-10 { color: #15803D; }
-    .score-8  { color: #22C55E; }
-    .score-6  { color: #D97706; }
-    .score-4  { color: #EA580C; }
-    .score-2  { color: #DC2626; }
-
-    /* HML LABELS */
+    .score-10 { color: #15803D; } .score-8 { color: #22C55E; } .score-6 { color: #D97706; } .score-4 { color: #EA580C; } .score-2 { color: #DC2626; }
     .hml-cell { display: flex; flex-direction: column; gap: 3px; }
     .hml-tag { font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 3px; white-space: nowrap; }
-    .hml-high-pay { background: #DCFCE7; color: #15803D; }
-    .hml-med-pay  { background: #FEF9C3; color: #854D0E; }
-    .hml-low-pay  { background: #FEE2E2; color: #DC2626; }
-    .hml-high-tax { background: #FEE2E2; color: #DC2626; }
-    .hml-med-tax  { background: #FEF9C3; color: #854D0E; }
-    .hml-low-tax  { background: #DCFCE7; color: #15803D; }
-    .hml-high-rent { background: #FEE2E2; color: #DC2626; }
-    .hml-med-rent  { background: #FEF9C3; color: #854D0E; }
-    .hml-low-rent  { background: #DCFCE7; color: #15803D; }
-
-    /* PAGINATION */
+    .hml-high-pay { background: #DCFCE7; color: #15803D; } .hml-med-pay { background: #FEF9C3; color: #854D0E; } .hml-low-pay { background: #FEE2E2; color: #DC2626; }
+    .hml-high-tax { background: #FEE2E2; color: #DC2626; } .hml-med-tax { background: #FEF9C3; color: #854D0E; } .hml-low-tax { background: #DCFCE7; color: #15803D; }
+    .hml-high-rent { background: #FEE2E2; color: #DC2626; } .hml-med-rent { background: #FEF9C3; color: #854D0E; } .hml-low-rent { background: #DCFCE7; color: #15803D; }
     .pagination { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 0; margin-top: 0.5rem; font-size: 13px; color: var(--text-muted); }
     .pagination-info { font-size: 12px; }
     .pagination-controls { display: flex; align-items: center; gap: 0.5rem; }
@@ -172,10 +123,7 @@
     .page-btn:hover:not(:disabled) { border-color: var(--blue); color: var(--blue); }
     .page-btn:disabled { opacity: 0.35; cursor: default; }
     .page-current { font-size: 13px; color: var(--text); font-weight: 600; min-width: 80px; text-align: center; }
-
-    /* EMPTY */
     .empty { text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-size: 14px; }
-
     @media (max-width: 600px) {
       nav { padding: 0 1rem; }
       .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
@@ -225,11 +173,11 @@
           <th data-col="position">Position<br>Shift</th>
           <th data-col="hourly_rate">Pay<br>$/hr</th>
           <th data-col="take_home">Est. take-home<br>after taxes &amp; rent</th>
-
+          <th data-col="date">Submitted</th>
         </tr>
       </thead>
       <tbody id="table-body">
-        <tr><td colspan="6" class="empty">Loading pay data…</td></tr>
+        <tr><td colspan="7" class="empty">Loading pay data…</td></tr>
       </tbody>
     </table>
   </div>
@@ -300,16 +248,8 @@ const STATE_TAX = {
 function getTax(state) { return STATE_TAX[state] || {default:27, note:'Tax rates vary.'}; }
 
 const SAMPLE_DATA = [
-  {city:'San Francisco',state:'CA',license:'RN',years_exp:8,specialty:'L&D',shift:'noc',position:'staff',hourly_rate:95,differential:12,col_tier:'vc',rent_2br:3800,rent_date:'2025-01-01'},
-  {city:'San Diego',state:'CA',license:'RN',years_exp:7,specialty:'management',shift:'eves',position:'PD',hourly_rate:113.33,differential:0,col_tier:'vc',rent_2br:3200,rent_date:'2024-09-01'},
-  {city:'Portland',state:'OR',license:'RN',years_exp:20,specialty:'med surg',shift:'noc',position:'staff',hourly_rate:84.95,differential:8,col_tier:'c',rent_2br:1950,rent_date:'2024-06-01'},
-  {city:'Las Vegas',state:'NV',license:'RN',years_exp:10,specialty:'float',shift:'noc',position:'staff',hourly_rate:61,differential:5,col_tier:'a',rent_2br:1600,rent_date:'2025-03-01'},
-  {city:'Cheyenne',state:'WY',license:'RN',years_exp:5,specialty:'cardiology',shift:'days',position:'staff',hourly_rate:49,differential:0,col_tier:'va',rent_2br:1200,rent_date:'2024-12-01'},
-  {city:'Durham',state:'NC',license:'RN',years_exp:6,specialty:'OR',shift:'days',position:'staff',hourly_rate:39,differential:3,col_tier:'va',rent_2br:1450,rent_date:'2024-08-01'},
-  {city:'Austin',state:'TX',license:'RN',years_exp:4,specialty:'ICU',shift:'noc',position:'staff',hourly_rate:52,differential:6,col_tier:'a',rent_2br:1750,rent_date:'2025-02-01'},
-  {city:'Minneapolis',state:'MN',license:'RN',years_exp:12,specialty:'postpartum',shift:'days',position:'staff',hourly_rate:58,differential:0,col_tier:'a',rent_2br:1800,rent_date:'2024-11-01'},
-  {city:'Phoenix',state:'AZ',license:'RN',years_exp:3,specialty:'ER',shift:'noc',position:'staff',hourly_rate:44,differential:5,col_tier:'a',rent_2br:1550,rent_date:'2025-01-01'},
-  {city:'Boston',state:'MA',license:'RN',years_exp:9,specialty:'oncology',shift:'days',position:'staff',hourly_rate:68,differential:0,col_tier:'c',rent_2br:3100,rent_date:'2024-10-01'},
+  {city:'San Francisco',state:'CA',license:'RN',years_exp:8,specialty:'L&D',shift:'noc',position:'staff',hourly_rate:95,rent_2br:3800,rent_date:'2025-01-01',date:'1/1/2025'},
+  {city:'Portland',state:'OR',license:'RN',years_exp:20,specialty:'med surg',shift:'noc',position:'staff',hourly_rate:84.95,rent_2br:1950,rent_date:'2024-06-01',date:'6/1/2024'},
 ];
 
 function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
@@ -317,154 +257,63 @@ function fmtHr(n) { return '$' + (+n).toFixed(2); }
 
 function calcScore(d, allEntries) {
   if (!d.rent_2br) return null;
-
-  // Pay score (0-4): percentile of hourly rate
   const rates = allEntries.map(e => e.hourly_rate).sort((a,b)=>a-b);
   const rateIdx = rates.filter(r => r <= d.hourly_rate).length / rates.length;
   const payScore = rateIdx * 4;
-
-  // Tax score (0-3): lower tax = higher score
   const taxPct = getTax(d.state).default || 27;
   const taxScore = taxPct <= 23 ? 3 : taxPct <= 27 ? 2.5 : taxPct <= 30 ? 1.5 : taxPct <= 33 ? 1 : 0;
-
-  // Rent score (0-3): lower rent-to-income = higher score
   const {afterTax} = calcMonthly(d.hourly_rate, taxPct);
   const ratio = (d.rent_2br / afterTax) * 100;
   const rentScore = ratio <= 20 ? 3 : ratio <= 28 ? 2.5 : ratio <= 35 ? 1.5 : ratio <= 45 ? 1 : 0;
-
-  const total = Math.round(payScore + taxScore + rentScore);
-  return Math.min(10, Math.max(1, total));
-}
-
-function scoreHTML(d, allEntries) {
-  const score = calcScore(d, allEntries);
-  if (score === null) return '<span style="color:#ccc;font-size:12px;">—</span>';
-  const cls = score >= 9 ? 'score-10' : score >= 7 ? 'score-8' : score >= 5 ? 'score-6' : score >= 3 ? 'score-4' : 'score-2';
-  const label = score >= 9 ? 'Excellent' : score >= 7 ? 'Good' : score >= 5 ? 'Fair' : score >= 3 ? 'Tough' : 'Hard';
-  return `<div class="score-cell"><div class="score-num ${cls}">${score}</div><div class="score-label">${label}</div></div>`;
-}
-
-function hmlTags(d, allEntries) {
-  // Pay: based on hourly rate percentile
-  const rates = allEntries.map(e => e.hourly_rate).sort((a,b)=>a-b);
-  const rateIdx = rates.findIndex(r => r >= d.hourly_rate) / rates.length;
-  const payLevel = rateIdx > 0.66 ? 'High' : rateIdx > 0.33 ? 'Med' : 'Low';
-  const payCls = payLevel === 'High' ? 'hml-high-pay' : payLevel === 'Med' ? 'hml-med-pay' : 'hml-low-pay';
-
-  // Tax: based on state default rate
-  const taxPct = getTax(d.state).default || 27;
-  const taxLevel = taxPct >= 31 ? 'High' : taxPct >= 27 ? 'Med' : 'Low';
-  const taxCls = taxLevel === 'High' ? 'hml-high-tax' : taxLevel === 'Med' ? 'hml-med-tax' : 'hml-low-tax';
-
-  // Rent: based on rent-to-income ratio
-  const rentTag = d.rent_2br ? (() => {
-    const {afterTax} = calcMonthly(d.hourly_rate, taxPct);
-    const ratio = (d.rent_2br / afterTax) * 100;
-    const rentLevel = ratio > 40 ? 'High' : ratio > 25 ? 'Med' : 'Low';
-    const rentCls = rentLevel === 'High' ? 'hml-high-rent' : rentLevel === 'Med' ? 'hml-med-rent' : 'hml-low-rent';
-    return `<span class="hml-tag ${rentCls}">Rent: ${rentLevel}</span>`;
-  })() : '';
-
-  return `<div class="hml-cell">
-    <span class="hml-tag ${payCls}">Pay: ${payLevel}</span>
-    <span class="hml-tag ${taxCls}">Tax: ${taxLevel}</span>
-    ${rentTag}
-  </div>`;
+  return Math.min(10, Math.max(1, Math.round(payScore + taxScore + rentScore)));
 }
 
 function bellCurveHTML(allEntries, thisRatio) {
-  const ratios = allEntries
-    .filter(e => e.rent_2br && e.hourly_rate)
-    .map(e => {
-      const {afterTax} = calcMonthly(e.hourly_rate, (getTax(e.state).default || 27));
-      return (e.rent_2br / afterTax) * 100;
-    });
-
+  const ratios = allEntries.filter(e => e.rent_2br && e.hourly_rate).map(e => {
+    const {afterTax} = calcMonthly(e.hourly_rate, (getTax(e.state).default || 27));
+    return (e.rent_2br / afterTax) * 100;
+  });
   if (!ratios.length) return '';
-
   const min = Math.floor(Math.min(...ratios));
   const max = Math.ceil(Math.max(...ratios));
   const mean = ratios.reduce((a,b)=>a+b,0)/ratios.length;
   const variance = ratios.reduce((a,b)=>a+Math.pow(b-mean,2),0)/ratios.length;
   const std = Math.sqrt(variance) || 1;
   const meanDisplay = Math.round(mean);
-
-  // SVG
   const W = 260, H = 65, steps = 120;
   const stepSize = (max - min) / steps;
-
-  // Normal distribution curve points
-  function normalY(x) {
-    return Math.exp(-0.5 * Math.pow((x - mean) / std, 2));
-  }
-
-  // Build smooth curve path
+  function normalY(x) { return Math.exp(-0.5 * Math.pow((x - mean) / std, 2)); }
   const points = [];
   for (let i = 0; i <= steps; i++) {
     const x = min + i * stepSize;
-    const nx = (i / steps) * W;
-    const ny = H - normalY(x) * (H - 4);
-    points.push(`${nx},${ny}`);
+    points.push(`${(i/steps)*W},${H - normalY(x)*(H-4)}`);
   }
-  // Close the path at the bottom
   const pathD = `M0,${H} L${points.join(' L')} L${W},${H} Z`;
-
-  // Marker for this entry
   const markerX = Math.max(0, Math.min(((thisRatio - min) / (max - min)) * W, W));
   const markerY = H - normalY(thisRatio) * (H - 4);
-
-  // Left fill (better than this) vs right fill
   const leftPoints = [];
   for (let i = 0; i <= steps; i++) {
     const x = min + i * stepSize;
     if (x > thisRatio) break;
-    const nx = (i / steps) * W;
-    const ny = H - normalY(x) * (H - 4);
-    leftPoints.push(`${nx},${ny}`);
+    leftPoints.push(`${(i/steps)*W},${H - normalY(x)*(H-4)}`);
   }
-  leftPoints.push(`${markerX},${H}`);
-  leftPoints.push(`0,${H}`);
-  const leftPath = `M0,${H} L${leftPoints.slice(0, leftPoints.length-2).join(' L')} L${markerX},${markerY} L${markerX},${H} Z`;
-
-  const svg = `
-    <svg class="bell-svg" viewBox="0 0 ${W} ${H+18}" height="${H+18}">
-      <defs>
-        <linearGradient id="bellgrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#e0e0e0" stop-opacity="0.9"/>
-          <stop offset="100%" stop-color="#e0e0e0" stop-opacity="0.3"/>
-        </linearGradient>
-      </defs>
-      <!-- Full curve fill -->
-      <path d="${pathD}" fill="url(#bellgrad)" />
-      <!-- Left portion (this entry and better) -->
-      <path d="${leftPath}" fill="#DC262620" />
-      <!-- Curve outline -->
-      <polyline points="${points.join(' ')}" fill="none" stroke="#ccc" stroke-width="1.5"/>
-      <!-- Marker line -->
-      <line x1="${markerX}" y1="${markerY}" x2="${markerX}" y2="${H}" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="3,2"/>
-      <!-- Marker dot -->
-      <circle cx="${markerX}" cy="${markerY}" r="3.5" fill="#DC2626"/>
-      <!-- Axis labels -->
-      <text x="2" y="${H+14}" font-size="9" fill="#bbb">Best ${min}%</text>
-      <text x="${markerX}" y="${H+14}" font-size="9" fill="#DC2626" text-anchor="middle">↑ ${Math.round(thisRatio)}%</text>
-      <text x="${W-2}" y="${H+14}" font-size="9" fill="#bbb" text-anchor="end">Worst ${max}%</text>
-    </svg>`;
-
-  const aboveBelow = thisRatio > mean
-    ? `slightly above the average of <strong>${meanDisplay}%</strong>`
-    : thisRatio < mean
-      ? `better than the average of <strong>${meanDisplay}%</strong>`
-      : `right at the average of <strong>${meanDisplay}%</strong>`;
-
-  return `
-    <div class="bell-wrap">
-      <div class="bell-label">With this pay, rent takes up <strong>${Math.round(thisRatio)}%</strong> of take-home — ${aboveBelow}. Across locations we've seen, the best is <strong>${min}%</strong> and the worst is <strong>${max}%</strong>.</div>
-      ${svg}
-    </div>`;
+  const leftPath = `M0,${H} L${leftPoints.join(' L')} L${markerX},${markerY} L${markerX},${H} Z`;
+  const svg = `<svg class="bell-svg" viewBox="0 0 ${W} ${H+18}" height="${H+18}">
+    <defs><linearGradient id="bellgrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e0e0e0" stop-opacity="0.9"/><stop offset="100%" stop-color="#e0e0e0" stop-opacity="0.3"/></linearGradient></defs>
+    <path d="${pathD}" fill="url(#bellgrad)"/>
+    <path d="${leftPath}" fill="#DC262620"/>
+    <polyline points="${points.join(' ')}" fill="none" stroke="#ccc" stroke-width="1.5"/>
+    <line x1="${markerX}" y1="${markerY}" x2="${markerX}" y2="${H}" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <circle cx="${markerX}" cy="${markerY}" r="3.5" fill="#DC2626"/>
+    <text x="2" y="${H+14}" font-size="9" fill="#bbb">Best ${min}%</text>
+    <text x="${markerX}" y="${H+14}" font-size="9" fill="#DC2626" text-anchor="middle">↑ ${Math.round(thisRatio)}%</text>
+    <text x="${W-2}" y="${H+14}" font-size="9" fill="#bbb" text-anchor="end">Worst ${max}%</text>
+  </svg>`;
+  const aboveBelow = thisRatio > mean ? `slightly above the average of <strong>${meanDisplay}%</strong>` : thisRatio < mean ? `better than the average of <strong>${meanDisplay}%</strong>` : `right at the average of <strong>${meanDisplay}%</strong>`;
+  return `<div class="bell-wrap"><div class="bell-label">With this pay, rent takes up <strong>${Math.round(thisRatio)}%</strong> of take-home — ${aboveBelow}. Across locations we've seen, the best is <strong>${min}%</strong> and the worst is <strong>${max}%</strong>.</div>${svg}</div>`;
 }
 
 function calcTier(d) {
-  // If we have rent and hourly rate, calculate dynamically
   if (d.rent_2br && d.hourly_rate) {
     const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default || 27));
     const rentPct = (d.rent_2br / afterTax) * 100;
@@ -473,7 +322,6 @@ function calcTier(d) {
     if (rentPct < 50) return 'c';
     return 'vc';
   }
-  // Fall back to stored tier
   return d.col_tier || 'a';
 }
 
@@ -497,8 +345,7 @@ function rentStaleness(dateStr) {
 function calcMonthly(hourly, taxPct) {
   const gross = hourly * 12 * 3 * 4;
   const taxes = gross * taxPct/100;
-  const afterTax = gross - taxes;
-  return {gross, taxes, afterTax};
+  return {gross, taxes, afterTax: gross - taxes};
 }
 
 const BA_RATE = 100, BA_FLIGHTS = 400;
@@ -513,7 +360,7 @@ const PAGE_SIZE = 25;
 function populateFilters(data) {
   ['state','specialty','position'].forEach(key => {
     const sel = document.getElementById('filter-'+key);
-    [...new Set(data.map(d=>d[key]))].sort().forEach(v => {
+    [...new Set(data.map(d=>d[key]).filter(Boolean))].sort().forEach(v => {
       const o = document.createElement('option'); o.value=v; o.textContent=v; sel.appendChild(o);
     });
   });
@@ -530,26 +377,6 @@ function getFiltered() {
   );
 }
 
-function colNote(d) {
-  const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default || 27));
-  if (!d.rent_2br) {
-    const tier = d.col_tier || 'a';
-    const labels = {va:'very affordable',a:'affordable',c:'costly',vc:'very costly'};
-    return `Cost of living in ${d.city} is considered <strong>${labels[tier]||'moderate'}</strong> relative to nurse wages.`;
-  }
-  const rentPct = Math.round((d.rent_2br / afterTax) * 100);
-  const pocket = afterTax - d.rent_2br;
-  if (rentPct <= 25) {
-    return `Rent takes up about <strong>${rentPct}% of take-home pay</strong> — a strong ratio. After rent, this nurse keeps an estimated <strong>${fmt(pocket)}/mo</strong>.`;
-  } else if (rentPct <= 35) {
-    return `Rent takes up about <strong>${rentPct}% of take-home pay</strong> — manageable but worth factoring in. After rent, roughly <strong>${fmt(pocket)}/mo</strong> remaining.`;
-  } else if (rentPct <= 50) {
-    return `Rent takes up about <strong>${rentPct}% of take-home pay</strong> — a significant portion. After rent, roughly <strong>${fmt(pocket)}/mo</strong> remaining.`;
-  } else {
-    return `Rent takes up about <strong>${rentPct}% of take-home pay</strong> — a heavy burden at this wage. After rent, roughly <strong>${fmt(pocket)}/mo</strong> remaining.`;
-  }
-}
-
 function renderDetail(d, i) {
   const tax = getTax(d.state);
   const taxPct = tax.default || 27;
@@ -557,71 +384,46 @@ function renderDetail(d, i) {
   const pocket = d.rent_2br ? afterTax - d.rent_2br : null;
   const pd = pocket !== null ? calcPD(pocket) : null;
   const fedR = 15, ficaR = 8, stR = Math.max(0, taxPct - fedR - ficaR);
-
   return `<div class="detail-panel">
-
     <div class="glance-eyebrow">Amounts estimated from a month of working 3×12 shifts/week</div>
     <div class="glance-row">
-      <div class="glance-stat">
-        <div class="glance-top">Pre-tax</div>
-        <div class="glance-num glance-num-1">${fmt(gross)}/mo</div>
-      </div>
-      <div class="glance-stat">
-        <div class="glance-top">After taxes</div>
-        <div class="glance-num glance-num-2">${fmt(afterTax)}/mo</div>
-      </div>
-      ${pocket !== null ? `
-      <div class="glance-stat">
-        <div class="glance-top">After taxes &amp; rent</div>
-        <div class="glance-num glance-num-3">${fmt(pocket)}/mo</div>
-      </div>` : ''}
+      <div class="glance-stat"><div class="glance-top">Pre-tax</div><div class="glance-num glance-num-1">${fmt(gross)}/mo</div></div>
+      <div class="glance-stat"><div class="glance-top">After taxes</div><div class="glance-num glance-num-2">${fmt(afterTax)}/mo</div></div>
+      ${pocket !== null ? `<div class="glance-stat"><div class="glance-top">After taxes &amp; rent</div><div class="glance-num glance-num-3">${fmt(pocket)}/mo</div></div>` : ''}
     </div>
-
     <button class="detail-toggle" id="toggle-btn-${i}" onclick="toggleExpand(${i})">How we calculated this ▾</button>
-
     <div class="detail-expanded" id="expanded-${i}">
-      <!-- PRE-TAX -->
       <div class="exp-section">
         <div class="exp-label exp-label-red">Pre-tax</div>
         <div class="calc-line"><span class="calc-label" style="font-family:monospace;font-size:11.5px;">${fmtHr(d.hourly_rate)}/hr × 12hr × 3 shifts × 4 weeks</span><span style="font-weight:600;color:#DC2626;">${fmt(gross)}/mo</span></div>
       </div>
-
-      <!-- AFTER TAXES -->
       <div class="exp-section">
         <div class="exp-label exp-label-orange">After taxes</div>
         <div class="calc-line"><span class="calc-label">Estimated tax rate</span><span>~${taxPct}%</span></div>
-        <div class="tax-breakdown">
-          <table><tbody>
-            <tr><td>Federal income tax</td><td>~${fedR}%</td></tr>
-            <tr><td>SS + Medicare</td><td>~${ficaR}%</td></tr>
-            <tr><td>State (${d.state})</td><td>~${stR}%</td></tr>
-          </tbody></table>
-        </div>
+        <div class="tax-breakdown"><table><tbody>
+          <tr><td>Federal income tax</td><td>~${fedR}%</td></tr>
+          <tr><td>SS + Medicare</td><td>~${ficaR}%</td></tr>
+          <tr><td>State (${d.state})</td><td>~${stR}%</td></tr>
+        </tbody></table></div>
         <div class="tax-note">${tax.note}${tax.local?' '+tax.local:''}</div>
         <div class="calc-line" style="margin-top:0.5rem;"><span class="calc-label">Taxes deducted</span><span class="calc-value deduct">− ${fmt(taxes)}/mo</span></div>
         <div class="calc-line"><span class="calc-label" style="font-weight:600;">After-tax income</span><span style="font-weight:600;color:#D97706;">${fmt(afterTax)}/mo</span></div>
       </div>
-
-      <!-- AFTER RENT -->
-      ${d.rent_2br ? `
-      <div class="exp-section">
+      ${d.rent_2br ? `<div class="exp-section">
         <div class="exp-label exp-label-green">After taxes &amp; rent</div>
         <div class="calc-line"><span class="calc-label">Avg 2BR rent (${d.city})</span><span class="calc-value deduct">− ${fmt(d.rent_2br)}/mo</span></div>
         ${rentStaleness(d.rent_date)}
         <div class="calc-line" style="margin-top:0.4rem;"><span class="calc-label" style="font-weight:600;">Monthly take-home</span><span style="font-weight:600;color:#16A34A;">${fmt(pocket)}/mo</span></div>
       </div>` : ''}
     </div>
-
     <div class="action-cards">
-      ${d.rent_2br ? `
-      <div class="action-card">
+      ${d.rent_2br ? `<div class="action-card">
         <div class="action-card-icon">🏠</div>
         <div class="action-card-question">Cost of living here</div>
         <div style="margin-bottom:0.5rem;">${colBadge(calcTier(d))}</div>
         ${bellCurveHTML(allData, Math.round((d.rent_2br / calcMonthly(d.hourly_rate, (getTax(d.state).default||27)).afterTax) * 100))}
       </div>` : ''}
-      ${pd ? `
-      <div class="action-card action-card-pd">
+      ${pd ? `<div class="action-card action-card-pd">
         <div class="action-card-icon">✈️</div>
         <div class="action-card-question">Add CA per diem</div>
         <div class="action-card-answer">+${fmt(BA_RATE * 12 * 4)}/mo gross</div>
@@ -643,21 +445,13 @@ function toggleExpand(i) {
   if (btn) btn.textContent = el.classList.contains('open') ? 'Hide details ▴' : 'How we calculated this ▾';
 }
 
-
-
 function renderTable() {
   function getVal(d, col) {
-    if (col === 'take_home') {
-      const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default||27));
-      return d.rent_2br ? afterTax - d.rent_2br : 0;
-    }
+    if (col === 'take_home') { const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default||27)); return d.rent_2br ? afterTax - d.rent_2br : 0; }
     if (col === 'score') return calcScore(d, allData) || 0;
     return d[col];
   }
-  const filtered = getFiltered().sort((a,b) => {
-    const av=getVal(a,sortCol), bv=getVal(b,sortCol);
-    return av<bv?sortDir:av>bv?-sortDir:0;
-  });
+  const filtered = getFiltered().sort((a,b) => { const av=getVal(a,sortCol), bv=getVal(b,sortCol); return av<bv?sortDir:av>bv?-sortDir:0; });
   const total = filtered.length;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   if (currentPage > totalPages) currentPage = totalPages;
@@ -672,28 +466,29 @@ function renderTable() {
   document.getElementById('next-btn').disabled = currentPage >= totalPages;
 
   const tbody = document.getElementById('table-body');
-  if (!filtered.length) { tbody.innerHTML='<tr><td colspan="6" class="empty">No entries match your filters — try removing one or broadening your search.</td></tr>'; return; }
+  if (!filtered.length) {
+    tbody.innerHTML='<tr><td colspan="7" class="empty" style="padding-top:2.5rem;">No entries match your filters — try removing one or broadening your search.</td></tr>';
+    return;
+  }
   tbody.innerHTML = page.map((d,i) => `
     <tr class="data-row${activeIdx===i?' active':''}" onclick="toggleDetail(${i})">
       <td><span style="font-weight:500;">${d.city}</span><br><span style="font-size:11px;color:var(--text-muted)">${d.state}</span></td>
-      <td>${d.specialty}</td>
-      <td><span>${d.license}</span><br><span style="font-size:11px;color:var(--text-muted)">${d.years_exp} yrs</span></td>
-      <td><span>${d.position}</span><br><span style="font-size:11px;color:var(--text-muted)">${d.shift}</span></td>
+      <td>${d.specialty||'—'}</td>
+      <td><span>${d.license||'—'}</span><br><span style="font-size:11px;color:var(--text-muted)">${d.years_exp||'0'} yrs</span></td>
+      <td><span>${d.position||'—'}</span><br><span style="font-size:11px;color:var(--text-muted)">${d.shift||'—'}</span></td>
       <td class="pay">${fmtHr(d.hourly_rate)}<span class="arrow">▼</span></td>
       <td style="color:#16A34A;font-weight:600;">${(() => { const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default||27)); return d.rent_2br ? fmt(afterTax - d.rent_2br)+'/mo' : '—'; })()}</td>
+      <td style="font-size:11px;color:var(--text-muted);">${d.date||'—'}</td>
     </tr>
     <tr class="detail-row" style="display:${activeIdx===i?'table-row':'none'}">
-      <td class="detail-cell" colspan="6">${activeIdx===i?renderDetail(d,i):''}</td>
+      <td class="detail-cell" colspan="7">${activeIdx===i?renderDetail(d,i):''}</td>
     </tr>`).join('');
 }
 
 function toggleDetail(idx) {
   activeIdx = activeIdx===idx ? null : idx;
   renderTable();
-  if (activeIdx!==null) setTimeout(()=>{
-    const el=document.querySelector(`.detail-row:nth-child(${activeIdx*2+2})`);
-    if(el) el.scrollIntoView({behavior:'smooth',block:'nearest'});
-  },50);
+  if (activeIdx!==null) setTimeout(()=>{ const el=document.querySelector(`.detail-row:nth-child(${activeIdx*2+2})`); if(el) el.scrollIntoView({behavior:'smooth',block:'nearest'}); },50);
 }
 
 document.querySelectorAll('thead th[data-col]').forEach(th => {
@@ -710,28 +505,21 @@ document.querySelectorAll('thead th[data-col]').forEach(th => {
 ['search','filter-state','filter-specialty','filter-position'].forEach(id =>
   document.getElementById(id).addEventListener('input', () => {
     activeIdx=null; currentPage=1;
-    const hasFilter = document.getElementById('search').value ||
-      document.getElementById('filter-state').value ||
-      document.getElementById('filter-specialty').value ||
-      document.getElementById('filter-position').value;
+    const hasFilter = document.getElementById('search').value || document.getElementById('filter-state').value || document.getElementById('filter-specialty').value || document.getElementById('filter-position').value;
     document.getElementById('clear-btn').style.display = hasFilter ? 'inline-block' : 'none';
     renderTable();
   })
 );
 
 function clearFilters() {
-  document.getElementById('search').value = '';
-  document.getElementById('filter-state').value = '';
-  document.getElementById('filter-specialty').value = '';
-  document.getElementById('filter-position').value = '';
-  document.getElementById('clear-btn').style.display = 'none';
+  document.getElementById('search').value=''; document.getElementById('filter-state').value='';
+  document.getElementById('filter-specialty').value=''; document.getElementById('filter-position').value='';
+  document.getElementById('clear-btn').style.display='none';
   activeIdx=null; currentPage=1; renderTable();
 }
 
 function changePage(dir) {
-  currentPage += dir;
-  activeIdx = null;
-  renderTable();
+  currentPage += dir; activeIdx = null; renderTable();
   document.querySelector('.table-wrap').scrollIntoView({behavior:'smooth', block:'start'});
 }
 
