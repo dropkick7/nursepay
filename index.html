@@ -95,7 +95,8 @@
       .nav-links { display: none; }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
+      /* On mobile show only City, $/hr, COL - hide State, License, YrsExp, Shift, Position */
       .preview-table th:nth-child(2),
       .preview-table td:nth-child(2),
       .preview-table th:nth-child(3),
@@ -106,6 +107,8 @@
       .preview-table td:nth-child(6),
       .preview-table th:nth-child(7),
       .preview-table td:nth-child(7) { display: none; }
+      .preview-table { font-size: 13px; }
+      .preview-table td, .preview-table th { padding: 8px 10px; }
     }
   </style>
   <!-- Google Analytics -->
@@ -130,7 +133,14 @@
     <li><a href="about.html">About</a></li>
     <li><a href="newsletter.html" class="btn-nav">Per Diem Roundup</a></li>
   </ul>
+  <button class="hamburger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="browse.html">Browse Pay</a>
+  <a href="submit.html">Contribute Pay</a>
+  <a href="about.html">About</a>
+  <a href="newsletter.html" class="btn-nav-mobile">Per Diem Roundup →</a>
+</div>
 
 <section class="hero">
   <div class="hero-text">

@@ -156,11 +156,12 @@
     }
 
     /* TOP SCROLL MIRROR */
-    .scroll-mirror-wrap { overflow-x: auto; overflow-y: hidden; height: 10px; scrollbar-width: thin; scrollbar-color: #3461FF #EEF2FF; }
-    .scroll-mirror-wrap::-webkit-scrollbar { height: 10px; }
+    .scroll-mirror-wrap { overflow-x: scroll; overflow-y: hidden; height: 12px; scrollbar-width: auto; scrollbar-color: #3461FF #EEF2FF; margin-bottom: 4px; border-radius: 6px; }
+    .scroll-mirror-wrap::-webkit-scrollbar { height: 12px; display: block; }
     .scroll-mirror-wrap::-webkit-scrollbar-track { background: #EEF2FF; border-radius: 99px; }
-    .scroll-mirror-wrap::-webkit-scrollbar-thumb { background: #3461FF; border-radius: 99px; min-width: 40px; }
-    .scroll-mirror-inner { height: 1px; }
+    .scroll-mirror-wrap::-webkit-scrollbar-thumb { background: #3461FF; border-radius: 99px; min-width: 60px; }
+    .scroll-mirror-wrap::-webkit-scrollbar-thumb:hover { background: #2347E0; }
+    .scroll-mirror-inner { height: 1px; display: block; }
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR556L6MGE"></script>
