@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dropkick7.github.io/nursepay/sitemap.xml
