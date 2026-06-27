@@ -33,7 +33,7 @@
     .table-section { max-width: 960px; margin: 0 auto; padding: 0 2rem 4rem; }
     .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 0; }
-    thead { position: sticky; top: 60px; z-index: 10; box-shadow: 0 1px 0 var(--border); }
+    thead { position: sticky; top: 60px; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.06); }
     thead th { background: var(--bg-soft); padding: 9px 12px; text-align: left; font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--border); white-space: normal; cursor: pointer; user-select: none; max-width: 120px; line-height: 1.3; }
     thead th::after { content: ' ⇅'; font-size: 11px; opacity: 1; color: #1a2fa0; font-weight: 900; }
     thead th.sort-asc::after { content: ' ▲'; opacity: 1; color: var(--blue); }
@@ -184,7 +184,14 @@
     <li><a href="about.html">About</a></li>
     <li><a href="newsletter.html" class="btn-nav">Per Diem Roundup</a></li>
   </ul>
+  <button class="hamburger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="browse.html" style="color:var(--blue)">Browse Pay</a>
+  <a href="submit.html">Contribute Pay</a>
+  <a href="about.html">About</a>
+  <a href="newsletter.html" class="btn-nav-mobile">Per Diem Roundup →</a>
+</div>
 
 <div class="page-header">
   <h1>Real Nurse Pay, Shared Anonymously</h1>
@@ -573,6 +580,7 @@ async function loadData() {
   } catch { allData = SAMPLE_DATA; }
   populateFilters(allData);
   renderTable();
+  setTimeout(initScrollMirror, 300);
 }
 
 loadData();
@@ -593,28 +601,32 @@ loadData();
 </script>
 
 <script>
-  (function() {
+  function initScrollMirror() {
     var mirror = document.getElementById('scroll-mirror');
     var tableWrap = document.querySelector('.table-wrap');
     var mirrorInner = document.getElementById('scroll-mirror-inner');
-
-    function syncWidth() {
-      if (tableWrap && mirrorInner) {
-        mirrorInner.style.width = tableWrap.scrollWidth + 'px';
-      }
-    }
-
-    if (mirror && tableWrap) {
-      syncWidth();
-      window.addEventListener('resize', syncWidth);
-      mirror.addEventListener('scroll', function() {
-        tableWrap.scrollLeft = mirror.scrollLeft;
-      });
-      tableWrap.addEventListener('scroll', function() {
-        mirror.scrollLeft = tableWrap.scrollLeft;
-      });
-    }
-  })();
+    if (!mirror || !tableWrap || !mirrorInner) return;
+    mirrorInner.style.width = tableWrap.scrollWidth + 'px';
+    window.addEventListener('resize', function() {
+      mirrorInner.style.width = tableWrap.scrollWidth + 'px';
+    });
+    var mirrorScrolling = false, tableScrolling = false;
+    mirror.addEventListener('scroll', function() {
+      if (tableScrolling) return;
+      mirrorScrolling = true;
+      tableWrap.scrollLeft = mirror.scrollLeft;
+      setTimeout(function(){ mirrorScrolling = false; }, 50);
+    });
+    tableWrap.addEventListener('scroll', function() {
+      if (mirrorScrolling) return;
+      tableScrolling = true;
+      mirror.scrollLeft = tableWrap.scrollLeft;
+      mirrorInner.style.width = tableWrap.scrollWidth + 'px';
+      setTimeout(function(){ tableScrolling = false; }, 50);
+    });
+  }
+  // Run after data loads
+  window.addEventListener('load', function() { setTimeout(initScrollMirror, 500); });
 </script>
 </body>
 </html>
