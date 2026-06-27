@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | NursePay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue: #3461FF; --blue-dark: #2347E0; --text: #1a1a1a; --text-mid: #444; --text-muted: #777; --border: #e5e5e5; --bg: #ffffff; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); font-size: 15px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 100; }
+    .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; color: var(--blue); }
+    .logo svg { width: 28px; height: 28px; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--text-mid); font-weight: 500; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links .btn-nav { background: var(--blue); color: #fff; padding: 6px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+    .content { max-width: 600px; margin: 0 auto; padding: 4rem 2rem; }
+    .content h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .content p { color: var(--text-muted); font-size: 14px; margin-bottom: 1.5rem; line-height: 1.7; }
+    .contact-link { display: inline-block; background: var(--blue); color: #fff; padding: 10px 24px; border-radius: 7px; font-size: 14px; font-weight: 600; }
+    .contact-link:hover { background: var(--blue-dark); }
+    footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+    .footer-links a:hover { color: var(--blue); }
+    .footer-copy { font-size: 12px; color: var(--text-muted); margin-top: 0.75rem; }
+    @media (max-width: 600px) { nav { padding: 0 1rem; } .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; } .content { padding: 2.5rem 1rem; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">
+    <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="#3461FF"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>
+    NursePay
+  </a>
+  <ul class="nav-links">
+    <li><a href="browse.html">Browse Pay</a></li>
+    <li><a href="submit.html">Contribute Pay</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="newsletter.html" class="btn-nav">Per Diem Roundup</a></li>
+  </ul>
+</nav>
+<div class="content">
+  <h1>Contact</h1>
+  <p>Have a question, suggestion, or just want to say hi? Send me an email — I'm a real nurse and I read every message.</p>
+  <a href="mailto:hello@nursepay.co" class="contact-link">hello@nursepay.co</a>
+  <p style="margin-top: 2rem;">You can also find NursePay on social:</p>
+  <p><a href="https://www.instagram.com/nurse_pay/" style="color:var(--blue); text-decoration:underline;">Instagram @nurse_pay</a></p>
+</div>
+<footer>
+  <div class="footer-links">
+    <a href="submit.html">Add Your Pay</a>
+    <a href="browse.html">Browse Pay</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p class="footer-copy">© 2026 NursePay. Built by a nurse, for nurses.</p>
+</footer>
+</body>
+</html>
