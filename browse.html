@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Browse Nurse Pay by City, State & Specialty | NursePay</title>
   <meta name="description" content="Filter anonymous nurse pay data by city, state, specialty, shift, and experience. See real hourly rates reported by nurses across the U.S. Free and 100% anonymous." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -410,7 +411,7 @@ function calcPD(pocket) {
   return {extra, net: extra - BA_FLIGHTS, newPocket: pocket + extra - BA_FLIGHTS};
 }
 
-let allData = [], sortCol = 'date', sortDir = -1, activeIdx = null, currentPage = 1;
+let allData = [], sortCol = 'date', sortDir = 1, activeIdx = null, currentPage = 1;
 const PAGE_SIZE = 25;
 
 function populateFilters(data) {
