@@ -412,7 +412,7 @@ function calcPD(pocket) {
   return {extra, net: extra - BA_FLIGHTS, newPocket: pocket + extra - BA_FLIGHTS};
 }
 
-let allData = [], sortCol = 'date', sortDir = -1, activeIdx = null, currentPage = 1;
+let allData = [], sortCol = 'date', sortDir = 1, activeIdx = null, currentPage = 1;
 const PAGE_SIZE = 25;
 
 function populateFilters(data) {
