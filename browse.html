@@ -510,10 +510,9 @@ function renderTable() {
     if (col === 'date') {
       if (!d.date) return 0;
       const s = d.date.trim();
-      // Handle MM/DD/YYYY (old format)
-      if (s.includes('/')) { const p = s.split('/'); return new Date(p[2], p[0]-1, p[1]).getTime(); }
-      // Handle YYYY-MM-DD (new format)
-      return new Date(s).getTime();
+      // Normalize both formats to YYYYMMDD integer for consistent sorting
+      if (s.includes('/')) { const p = s.split('/'); return parseInt(p[2]+p[0].padStart(2,'0')+p[1].padStart(2,'0')); }
+      return parseInt(s.replace(/-/g,''));
     }
     return d[col];
   }
