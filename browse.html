@@ -472,7 +472,7 @@ function renderDetail(d, i) {
         <div class="calc-line"><span class="calc-label">Avg 2BR rent (${d.city})</span><span class="calc-value deduct">− ${fmt(d.rent_2br)}/mo</span></div>
         ${rentStaleness(d.rent_date, d.rent_2br)}
         <div class="calc-line" style="margin-top:0.4rem;"><span class="calc-label" style="font-weight:600;">Monthly take-home</span><span style="font-weight:600;color:#16A34A;">${fmt(pocket)}/mo</span></div>
-      </div>` : ''}
+      </div>` : `<div class="exp-section"><div class="rent-stale">Rural area — check local listings for rent estimates.</div></div>`}
     </div>
     <div class="action-cards">
       ${d.rent_2br ? `<div class="action-card">
