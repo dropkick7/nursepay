@@ -586,6 +586,7 @@ async function loadData() {
     const res = await fetch('nurses.json');
     allData = res.ok ? await res.json() : SAMPLE_DATA;
   } catch { allData = SAMPLE_DATA; }
+  allData = allData.filter(d => d.hourly_rate && d.hourly_rate > 0);
   populateFilters(allData);
   renderTable();
   setTimeout(initScrollMirror, 300);
