@@ -388,7 +388,8 @@ function colBadge(tier) {
   return `<span class="badge ${cls}">${label}</span>`;
 }
 
-function rentStaleness(dateStr) {
+function rentStaleness(dateStr, rent) {
+  if (!rent) return '<div class="rent-stale">Rural area — check local listings for rent estimates.</div>';
   if (!dateStr) return '';
   const months = (new Date() - new Date(dateStr)) / (1000*60*60*24*30.44);
   const label = new Date(dateStr).toLocaleDateString('en-US',{month:'short',year:'numeric'});
@@ -411,7 +412,7 @@ function calcPD(pocket) {
   return {extra, net: extra - BA_FLIGHTS, newPocket: pocket + extra - BA_FLIGHTS};
 }
 
-let allData = [], sortCol = 'date', sortDir = 1, activeIdx = null, currentPage = 1;
+let allData = [], sortCol = 'date', sortDir = -1, activeIdx = null, currentPage = 1;
 const PAGE_SIZE = 25;
 
 function populateFilters(data) {
@@ -469,7 +470,7 @@ function renderDetail(d, i) {
       ${d.rent_2br ? `<div class="exp-section">
         <div class="exp-label exp-label-green">After taxes &amp; rent</div>
         <div class="calc-line"><span class="calc-label">Avg 2BR rent (${d.city})</span><span class="calc-value deduct">− ${fmt(d.rent_2br)}/mo</span></div>
-        ${rentStaleness(d.rent_date)}
+        ${rentStaleness(d.rent_date, d.rent_2br)}
         <div class="calc-line" style="margin-top:0.4rem;"><span class="calc-label" style="font-weight:600;">Monthly take-home</span><span style="font-weight:600;color:#16A34A;">${fmt(pocket)}/mo</span></div>
       </div>` : ''}
     </div>
@@ -506,7 +507,14 @@ function renderTable() {
   function getVal(d, col) {
     if (col === 'take_home') { const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default||27)); return d.rent_2br ? afterTax - d.rent_2br : 0; }
     if (col === 'score') return calcScore(d, allData) || 0;
-    if (col === 'date') { const p = (d.date||'').split('/'); return p.length===3 ? new Date(p[2],p[0]-1,p[1]).getTime() : 0; }
+    if (col === 'date') {
+      if (!d.date) return 0;
+      const s = d.date.trim();
+      // Handle MM/DD/YYYY (old format)
+      if (s.includes('/')) { const p = s.split('/'); return new Date(p[2], p[0]-1, p[1]).getTime(); }
+      // Handle YYYY-MM-DD (new format)
+      return new Date(s).getTime();
+    }
     return d[col];
   }
   const filtered = getFiltered().sort((a,b) => { const av=getVal(a,sortCol), bv=getVal(b,sortCol); return av<bv?sortDir:av>bv?-sortDir:0; });
@@ -536,7 +544,7 @@ function renderTable() {
       <td><span>${d.position||'—'}</span><br><span style="font-size:11px;color:var(--text-muted)">${d.shift||'—'}</span></td>
       <td class="pay">${fmtHr(d.hourly_rate)}<span class="arrow">▼</span></td>
       <td style="color:#16A34A;font-weight:600;">${(() => { const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default||27)); return d.rent_2br ? fmt(afterTax - d.rent_2br)+'/mo' : '—'; })()}</td>
-      <td style="font-size:11px;color:var(--text-muted);">${d.date||'—'}</td>
+      <td style="font-size:11px;color:var(--text-muted);">${d.date ? d.date.split('-').slice(1).concat(d.date.split('-')[0]).join('/') : '—'}</td>
     </tr>
     <tr class="detail-row" style="display:${activeIdx===i?'table-row':'none'}">
       <td class="detail-cell" colspan="7">${activeIdx===i?renderDetail(d,i):''}</td>
