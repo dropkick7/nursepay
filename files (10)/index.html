@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NursePay | Anonymous Nurse Income Reports & Real Pay Data</title>
+  <meta name="description" content="Real nurse pay, shared anonymously. See anonymous nurse income reports by city, hospital, specialty, and shift. No login. No fluff. Just real data from real nurses." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #3461FF; --teal-dark: #2347E0; --teal-light: #EEF2FF;
+      --text: #1a1a1a; --text-mid: #444; --text-muted: #777;
+      --border: #e5e5e5; --bg: #ffffff; --bg-soft: #f9f9f9;
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); font-size: 15px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 100; }
+    .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; color: var(--teal); letter-spacing: -0.3px; }
+    .logo svg { width: 28px; height: 28px; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--text-mid); font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-links .btn-nav { background: var(--teal); color: #fff; padding: 6px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; transition: background 0.15s; }
+    .nav-links .btn-nav:hover { background: var(--teal-dark); color: #fff; }
+    .hero { max-width: 1000px; margin: 0 auto; padding: 4.5rem 2rem 3.5rem; display: flex; align-items: center; justify-content: space-between; gap: 3rem; text-align: left; }
+    .hero-text { flex: 1; min-width: 0; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; color: var(--text); margin-bottom: 1.25rem; }
+    .hero h1 span { color: var(--teal); }
+    .hero p { font-size: 1.1rem; color: var(--text-mid); max-width: 520px; margin-bottom: 2rem; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-start; }
+    .btn-primary { background: var(--teal); color: #fff; padding: 12px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; transition: background 0.15s; }
+    .btn-primary:hover { background: var(--teal-dark); color: #fff; }
+    .btn-outline { border: 1.5px solid var(--teal); color: var(--teal); padding: 12px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; transition: all 0.15s; }
+    .btn-outline:hover { background: var(--teal-light); }
+    .hero-img { flex: 0 0 300px; display: flex; align-items: center; justify-content: center; }
+    .hero-img img { width: 100%; max-width: 300px; height: auto; }
+    .trust-bar { background: var(--teal-light); padding: 0.75rem 2rem; text-align: center; font-size: 13px; color: var(--teal-dark); font-weight: 500; letter-spacing: 0.02em; }
+    .trust-bar span { margin: 0 1.25rem; }
+    .section { max-width: 960px; margin: 0 auto; padding: 3.5rem 2rem; }
+    .section-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 0.5rem; }
+    .section h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 0.5rem; }
+    .section .sub { color: var(--text-muted); font-size: 14px; margin-bottom: 2rem; }
+    .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    thead th { background: var(--bg-soft); padding: 9px 14px; text-align: left; font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--border); white-space: nowrap; }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; cursor: pointer; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--teal-light); }
+    tbody td { padding: 10px 14px; vertical-align: middle; }
+    .pay { font-weight: 600; color: var(--teal); font-size: 14px; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+    .badge-green { background: #EEF2FF; color: #2347E0; }
+    .badge-blue  { background: #E6F1FB; color: #0C447C; }
+    .badge-yellow { background: #FEF9E7; color: #7D6608; }
+    .badge-red   { background: #FDEDEC; color: #922B21; }
+    .table-footer { margin-top: 1.25rem; text-align: center; }
+    .how-section { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .how-card { text-align: center; padding: 1.5rem; border-radius: 12px; transition: box-shadow 0.15s, background 0.15s; cursor: pointer; display: block; color: inherit; text-decoration: none; }
+    .how-card:hover { background: #fff; box-shadow: 0 4px 16px rgba(52,97,255,0.10); }
+    .how-icon { width: 48px; height: 48px; background: var(--teal-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 22px; }
+    .how-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 0.4rem; }
+    .how-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+    .founder-section { max-width: 680px; margin: 0 auto; padding: 3.5rem 2rem; text-align: center; }
+    .founder-avatar { width: 56px; height: 56px; background: var(--teal-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 24px; }
+    .founder-section h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; }
+    .founder-section p { font-size: 14.5px; color: var(--text-mid); line-height: 1.7; margin-bottom: 0.75rem; }
+    .founder-sig { font-size: 13px; color: var(--text-muted); font-style: italic; }
+    footer { border-top: 1px solid var(--border); padding: 2rem; }
+    .footer-inner { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem; align-items: center; text-align: center; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; font-size: 13px; color: var(--text-muted); }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-copy { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 700px) {
+      nav { padding: 0 1rem; }
+      
+      .hero { flex-direction: column; padding: 3rem 1.25rem 2.5rem; text-align: center; }
+      .hero-text h1, .hero-text p { text-align: center; }
+      .hero-btns { justify-content: center; }
+      .hero-img { flex: 0 0 auto; }
+      .section { padding: 2.5rem 1.25rem; }
+    }
+
+    
+    }
+
+    @media (max-width: 700px) {
+      /* On mobile show only City, $/hr, COL - hide State, License, YrsExp, Shift, Position */
+      .preview-table th:nth-child(2),
+      .preview-table td:nth-child(2),
+      .preview-table th:nth-child(3),
+      .preview-table td:nth-child(3),
+      .preview-table th:nth-child(4),
+      .preview-table td:nth-child(4),
+      .preview-table th:nth-child(6),
+      .preview-table td:nth-child(6),
+      .preview-table th:nth-child(7),
+      .preview-table td:nth-child(7) { display: none; }
+      .preview-table { font-size: 13px; }
+      .preview-table td, .preview-table th { padding: 8px 10px; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+    }
+    /* HAMBURGER MOBILE NAV */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.2s; }
+    .mobile-menu { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; z-index: 99; flex-direction: column; gap: 0; }
+    .mobile-menu a { display: block; padding: 0.65rem 0; font-size: 15px; font-weight: 500; color: var(--text-mid); border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a.btn-nav-mobile { color: var(--blue); font-weight: 600; border-bottom: none; margin-top: 0.25rem; }
+    .mobile-menu.open { display: flex; }
+    @media (max-width: 700px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR556L6MGE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CR556L6MGE');
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">
+    <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="#3461FF"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>
+    NursePay
+  </a>
+  <ul class="nav-links">
+    <li><a href="browse.html">Browse Pay</a></li>
+    <li><a href="submit.html">Contribute Pay</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="per-diem.html" class="btn-nav">SF Bay Area Per Diem Jobs</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="browse.html">Browse Pay</a>
+  <a href="submit.html">Contribute Pay</a>
+  <a href="about.html">About</a>
+  <a href="per-diem.html" class="btn-nav-mobile">SF Bay Area Per Diem Jobs →</a>
+</div>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>No names. No logins.<br><span>Just real nurse pay,</span> shared anonymously.</h1>
+    <p>Built by nurses. For nurses. To help nurses.</p>
+    <div class="hero-btns">
+      <a href="browse.html" class="btn-primary">See Nurse Pay</a>
+      <a href="submit.html" class="btn-outline">Share Yours</a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="CTA_image.svg" alt="Illustration of a nurse with speech bubbles showing real pay quotes" />
+  </div>
+</section>
+
+<div class="trust-bar">
+  <span>✓ No login required</span>
+  <span>✓ 100% anonymous</span>
+  <span>✓ Real data from real nurses</span>
+</div>
+
+<section class="section">
+  <div class="section-label">Real data</div>
+  <h2>See What Real Nurses Are Earning</h2>
+  <p class="sub">Anonymous submissions from nurses across the U.S. — no names, no accounts.</p>
+  <a href="browse.html" style="display:block; text-decoration:none; color:inherit;">
+    <div class="table-wrap">
+      <table class="preview-table">
+        <thead>
+          <tr>
+            <th>City</th><th>State</th><th>License</th><th>Yrs Exp</th>
+            <th>Specialty</th><th>Shift</th><th>Position</th><th>$/hr</th><th>COL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>San Diego</td><td>CA</td><td>RN</td><td>7</td><td>mangmt</td><td>eves</td><td>PD</td><td class="pay">$113.33</td><td><span class="badge badge-red">Very Costly</span></td></tr>
+          <tr><td>Portland</td><td>OR</td><td>RN</td><td>20</td><td>med surg</td><td>noc</td><td>staff</td><td class="pay">$84.95</td><td><span class="badge badge-yellow">Costly</span></td></tr>
+          <tr><td>Las Vegas</td><td>NV</td><td>RN</td><td>10</td><td>float</td><td>noc</td><td>staff</td><td class="pay">$61.00</td><td><span class="badge badge-blue">Affordable</span></td></tr>
+          <tr><td>Cheyenne</td><td>WY</td><td>RN</td><td>5</td><td>cardiology</td><td>days</td><td>staff</td><td class="pay">$49.00</td><td><span class="badge badge-green">Very Affordable</span></td></tr>
+          <tr><td>Durham</td><td>NC</td><td>RN</td><td>6</td><td>OR</td><td>days</td><td>staff</td><td class="pay">$39.00</td><td><span class="badge badge-green">Very Affordable</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </a>
+  <div class="table-footer">
+    <a href="browse.html" class="btn-primary" style="display:inline-block; margin-top:1.25rem;">Browse the Full Pay Table →</a>
+  </div>
+</section>
+
+<section class="how-section">
+  <div class="section">
+    <div class="section-label">How it works</div>
+    <h2>Real pay data from real nurses</h2>
+    <p class="sub">We are nurses helping nurses.</p>
+    <div class="how-grid">
+      <a href="browse.html" class="how-card">
+        <div class="how-icon">🔍</div>
+        <h3>Explore Real Pay Data</h3>
+        <p>See what other nurses are making across specialties, states, and job types.</p>
+      </a>
+      <a href="submit.html" class="how-card">
+        <div class="how-icon">✏️</div>
+        <h3>Share What You're Paid</h3>
+        <p>Submit your pay anonymously. No login, no account. Help each other grow.</p>
+      </a>
+      <a href="newsletter.html" class="how-card">
+        <div class="how-icon">💰</div>
+        <h3>Make Better Decisions</h3>
+        <p>Use real pay data to find better paying jobs, negotiate confidently, and protect your time.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="founder-section">
+  <div class="founder-avatar">👋</div>
+  <h2>Why I Built NursePay</h2>
+  <p>I started out as an L&D nurse in New York back in 2013. Now I'm in California (yay ratios!) working across women's health, clinic, postpartum, L&D, you name it. I built this between shifts because I couldn't find real nurse pay info when job hunting. Just vague threads and guesses.</p>
+  <p>So I made what I wish existed: a place where nurses can just share what they earn. No fluff. No logins. Hope it helps the next nurse who's looking.</p>
+  <p class="founder-sig">— Casey, RN &amp; Founder of NursePay</p>
+</section>
+
+<section style="background: #EEF2FF; border-top: 1px solid #C5D0FF; border-bottom: 1px solid #C5D0FF; padding: 2rem; text-align: center;">
+  <div style="max-width: 560px; margin: 0 auto;">
+    <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #3461FF; margin-bottom: 0.4rem;">Free weekly newsletter</p>
+    <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.2px;">Getting Bay Area per diem shifts on your radar?</h2>
+    <p style="font-size: 14px; color: #777; margin-bottom: 1.25rem; line-height: 1.6;">Join the Per Diem Roundup. Weekly Bay Area shifts, straight to your inbox. Free.</p>
+    <a href="newsletter.html" style="display:inline-block; background:#3461FF; color:#fff; padding:10px 24px; border-radius:7px; font-size:14px; font-weight:600; text-decoration:none;">Join the Per Diem Roundup →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="logo" style="font-size:16px;">
+      <svg viewBox="0 0 28 28" fill="none" style="width:22px;height:22px;"><rect width="28" height="28" rx="7" fill="#3461FF"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>
+      NursePay
+    </a>
+    <div class="footer-links">
+      <a href="submit.html">Add Your Pay</a>
+      <a href="browse.html">Browse Pay</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <p class="footer-copy">© 2026 NursePay. Built by a nurse, for nurses.</p>
+  </div>
+</footer>
+
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger-btn');
+    if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>

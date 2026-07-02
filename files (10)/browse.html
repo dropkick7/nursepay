@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Anonymous Nurse Income Reports by Hospital & City | NursePay</title>
+  <meta name="description" content="Browse anonymous nurse income reports by hospital, city, specialty, and shift. Real hourly rates reported by nurses. Free, no login, 100% anonymous." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #3461FF; --blue-dark: #2347E0; --blue-light: #EEF2FF;
+      --text: #1a1a1a; --text-mid: #444; --text-muted: #777;
+      --border: #e5e5e5; --bg: #ffffff; --bg-soft: #f9f9f9;
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); font-size: 15px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 100; }
+    .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; color: var(--blue); }
+    .logo svg { width: 28px; height: 28px; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--text-mid); font-weight: 500; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links .btn-nav { background: var(--blue); color: #fff; padding: 6px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+    .page-header { max-width: 960px; margin: 0 auto; padding: 2.5rem 2rem 1.5rem; }
+    .page-header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 0.25rem; }
+    .page-header p { color: var(--text-muted); font-size: 14px; }
+    .filters { max-width: 960px; margin: 0 auto; padding: 0 2rem 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+    .filters input, .filters select { padding: 7px 12px; border: 1px solid var(--border); border-radius: 7px; font-size: 13px; font-family: inherit; color: var(--text); background: #fff; outline: none; }
+    .filters input:focus, .filters select:focus { border-color: var(--blue); }
+    .filters input { min-width: 280px; }
+    .filter-count { font-size: 12px; color: var(--text-muted); margin-left: auto; }
+    .table-section { max-width: 960px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 0; }
+    thead { position: static; }
+    thead th { background: var(--bg-soft); padding: 9px 12px; text-align: left; font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--border); white-space: normal; cursor: pointer; user-select: none; max-width: 120px; line-height: 1.3; }
+    thead th::after { content: ' ⇅'; font-size: 11px; opacity: 1; color: #1a2fa0; font-weight: 900; }
+    thead th.sort-asc::after { content: ' ▲'; opacity: 1; color: var(--blue); }
+    thead th.sort-desc::after { content: ' ▼'; opacity: 1; color: var(--blue); }
+    thead th.sort-asc, thead th.sort-desc { color: var(--blue); }
+    thead th:hover { color: var(--blue); }
+    tbody tr.data-row { border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.1s; scroll-margin-top: 120px; }
+    tbody tr.data-row:hover { background: #EEF2FF; cursor: pointer; }
+    tbody tr.data-row:hover td { color: var(--blue); }
+    tbody tr.data-row:hover .pay { color: #1a2fa0; }
+    tbody tr.data-row.active { background: var(--blue-light); border-bottom: none; }
+    tbody tr.detail-row { border-bottom: 1px solid var(--border); }
+    tbody td { padding: 9px 12px; vertical-align: middle; }
+    .pay { font-weight: 600; color: var(--blue); }
+    .arrow { font-size: 10px; color: var(--text-muted); margin-left: 4px; display: inline-block; transition: transform 0.2s; }
+    .active .arrow { transform: rotate(180deg); color: var(--blue); }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+    .badge-va { background: #DCFCE7; color: #15803D; }
+    .badge-a  { background: #FEF9C3; color: #854D0E; }
+    .badge-c  { background: #FFEDD5; color: #C2410C; }
+    .badge-vc { background: #FEE2E2; color: #DC2626; }
+    .badge-context { font-size: 11px; color: var(--text-muted); margin-left: 4px; }
+    .detail-cell { padding: 0 !important; }
+    .detail-panel { background: #FAFBFF; border-top: 1px solid #C5D0FF; padding: 1.25rem 1.5rem 1.5rem; max-width: 480px; }
+    .glance-eyebrow { font-size: 11px; color: var(--text-muted); margin-bottom: 0.6rem; }
+    .glance-row { display: flex; gap: 0; margin-bottom: 0.75rem; align-items: flex-end; flex-wrap: nowrap; }
+    .glance-stat { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .glance-num { font-size: 18px; font-weight: 700; letter-spacing: -0.4px; line-height: 1; }
+    .glance-num-1 { color: #DC2626; }
+    .glance-num-2 { color: #D97706; }
+    .glance-num-3 { color: #16A34A; }
+    .glance-sub { font-size: 10px; color: var(--text-muted); line-height: 1.3; }
+    .glance-arrow { font-size: 12px; color: #ccc; padding-bottom: 3px; padding-left: 2px; padding-right: 2px; flex: 0; align-self: flex-end; }
+    .glance-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; align-items: center; }
+    .glance-pill { font-size: 11px; color: var(--text-muted); background: #f0f0f0; border-radius: 4px; padding: 2px 8px; }
+    .bell-wrap { margin-top: 0.75rem; }
+    .bell-label { font-size: 11px; color: var(--text-mid); margin-bottom: 0.4rem; line-height: 1.5; }
+    .bell-label strong { color: var(--text); }
+    .bell-svg { width: 100%; overflow: visible; }
+    .bell-axis { display: flex; justify-content: space-between; font-size: 10px; color: #bbb; margin-top: 2px; }
+    .action-cards { display: flex; gap: 0.75rem; margin-top: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+    .action-card { flex: 1; min-width: 140px; border: 1.5px solid var(--border); border-radius: 10px; padding: 0.85rem; cursor: default; background: #fff; }
+    .action-card-icon { font-size: 18px; margin-bottom: 0.4rem; }
+    .action-card-question { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.4rem; }
+    .action-card-answer { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; line-height: 1.2; }
+    .action-card-sub { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+    .action-card-sub a { color: var(--blue); text-decoration: underline; }
+    .action-card-pd { border-color: #C5D0FF; background: #F5F7FF; }
+    .action-card-pd .action-card-answer { color: #16A34A; }
+    .detail-toggle { font-size: 12px; color: var(--blue); cursor: pointer; background: none; border: none; padding: 0; font-family: inherit; text-decoration: underline; display: block; }
+    .detail-expanded { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); display: none; }
+    .detail-expanded.open { display: block; }
+    .exp-section { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #f0f0f0; }
+    .exp-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .exp-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 0.6rem; }
+    .exp-label-red { color: #DC2626; }
+    .exp-label-orange { color: #D97706; }
+    .exp-label-green { color: #16A34A; }
+    .calc-line { display: flex; justify-content: space-between; font-size: 12.5px; padding: 4px 0; border-bottom: 1px solid #f0f0f0; }
+    .calc-line:last-child { border-bottom: none; }
+    .calc-label { color: var(--text-mid); }
+    .calc-value.deduct { color: #999; font-weight: 500; }
+    .tax-breakdown { font-size: 11px; background: #f4f4f4; border-radius: 5px; padding: 7px 9px; margin: 0.4rem 0; color: #999; }
+    .tax-breakdown table { width: 100%; }
+    .tax-breakdown td { padding: 2px 0; color: var(--text-muted); border: none; }
+    .tax-breakdown td:last-child { text-align: right; font-weight: 500; color: var(--text-mid); }
+    .tax-note { font-size: 11px; color: #bbb; line-height: 1.5; margin-top: 0.3rem; }
+    .rent-stale { font-size: 11px; color: var(--text-muted); margin-top: 0.25rem; line-height: 1.5; }
+    .perdiem-teaser { margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px dashed #C5D0FF; }
+    .pd-eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.2rem; }
+    .pd-number { font-size: 20px; font-weight: 700; color: var(--blue); margin-bottom: 0.2rem; }
+    .pd-sub { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+    .pd-sub a { color: var(--blue); text-decoration: underline; }
+    .score-cell { text-align: center; }
+    .score-num { font-size: 18px; font-weight: 700; line-height: 1; }
+    .score-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-top: 2px; }
+    .score-10 { color: #15803D; } .score-8 { color: #22C55E; } .score-6 { color: #D97706; } .score-4 { color: #EA580C; } .score-2 { color: #DC2626; }
+    .hml-cell { display: flex; flex-direction: column; gap: 3px; }
+    .hml-tag { font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 3px; white-space: nowrap; }
+    .hml-high-pay { background: #DCFCE7; color: #15803D; } .hml-med-pay { background: #FEF9C3; color: #854D0E; } .hml-low-pay { background: #FEE2E2; color: #DC2626; }
+    .hml-high-tax { background: #FEE2E2; color: #DC2626; } .hml-med-tax { background: #FEF9C3; color: #854D0E; } .hml-low-tax { background: #DCFCE7; color: #15803D; }
+    .hml-high-rent { background: #FEE2E2; color: #DC2626; } .hml-med-rent { background: #FEF9C3; color: #854D0E; } .hml-low-rent { background: #DCFCE7; color: #15803D; }
+    .pagination { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 0; margin-top: 0.5rem; font-size: 13px; color: var(--text-muted); }
+    .pagination-info { font-size: 12px; }
+    .pagination-controls { display: flex; align-items: center; gap: 0.5rem; }
+    .page-btn { background: none; border: 1px solid var(--border); border-radius: 6px; padding: 4px 12px; font-size: 13px; cursor: pointer; color: var(--text-mid); font-family: inherit; transition: all 0.15s; }
+    .page-btn:hover:not(:disabled) { border-color: var(--blue); color: var(--blue); }
+    .page-btn:disabled { opacity: 0.35; cursor: default; }
+    .page-current { font-size: 13px; color: var(--text); font-weight: 600; min-width: 80px; text-align: center; }
+    .empty { text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-size: 14px; }
+    .scroll-hint { display: none; font-size: 12px; color: var(--text-muted); text-align: right; padding: 0.4rem 0 0.25rem; }
+    /* Always-visible blue scrollbar on mobile */
+    .table-wrap { scrollbar-width: thin; scrollbar-color: #3461FF #EEF2FF; }
+    .table-wrap::-webkit-scrollbar { height: 8px; }
+    .table-wrap::-webkit-scrollbar-track { background: #EEF2FF; border-radius: 99px; }
+    .table-wrap::-webkit-scrollbar-thumb { background: #3461FF; border-radius: 99px; min-width: 40px; }
+    .table-wrap::-webkit-scrollbar-thumb:hover { background: #2347E0; }
+    @media (max-width: 600px) {
+      .scroll-hint { display: block; }
+      .table-wrap::-webkit-scrollbar { height: 10px; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      
+      .page-header, .filters, .table-section { padding-left: 1rem; padding-right: 1rem; }
+      .detail-panel { padding: 1rem; }
+    }
+
+    
+    }
+
+    /* TOP SCROLL MIRROR */
+    .scroll-mirror-wrap { overflow-x: scroll; overflow-y: hidden; height: 12px; scrollbar-width: auto; scrollbar-color: #3461FF #EEF2FF; margin-bottom: 4px; border-radius: 6px; }
+    .scroll-mirror-wrap::-webkit-scrollbar { height: 12px; display: block; }
+    .scroll-mirror-wrap::-webkit-scrollbar-track { background: #EEF2FF; border-radius: 99px; }
+    .scroll-mirror-wrap::-webkit-scrollbar-thumb { background: #3461FF; border-radius: 99px; min-width: 60px; }
+    .scroll-mirror-wrap::-webkit-scrollbar-thumb:hover { background: #2347E0; }
+    .scroll-mirror-inner { height: 1px; display: block; }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+    }
+    /* HAMBURGER MOBILE NAV */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.2s; }
+    .mobile-menu { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; z-index: 99; flex-direction: column; gap: 0; }
+    .mobile-menu a { display: block; padding: 0.65rem 0; font-size: 15px; font-weight: 500; color: var(--text-mid); border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a.btn-nav-mobile { color: var(--blue); font-weight: 600; border-bottom: none; margin-top: 0.25rem; }
+    .mobile-menu.open { display: flex; }
+    @media (max-width: 700px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR556L6MGE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CR556L6MGE');
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="#3461FF"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>
+    NursePay
+  </a>
+  <ul class="nav-links">
+    <li><a href="browse.html" style="color:var(--blue)">Browse Pay</a></li>
+    <li><a href="submit.html">Contribute Pay</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="per-diem.html" class="btn-nav">SF Bay Area Per Diem Jobs</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="browse.html" style="color:var(--blue)">Browse Pay</a>
+  <a href="submit.html">Contribute Pay</a>
+  <a href="about.html">About</a>
+  <a href="per-diem.html" class="btn-nav-mobile">SF Bay Area Per Diem Jobs →</a>
+</div>
+
+<div class="page-header">
+  <h1>Real Nurse Pay, Shared Anonymously</h1>
+  <p>Pay isn't everything but it's a big thing. Thank you to every nurse who has contributed! This resource wouldn't exist without you!</p>
+  <a href="submit.html" style="display:inline-block; margin-top:0.75rem; background:var(--blue); color:#fff; padding:8px 20px; border-radius:7px; font-size:13px; font-weight:600; text-decoration:none;">Share yours →</a>
+</div>
+
+<div class="filters">
+  <input type="text" id="search" placeholder="Search city, state, specialty…" />
+  <select id="filter-state"><option value="">All States</option></select>
+  <select id="filter-specialty"><option value="">All Specialties</option></select>
+  <select id="filter-position"><option value="">All Positions</option></select>
+  <button id="clear-btn" onclick="clearFilters()" style="display:none; font-size:12px; color:var(--blue); background:none; border:1px solid var(--blue); border-radius:6px; padding:5px 12px; cursor:pointer; font-family:inherit;">Clear filters</button>
+  <span class="filter-count" id="count"></span>
+</div>
+
+<div class="table-section">
+  <div class="scroll-mirror-wrap" id="scroll-mirror">
+    <div class="scroll-mirror-inner" id="scroll-mirror-inner"></div>
+  </div>
+  <div class="scroll-hint" style="color:#3461FF; font-weight:600; font-size:12px; letter-spacing:0.03em;">← swipe to see more →</div>
+  <div class="table-wrap">
+    <table id="pay-table">
+      <thead>
+        <tr>
+          <th data-col="city">City<br>State</th>
+          <th data-col="specialty">Specialty</th>
+          <th data-col="license">License<br>Yrs exp</th>
+          <th data-col="position">Position<br>Shift</th>
+          <th data-col="hourly_rate">Pay<br>$/hr</th>
+          <th data-col="take_home">Est. take-home<br>after taxes &amp; rent</th>
+          <th data-col="date">Submitted</th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+        <tr><td colspan="7" class="empty">Loading pay data…</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination">
+    <span class="pagination-info" id="page-info"></span>
+    <div class="pagination-controls">
+      <button class="page-btn" id="prev-btn" onclick="changePage(-1)">← Prev</button>
+      <span class="page-current" id="page-current"></span>
+      <button class="page-btn" id="next-btn" onclick="changePage(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const STATE_TAX = {
+  AK:{type:'none',default:23,note:'Alaska has no state income tax.'},
+  FL:{type:'none',default:23,note:'Florida has no state income tax.'},
+  NV:{type:'none',default:23,note:'Nevada has no state income tax.'},
+  NH:{type:'none',default:23,note:'New Hampshire has no state income tax on wages.'},
+  SD:{type:'none',default:23,note:'South Dakota has no state income tax.'},
+  TN:{type:'none',default:23,note:'Tennessee has no state income tax on wages.'},
+  TX:{type:'none',default:23,note:'Texas has no state income tax.'},
+  WA:{type:'none',default:23,note:'Washington has no state income tax.'},
+  WY:{type:'none',default:23,note:'Wyoming has no state income tax.'},
+  AZ:{type:'flat',rate:2.5,default:26,note:'Arizona has a flat 2.5% state income tax.'},
+  CO:{type:'flat',rate:4.4,default:28,note:'Colorado has a flat 4.4% state income tax.'},
+  GA:{type:'flat',rate:5.49,default:29,note:'Georgia has a flat 5.49% state income tax.'},
+  ID:{type:'flat',rate:5.8,default:29,note:'Idaho has a flat 5.8% state income tax.'},
+  IL:{type:'flat',rate:4.95,default:28,note:'Illinois has a flat 4.95% state income tax.'},
+  IN:{type:'flat',rate:3.05,default:26,note:'Indiana has a flat 3.05% state income tax.'},
+  KY:{type:'flat',rate:4.0,default:27,note:'Kentucky has a flat 4.0% state income tax.'},
+  MA:{type:'flat',rate:5.0,default:28,note:'Massachusetts has a flat 5.0% state income tax.'},
+  MI:{type:'flat',rate:4.25,default:27,note:'Michigan has a flat 4.25% state income tax.'},
+  MS:{type:'flat',rate:4.7,default:28,note:'Mississippi has a flat 4.7% state income tax.'},
+  NC:{type:'flat',rate:4.5,default:28,note:'North Carolina has a flat 4.5% state income tax.'},
+  PA:{type:'flat',rate:3.07,default:26,note:'Pennsylvania has a flat 3.07% state income tax.'},
+  UT:{type:'flat',rate:4.65,default:28,note:'Utah has a flat 4.65% state income tax.'},
+  AL:{type:'grad',range:'2–5%',default:27,note:'Alabama: graduated 2–5%. Most RNs land around 4–5%.'},
+  AR:{type:'grad',range:'2–4.4%',default:27,note:'Arkansas: graduated 2–4.4%.'},
+  CA:{type:'grad',range:'1–13.3%',default:34,note:'California: graduated 1–13.3%. Most full-time RNs land around 9–11%.',local:'SDI adds ~0.9%.'},
+  CT:{type:'grad',range:'3–6.99%',default:30,note:'Connecticut: graduated 3–6.99%. Most RNs land around 5–6%.'},
+  DC:{type:'grad',range:'4–10.75%',default:33,note:'DC: graduated 4–10.75%. Most nurses land around 8–9%.'},
+  DE:{type:'grad',range:'0–6.6%',default:29,note:'Delaware: graduated 0–6.6%. Most RNs land around 5–6%.'},
+  HI:{type:'grad',range:'1.4–11%',default:33,note:'Hawaii: graduated up to 11%. Most nurses land around 8–9%.'},
+  IA:{type:'grad',range:'4.4–6%',default:29,note:'Iowa: graduated 4.4–6%.'},
+  KS:{type:'grad',range:'3.1–5.7%',default:29,note:'Kansas: graduated 3.1–5.7%.'},
+  LA:{type:'grad',range:'1.85–4.25%',default:27,note:'Louisiana: graduated 1.85–4.25%.'},
+  MD:{type:'grad',range:'2–5.75%',default:29,note:'Maryland: graduated 2–5.75%.',local:'Most counties add 2–3% local tax.'},
+  ME:{type:'grad',range:'5.8–7.15%',default:31,note:'Maine: graduated 5.8–7.15%.'},
+  MN:{type:'grad',range:'5.35–9.85%',default:32,note:'Minnesota: graduated 5.35–9.85%. Most RNs land around 7–8%.'},
+  MO:{type:'grad',range:'1.5–4.95%',default:28,note:'Missouri: graduated 1.5–4.95%.'},
+  MT:{type:'grad',range:'1–6.75%',default:30,note:'Montana: graduated 1–6.75%.'},
+  NE:{type:'grad',range:'2.46–6.84%',default:30,note:'Nebraska: graduated 2.46–6.84%.'},
+  NJ:{type:'grad',range:'1.4–10.75%',default:32,note:'New Jersey: graduated up to 10.75%. Most full-time RNs land around 6–8%.'},
+  NM:{type:'grad',range:'1.7–5.9%',default:29,note:'New Mexico: graduated 1.7–5.9%.'},
+  NY:{type:'grad',range:'4–10.9%',default:33,note:'New York: graduated 4–10.9%. Most RNs land around 6–7%.',local:'NYC residents pay an additional 3–4% city tax.'},
+  OH:{type:'grad',range:'0–3.75%',default:26,note:'Ohio: graduated 0–3.75%.'},
+  OK:{type:'grad',range:'0.25–4.75%',default:27,note:'Oklahoma: graduated 0.25–4.75%.'},
+  OR:{type:'grad',range:'4.75–9.9%',default:32,note:'Oregon: graduated 4.75–9.9%. Most RNs land around 8–9%.'},
+  RI:{type:'grad',range:'3.75–5.99%',default:29,note:'Rhode Island: graduated 3.75–5.99%.'},
+  SC:{type:'grad',range:'0–6.2%',default:29,note:'South Carolina: graduated 0–6.2%.'},
+  VA:{type:'grad',range:'2–5.75%',default:29,note:'Virginia: graduated 2–5.75%. Most RNs land around 5%.'},
+  VT:{type:'grad',range:'3.35–8.75%',default:31,note:'Vermont: graduated 3.35–8.75%.'},
+  WI:{type:'grad',range:'3.54–7.65%',default:30,note:'Wisconsin: graduated 3.54–7.65%.'},
+  WV:{type:'grad',range:'2.36–5.12%',default:28,note:'West Virginia: graduated 2.36–5.12%.'},
+};
+
+function getTax(state) { return STATE_TAX[state] || {default:27, note:'Tax rates vary.'}; }
+
+const SAMPLE_DATA = [
+  {city:'San Francisco',state:'CA',license:'RN',years_exp:8,specialty:'L&D',shift:'noc',position:'staff',hourly_rate:95,rent_2br:3800,rent_date:'2025-01-01',date:'1/1/2025'},
+  {city:'Portland',state:'OR',license:'RN',years_exp:20,specialty:'med surg',shift:'noc',position:'staff',hourly_rate:84.95,rent_2br:1950,rent_date:'2024-06-01',date:'6/1/2024'},
+];
+
+function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
+function fmtHr(n) { return '$' + (+n).toFixed(2); }
+
+function calcScore(d, allEntries) {
+  if (!d.rent_2br) return null;
+  const rates = allEntries.map(e => e.hourly_rate).sort((a,b)=>a-b);
+  const rateIdx = rates.filter(r => r <= d.hourly_rate).length / rates.length;
+  const payScore = rateIdx * 4;
+  const taxPct = getTax(d.state).default || 27;
+  const taxScore = taxPct <= 23 ? 3 : taxPct <= 27 ? 2.5 : taxPct <= 30 ? 1.5 : taxPct <= 33 ? 1 : 0;
+  const {afterTax} = calcMonthly(d.hourly_rate, taxPct);
+  const ratio = (d.rent_2br / afterTax) * 100;
+  const rentScore = ratio <= 20 ? 3 : ratio <= 28 ? 2.5 : ratio <= 35 ? 1.5 : ratio <= 45 ? 1 : 0;
+  return Math.min(10, Math.max(1, Math.round(payScore + taxScore + rentScore)));
+}
+
+function bellCurveHTML(allEntries, thisRatio) {
+  const ratios = allEntries.filter(e => e.rent_2br && e.hourly_rate).map(e => {
+    const {afterTax} = calcMonthly(e.hourly_rate, (getTax(e.state).default || 27));
+    return (e.rent_2br / afterTax) * 100;
+  });
+  if (!ratios.length) return '';
+  const min = Math.floor(Math.min(...ratios));
+  const max = Math.ceil(Math.max(...ratios));
+  const mean = ratios.reduce((a,b)=>a+b,0)/ratios.length;
+  const variance = ratios.reduce((a,b)=>a+Math.pow(b-mean,2),0)/ratios.length;
+  const std = Math.sqrt(variance) || 1;
+  const meanDisplay = Math.round(mean);
+  const W = 260, H = 65, steps = 120;
+  const stepSize = (max - min) / steps;
+  function normalY(x) { return Math.exp(-0.5 * Math.pow((x - mean) / std, 2)); }
+  const points = [];
+  for (let i = 0; i <= steps; i++) {
+    const x = min + i * stepSize;
+    points.push(`${(i/steps)*W},${H - normalY(x)*(H-4)}`);
+  }
+  const pathD = `M0,${H} L${points.join(' L')} L${W},${H} Z`;
+  const markerX = Math.max(0, Math.min(((thisRatio - min) / (max - min)) * W, W));
+  const markerY = H - normalY(thisRatio) * (H - 4);
+  const leftPoints = [];
+  for (let i = 0; i <= steps; i++) {
+    const x = min + i * stepSize;
+    if (x > thisRatio) break;
+    leftPoints.push(`${(i/steps)*W},${H - normalY(x)*(H-4)}`);
+  }
+  const leftPath = `M0,${H} L${leftPoints.join(' L')} L${markerX},${markerY} L${markerX},${H} Z`;
+  const svg = `<svg class="bell-svg" viewBox="0 0 ${W} ${H+18}" height="${H+18}">
+    <defs><linearGradient id="bellgrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e0e0e0" stop-opacity="0.9"/><stop offset="100%" stop-color="#e0e0e0" stop-opacity="0.3"/></linearGradient></defs>
+    <path d="${pathD}" fill="url(#bellgrad)"/>
+    <path d="${leftPath}" fill="#DC262620"/>
+    <polyline points="${points.join(' ')}" fill="none" stroke="#ccc" stroke-width="1.5"/>
+    <line x1="${markerX}" y1="${markerY}" x2="${markerX}" y2="${H}" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <circle cx="${markerX}" cy="${markerY}" r="3.5" fill="#DC2626"/>
+    <text x="2" y="${H+14}" font-size="9" fill="#bbb">Best ${min}%</text>
+    <text x="${markerX}" y="${H+14}" font-size="9" fill="#DC2626" text-anchor="middle">↑ ${Math.round(thisRatio)}%</text>
+    <text x="${W-2}" y="${H+14}" font-size="9" fill="#bbb" text-anchor="end">Worst ${max}%</text>
+  </svg>`;
+  const aboveBelow = thisRatio > mean ? `slightly above the average of <strong>${meanDisplay}%</strong>` : thisRatio < mean ? `better than the average of <strong>${meanDisplay}%</strong>` : `right at the average of <strong>${meanDisplay}%</strong>`;
+  return `<div class="bell-wrap"><div class="bell-label">With this pay, rent takes up <strong>${Math.round(thisRatio)}%</strong> of take-home — ${aboveBelow}. Across locations we've seen, the best is <strong>${min}%</strong> and the worst is <strong>${max}%</strong>.</div>${svg}</div>`;
+}
+
+function calcTier(d) {
+  if (d.rent_2br && d.hourly_rate) {
+    const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default || 27));
+    const rentPct = (d.rent_2br / afterTax) * 100;
+    if (rentPct < 25) return 'va';
+    if (rentPct < 35) return 'a';
+    if (rentPct < 50) return 'c';
+    return 'vc';
+  }
+  return d.col_tier || 'a';
+}
+
+function colBadge(tier) {
+  const m = {va:['badge-va','Very Affordable'],a:['badge-a','Affordable'],c:['badge-c','Costly'],vc:['badge-vc','Very Costly']};
+  const [cls,label] = m[tier]||['badge-a','—'];
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function rentStaleness(dateStr, rent) {
+  if (!rent) return '<div class="rent-stale">Rural area — check local listings for rent estimates.</div>';
+  if (!dateStr) return '';
+  const months = (new Date() - new Date(dateStr)) / (1000*60*60*24*30.44);
+  const label = new Date(dateStr).toLocaleDateString('en-US',{month:'short',year:'numeric'});
+  let note = '';
+  if (months >= 24) note = ' Over two years old — verify on Zillow before relying on this.';
+  else if (months >= 12) note = ' Worth checking current listings before making a decision.';
+  else if (months >= 6) note = ' Quick check on current listings recommended.';
+  return `<div class="rent-stale">Source: Zillow, ${label}.${note}</div>`;
+}
+
+function calcMonthly(hourly, taxPct) {
+  const gross = hourly * 12 * 3 * 4;
+  const taxes = gross * taxPct/100;
+  return {gross, taxes, afterTax: gross - taxes};
+}
+
+const BA_RATE = 100, BA_FLIGHTS = 400;
+function calcPD(pocket) {
+  const extra = BA_RATE * 12 * 4 * 0.72;
+  return {extra, net: extra - BA_FLIGHTS, newPocket: pocket + extra - BA_FLIGHTS};
+}
+
+let allData = [], sortCol = 'date', sortDir = 1, activeIdx = null, currentPage = 1;
+const PAGE_SIZE = 25;
+
+function populateFilters(data) {
+  ['state','specialty','position'].forEach(key => {
+    const sel = document.getElementById('filter-'+key);
+    [...new Set(data.map(d=>d[key]).filter(Boolean))].sort().forEach(v => {
+      const o = document.createElement('option'); o.value=v; o.textContent=v; sel.appendChild(o);
+    });
+  });
+}
+
+function getFiltered() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const st = document.getElementById('filter-state').value;
+  const sp = document.getElementById('filter-specialty').value;
+  const po = document.getElementById('filter-position').value;
+  return allData.filter(d =>
+    (!st||d.state===st) && (!sp||d.specialty===sp) && (!po||d.position===po) &&
+    (!q||[d.city,d.state,d.specialty,d.license,d.position].join(' ').toLowerCase().includes(q))
+  );
+}
+
+function renderDetail(d, i) {
+  const tax = getTax(d.state);
+  const taxPct = tax.default || 27;
+  const {gross, taxes, afterTax} = calcMonthly(d.hourly_rate, taxPct);
+  const pocket = d.rent_2br ? afterTax - d.rent_2br : null;
+  const pd = pocket !== null ? calcPD(pocket) : null;
+  const fedR = 15, ficaR = 8, stR = Math.max(0, taxPct - fedR - ficaR);
+  return `<div class="detail-panel">
+    <div class="glance-eyebrow">Amounts estimated from a month of working 3×12 shifts/week</div>
+    <div class="glance-row">
+      <div class="glance-stat"><div class="glance-top">Pre-tax</div><div class="glance-num glance-num-1">${fmt(gross)}/mo</div></div>
+      <div class="glance-stat"><div class="glance-top">After taxes</div><div class="glance-num glance-num-2">${fmt(afterTax)}/mo</div></div>
+      ${pocket !== null ? `<div class="glance-stat"><div class="glance-top">After taxes &amp; rent</div><div class="glance-num glance-num-3">${fmt(pocket)}/mo</div></div>` : ''}
+    </div>
+    <button class="detail-toggle" id="toggle-btn-${i}" onclick="toggleExpand(${i})">How we calculated this ▾</button>
+    <div class="detail-expanded" id="expanded-${i}">
+      <div class="exp-section">
+        <div class="exp-label exp-label-red">Pre-tax</div>
+        <div class="calc-line"><span class="calc-label" style="font-family:monospace;font-size:11.5px;">${fmtHr(d.hourly_rate)}/hr × 12hr × 3 shifts × 4 weeks</span><span style="font-weight:600;color:#DC2626;">${fmt(gross)}/mo</span></div>
+      </div>
+      <div class="exp-section">
+        <div class="exp-label exp-label-orange">After taxes</div>
+        <div class="calc-line"><span class="calc-label">Estimated tax rate</span><span>~${taxPct}%</span></div>
+        <div class="tax-breakdown"><table><tbody>
+          <tr><td>Federal income tax</td><td>~${fedR}%</td></tr>
+          <tr><td>SS + Medicare</td><td>~${ficaR}%</td></tr>
+          <tr><td>State (${d.state})</td><td>~${stR}%</td></tr>
+        </tbody></table></div>
+        <div class="tax-note">${tax.note}${tax.local?' '+tax.local:''}</div>
+        <div class="calc-line" style="margin-top:0.5rem;"><span class="calc-label">Taxes deducted</span><span class="calc-value deduct">− ${fmt(taxes)}/mo</span></div>
+        <div class="calc-line"><span class="calc-label" style="font-weight:600;">After-tax income</span><span style="font-weight:600;color:#D97706;">${fmt(afterTax)}/mo</span></div>
+      </div>
+      ${d.rent_2br ? `<div class="exp-section">
+        <div class="exp-label exp-label-green">After taxes &amp; rent</div>
+        <div class="calc-line"><span class="calc-label">Avg 2BR rent (${d.city})</span><span class="calc-value deduct">− ${fmt(d.rent_2br)}/mo</span></div>
+        ${rentStaleness(d.rent_date, d.rent_2br)}
+        <div class="calc-line" style="margin-top:0.4rem;"><span class="calc-label" style="font-weight:600;">Monthly take-home</span><span style="font-weight:600;color:#16A34A;">${fmt(pocket)}/mo</span></div>
+      </div>` : `<div class="exp-section"><div class="rent-stale">Rural area — check local listings for rent estimates.</div></div>`}
+    </div>
+    <div class="action-cards">
+      ${d.rent_2br ? `<div class="action-card">
+        <div class="action-card-icon">🏠</div>
+        <div class="action-card-question">Cost of living here</div>
+        <div style="margin-bottom:0.5rem;">${colBadge(calcTier(d))}</div>
+        ${bellCurveHTML(allData, Math.round((d.rent_2br / calcMonthly(d.hourly_rate, (getTax(d.state).default||27)).afterTax) * 100))}
+      </div>` : ''}
+      ${pd ? `<div class="action-card action-card-pd">
+        <div class="action-card-icon">✈️</div>
+        <div class="action-card-question">Add CA per diem</div>
+        <div class="action-card-answer">+${fmt(BA_RATE * 12 * 4)}/mo gross</div>
+        <div class="action-card-sub">4 × 12hr Bay Area shifts/mo at ~$100/hr. <a href="newsletter.html">See available shifts →</a></div>
+        <div style="margin-top:0.6rem; padding-top:0.6rem; border-top:1px dashed #C5D0FF; font-size:10.5px; color:var(--text-muted); line-height:1.5;">
+          <div style="margin-bottom:0.35rem;">💡 Clump your shifts to save on flights. Night shifts often have great differentials if you can swing it.</div>
+          <div>✈️ Many nurses travel from out of state for Bay Area per diem shifts.</div>
+        </div>
+      </div>` : ''}
+    </div>
+  </div>`;
+}
+
+function toggleExpand(i) {
+  const el = document.getElementById('expanded-'+i);
+  const btn = document.getElementById('toggle-btn-'+i);
+  if (!el) return;
+  el.classList.toggle('open');
+  if (btn) btn.textContent = el.classList.contains('open') ? 'Hide details ▴' : 'How we calculated this ▾';
+}
+
+function renderTable() {
+  function getVal(d, col) {
+    if (col === 'take_home') { const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default||27)); return d.rent_2br ? afterTax - d.rent_2br : 0; }
+    if (col === 'score') return calcScore(d, allData) || 0;
+    if (col === 'date') {
+      if (!d.date) return 0;
+      const s = d.date.trim();
+      // Normalize both formats to YYYYMMDD integer for consistent sorting
+      if (s.includes('/')) { const p = s.split('/'); return parseInt(p[2]+p[0].padStart(2,'0')+p[1].padStart(2,'0')); }
+      return parseInt(s.replace(/-/g,''));
+    }
+    return d[col];
+  }
+  const filtered = getFiltered().sort((a,b) => { const av=getVal(a,sortCol), bv=getVal(b,sortCol); return av<bv?sortDir:av>bv?-sortDir:0; });
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  if (currentPage > totalPages) currentPage = totalPages;
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const end = Math.min(start + PAGE_SIZE, total);
+  const page = filtered.slice(start, end);
+
+  document.getElementById('count').textContent = total+' entries';
+  document.getElementById('page-info').textContent = total > 0 ? `Showing ${start+1}–${end} of ${total} entries` : '';
+  document.getElementById('page-current').textContent = total > 0 ? `Page ${currentPage} of ${totalPages}` : '';
+  document.getElementById('prev-btn').disabled = currentPage <= 1;
+  document.getElementById('next-btn').disabled = currentPage >= totalPages;
+
+  const tbody = document.getElementById('table-body');
+  if (!filtered.length) {
+    tbody.innerHTML='<tr><td colspan="7" class="empty" style="padding-top:2.5rem;">No entries match your filters — try removing one or broadening your search.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = page.map((d,i) => `
+    <tr class="data-row${activeIdx===i?' active':''}" onclick="toggleDetail(${i})">
+      <td><span style="font-weight:500;">${d.city}</span><br><span style="font-size:11px;color:var(--text-muted)">${d.state}</span></td>
+      <td>${d.specialty||'—'}</td>
+      <td><span>${d.license||'—'}</span><br><span style="font-size:11px;color:var(--text-muted)">${d.years_exp||'0'} yrs</span></td>
+      <td><span>${d.position||'—'}</span><br><span style="font-size:11px;color:var(--text-muted)">${d.shift||'—'}</span></td>
+      <td class="pay">${fmtHr(d.hourly_rate)}<span class="arrow">▼</span></td>
+      <td style="color:#16A34A;font-weight:600;">${(() => { const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default||27)); return d.rent_2br ? fmt(afterTax - d.rent_2br)+'/mo' : '—'; })()}</td>
+      <td style="font-size:11px;color:var(--text-muted);">${d.date ? d.date.split('-').slice(1).concat(d.date.split('-')[0]).join('/') : '—'}</td>
+    </tr>
+    <tr class="detail-row" style="display:${activeIdx===i?'table-row':'none'}">
+      <td class="detail-cell" colspan="7">${activeIdx===i?renderDetail(d,i):''}</td>
+    </tr>`).join('');
+}
+
+function toggleDetail(idx) {
+  activeIdx = activeIdx===idx ? null : idx;
+  renderTable();
+  if (activeIdx!==null) setTimeout(()=>{ const el=document.querySelector(`.detail-row:nth-child(${activeIdx*2+2})`); if(el) el.scrollIntoView({behavior:'smooth',block:'nearest'}); },50);
+}
+
+document.querySelectorAll('thead th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col=th.dataset.col;
+    sortDir = sortCol===col ? -sortDir : -1;
+    sortCol = col; activeIdx=null;
+    document.querySelectorAll('thead th').forEach(h => h.classList.remove('sort-asc','sort-desc'));
+    th.classList.add(sortDir === -1 ? 'sort-desc' : 'sort-asc');
+    renderTable();
+  });
+});
+
+['search','filter-state','filter-specialty','filter-position'].forEach(id =>
+  document.getElementById(id).addEventListener('input', () => {
+    activeIdx=null; currentPage=1;
+    const hasFilter = document.getElementById('search').value || document.getElementById('filter-state').value || document.getElementById('filter-specialty').value || document.getElementById('filter-position').value;
+    document.getElementById('clear-btn').style.display = hasFilter ? 'inline-block' : 'none';
+    renderTable();
+  })
+);
+
+function clearFilters() {
+  document.getElementById('search').value=''; document.getElementById('filter-state').value='';
+  document.getElementById('filter-specialty').value=''; document.getElementById('filter-position').value='';
+  document.getElementById('clear-btn').style.display='none';
+  activeIdx=null; currentPage=1; renderTable();
+}
+
+function changePage(dir) {
+  currentPage += dir; activeIdx = null; renderTable();
+  document.querySelector('.table-wrap').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+async function loadData() {
+  try {
+    const res = await fetch('nurses.json');
+    allData = res.ok ? await res.json() : SAMPLE_DATA;
+  } catch { allData = SAMPLE_DATA; }
+  allData = allData.filter(d => d.hourly_rate && d.hourly_rate > 0);
+  populateFilters(allData);
+  renderTable();
+  setTimeout(initScrollMirror, 300);
+}
+
+loadData();
+</script>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger-btn');
+    if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+
+<script>
+  function initScrollMirror() {
+    var mirror = document.getElementById('scroll-mirror');
+    var tableWrap = document.querySelector('.table-wrap');
+    var mirrorInner = document.getElementById('scroll-mirror-inner');
+    if (!mirror || !tableWrap || !mirrorInner) return;
+    mirrorInner.style.width = tableWrap.scrollWidth + 'px';
+    window.addEventListener('resize', function() {
+      mirrorInner.style.width = tableWrap.scrollWidth + 'px';
+    });
+    var mirrorScrolling = false, tableScrolling = false;
+    mirror.addEventListener('scroll', function() {
+      if (tableScrolling) return;
+      mirrorScrolling = true;
+      tableWrap.scrollLeft = mirror.scrollLeft;
+      setTimeout(function(){ mirrorScrolling = false; }, 50);
+    });
+    tableWrap.addEventListener('scroll', function() {
+      if (mirrorScrolling) return;
+      tableScrolling = true;
+      mirror.scrollLeft = tableWrap.scrollLeft;
+      mirrorInner.style.width = tableWrap.scrollWidth + 'px';
+      setTimeout(function(){ tableScrolling = false; }, 50);
+    });
+  }
+  // Run after data loads
+  window.addEventListener('load', function() { setTimeout(initScrollMirror, 500); });
+</script>
+</body>
+</html>

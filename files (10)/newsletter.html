@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bay Area Per Diem Nursing Jobs | Get Notified | NursePay</title>
+  <meta name="description" content="Get notified when new Bay Area per diem nursing jobs drop at UCSF, Sutter, and Kaiser. Real contract pay rates included. Free, no spam." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue: #3461FF; --blue-dark: #2347E0; --blue-light: #EEF2FF; --text: #1a1a1a; --text-mid: #444; --text-muted: #777; --border: #e5e5e5; --bg: #ffffff; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); font-size: 15px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 100; }
+    .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; color: var(--blue); }
+    .logo svg { width: 28px; height: 28px; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--text-mid); font-weight: 500; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links .btn-nav { background: var(--blue); color: #fff; padding: 6px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+
+    /* HERO PHOTO */
+    .hero-photo {
+      width: 100%;
+      height: 280px;
+      background: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1400&auto=format&fit=crop&q=80') center center / cover no-repeat;
+      position: relative;
+    }
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.45));
+    }
+
+    /* HERO CONTENT */
+    .hero { max-width: 600px; margin: 0 auto; padding: 3.5rem 2rem 2.5rem; text-align: center; }
+    .eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue); margin-bottom: 0.75rem; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: -0.4px; margin-bottom: 1rem; line-height: 1.2; }
+    .hero p { color: var(--text-muted); font-size: 15px; margin-bottom: 2rem; line-height: 1.7; }
+    .signup-form { display: flex; gap: 0.5rem; max-width: 400px; margin: 0 auto 1rem; flex-wrap: wrap; justify-content: center; }
+    .signup-form input { flex: 1; min-width: 200px; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 7px; font-size: 14px; font-family: inherit; outline: none; }
+    .signup-form input:focus { border-color: var(--blue); }
+    .signup-form button { background: var(--blue); color: #fff; border: none; padding: 10px 20px; border-radius: 7px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+    .signup-form button:hover { background: var(--blue-dark); }
+    .signup-note { font-size: 11.5px; color: var(--text-muted); }
+
+    /* WHAT'S IN IT */
+    .what-section { max-width: 600px; margin: 0 auto; padding: 1rem 2rem 4rem; border-top: 1px solid var(--border); }
+    .what-section h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; margin-top: 2rem; }
+    .what-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+    .what-list li { display: flex; gap: 0.75rem; font-size: 14px; color: var(--text-mid); line-height: 1.5; }
+    .what-list li span { font-size: 16px; flex-shrink: 0; }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+    .footer-links a:hover { color: var(--blue); }
+    .footer-copy { font-size: 12px; color: var(--text-muted); margin-top: 0.75rem; }
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      
+      .hero, .what-section { padding-left: 1rem; padding-right: 1rem; }
+      .hero-photo { height: 200px; }
+    }
+
+    
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+    }
+    /* HAMBURGER MOBILE NAV */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.2s; }
+    .mobile-menu { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; z-index: 99; flex-direction: column; gap: 0; }
+    .mobile-menu a { display: block; padding: 0.65rem 0; font-size: 15px; font-weight: 500; color: var(--text-mid); border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a.btn-nav-mobile { color: var(--blue); font-weight: 600; border-bottom: none; margin-top: 0.25rem; }
+    .mobile-menu.open { display: flex; }
+    @media (max-width: 700px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR556L6MGE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CR556L6MGE');
+  </script>
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1502213');
+  </script>
+  <!-- End MailerLite Universal -->
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="#3461FF"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>
+    NursePay
+  </a>
+  <ul class="nav-links">
+    <li><a href="browse.html">Browse Pay</a></li>
+    <li><a href="submit.html">Contribute Pay</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="per-diem.html" class="btn-nav">SF Bay Area Per Diem Jobs</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="browse.html">Browse Pay</a>
+  <a href="submit.html">Contribute Pay</a>
+  <a href="about.html">About</a>
+  <a href="per-diem.html" class="btn-nav-mobile">SF Bay Area Per Diem Jobs →</a>
+</div>
+
+<div class="hero-photo"></div>
+
+<div class="hero">
+  <div class="eyebrow">Coming Soon</div>
+  <h1>Bay Area per diem shifts, straight to your inbox</h1>
+  <p>Add your name to the waitlist. Because that sweet, sweet Bay Area per diem pay isn't going to find itself.</p>
+  <div class="ml-embedded" data-form="SgYTwA"></div>
+  <p class="signup-note">Free. Unsubscribe anytime. No spam.</p>
+</div>
+
+<div class="what-section">
+  <h2>What's in each roundup</h2>
+  <ul class="what-list">
+    <li><span>📍</span> Per diem shifts available at top Bay Area hospitals that week</li>
+    <li><span>💰</span> If it's outpatient or clinic but still part of a hospital system, it's in so you still get that sweet hospital pay.</li>
+    <li><span>✈️</span> Built for nurses flying in and locals alike</li>
+    <li><span>📅</span> Fresh every week.</li>
+  </ul>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="submit.html">Add Your Pay</a>
+    <a href="browse.html">Browse Pay</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p class="footer-copy">© 2026 NursePay. Built by a nurse, for nurses.</p>
+</footer>
+
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger-btn');
+    if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>

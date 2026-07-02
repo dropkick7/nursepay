@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About NursePay | Built by a Nurse, for Nurses</title>
+  <meta name="description" content="NursePay was built by a Bay Area nurse between shifts to bring transparency to nurse pay. Anonymous income reports, real contract data, and per diem job listings. No investors, no ads." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue: #3461FF; --blue-dark: #2347E0; --blue-light: #EEF2FF; --text: #1a1a1a; --text-mid: #444; --text-muted: #777; --border: #e5e5e5; --bg: #ffffff; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); font-size: 15px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 100; }
+    .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; color: var(--blue); }
+    .logo svg { width: 28px; height: 28px; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--text-mid); font-weight: 500; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links .btn-nav { background: var(--blue); color: #fff; padding: 6px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+    .content { max-width: 640px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .content h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 1.5rem; }
+    .content h2 { font-size: 1.1rem; font-weight: 700; margin: 2rem 0 0.5rem; }
+    .content p { color: var(--text-mid); font-size: 15px; line-height: 1.75; margin-bottom: 1rem; }
+    .founder-card { background: var(--blue-light); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+    .founder-card p { color: var(--text-mid); margin-bottom: 0; }
+    .founder-sig { margin-top: 1rem; font-size: 13px; color: var(--text-muted); font-style: italic; }
+    .cta-row { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--blue); color: #fff; padding: 10px 24px; border-radius: 7px; font-size: 14px; font-weight: 600; display: inline-block; }
+    .btn-outline { border: 1.5px solid var(--blue); color: var(--blue); padding: 10px 24px; border-radius: 7px; font-size: 14px; font-weight: 600; display: inline-block; }
+    footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+    .footer-links a:hover { color: var(--blue); }
+    .footer-copy { font-size: 12px; color: var(--text-muted); margin-top: 0.75rem; }
+    @media (max-width: 600px) { nav { padding: 0 1rem; }  .content { padding: 2rem 1rem 3rem; } }
+
+    
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+    }
+    /* HAMBURGER MOBILE NAV */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.2s; }
+    .mobile-menu { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; z-index: 99; flex-direction: column; gap: 0; }
+    .mobile-menu a { display: block; padding: 0.65rem 0; font-size: 15px; font-weight: 500; color: var(--text-mid); border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a.btn-nav-mobile { color: var(--blue); font-weight: 600; border-bottom: none; margin-top: 0.25rem; }
+    .mobile-menu.open { display: flex; }
+    @media (max-width: 700px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR556L6MGE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CR556L6MGE');
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="#3461FF"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>
+    NursePay
+  </a>
+  <ul class="nav-links">
+    <li><a href="browse.html">Browse Pay</a></li>
+    <li><a href="submit.html">Contribute Pay</a></li>
+    <li><a href="about.html" style="color:var(--blue)">About</a></li>
+    <li><a href="per-diem.html" class="btn-nav">SF Bay Area Per Diem Jobs</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="browse.html">Browse Pay</a>
+  <a href="submit.html">Contribute Pay</a>
+  <a href="about.html">About</a>
+  <a href="per-diem.html" class="btn-nav-mobile">SF Bay Area Per Diem Jobs →</a>
+</div>
+
+<div class="content">
+  <h1>About NursePay</h1>
+
+  <div class="founder-card">
+    <p>👋 Hi, nurse. Thanks for stopping by.</p>
+    <p style="margin-top:0.75rem;">I started out as an L&D nurse in New York in 2013. Now I'm in California (yay ratios!) across women's health, postpartum, L&D, you name it. I built this between shifts because real pay info didn't exist. Just vague Reddit threads and guesses. So I made what I wish existed.</p>
+    <p class="founder-sig">Casey, RN & Founder of NursePay</p>
+  </div>
+
+  <h2>Why NursePay exists</h2>
+  <p>Hospitals don't post real numbers. Job listings are vague. The only way to find out what you should be earning is to know the right people. Most nurses don't.</p>
+  <p>NursePay fixes that. Real pay from real nurses, shared anonymously, so everyone can make better decisions.</p>
+
+  <h2>How it works</h2>
+  <p>Fill out a short form. No name, no login, no account. Every submission gets reviewed before it goes live. Nothing is collected that could identify you.</p>
+
+  <h2>What we believe</h2>
+  <p>Pay isn't everything. But it's a big thing. Knowing your worth helps you negotiate, move smarter, and stop being underpaid. This only works because nurses share. Every submission matters.</p>
+
+  <h2>Built by a nurse, for nurses</h2>
+  <p>Independent. No investors, no advertisers. Built by a working nurse between shifts. Just a genuine attempt to make nursing pay more transparent.</p>
+
+  <h2>Get in touch</h2>
+  <p>Questions, feedback, or just want to say hi? <a href="contact.html" style="color:var(--blue); text-decoration:underline;">Contact me here.</a></p>
+
+  <div class="cta-row">
+    <a href="browse.html" class="btn-primary">Browse Pay →</a>
+    <a href="submit.html" class="btn-outline">Share Yours</a>
+  </div>
+</div>
+
+<section style="background: #EEF2FF; border-top: 1px solid #C5D0FF; border-bottom: 1px solid #C5D0FF; padding: 2rem; text-align: center;">
+  <div style="max-width: 560px; margin: 0 auto;">
+    <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #3461FF; margin-bottom: 0.4rem;">Free weekly newsletter</p>
+    <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.2px;">Getting Bay Area per diem shifts on your radar?</h2>
+    <p style="font-size: 14px; color: #777; margin-bottom: 1.25rem; line-height: 1.6;">Join the Per Diem Roundup. Weekly Bay Area shifts, straight to your inbox. Free.</p>
+    <a href="newsletter.html" style="display:inline-block; background:#3461FF; color:#fff; padding:10px 24px; border-radius:7px; font-size:14px; font-weight:600; text-decoration:none;">Join the Per Diem Roundup →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="submit.html">Add Your Pay</a>
+    <a href="browse.html">Browse Pay</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p class="footer-copy">© 2026 NursePay. Built by a nurse, for nurses.</p>
+</footer>
+
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger-btn');
+    if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>

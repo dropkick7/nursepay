@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Share Your Nurse Pay Anonymously | NursePay</title>
+  <meta name="description" content="Submit your anonymous nurse income report. No name, no login. Help other nurses know their worth in 2 minutes. Real data, real impact." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue: #3461FF; --blue-dark: #2347E0; --blue-light: #EEF2FF; --text: #1a1a1a; --text-mid: #444; --text-muted: #777; --border: #e5e5e5; --bg: #ffffff; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); font-size: 15px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 100; }
+    .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; color: var(--blue); }
+    .logo svg { width: 28px; height: 28px; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--text-mid); font-weight: 500; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links .btn-nav { background: var(--blue); color: #fff; padding: 6px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; }
+    .page-header { max-width: 720px; margin: 0 auto; padding: 2.5rem 2rem 1.5rem; }
+    .page-header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 0.5rem; }
+    .page-header p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+    .trust-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; }
+    .trust-item { display: flex; align-items: center; gap: 0.4rem; font-size: 12px; color: var(--text-muted); }
+    .trust-item span { font-size: 14px; }
+    .form-wrap { max-width: 720px; margin: 0 auto; padding: 0 2rem 4rem; }
+    footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; font-size: 13px; color: var(--text-muted); flex-wrap: wrap; }
+    .footer-links a:hover { color: var(--blue); }
+    .footer-copy { font-size: 12px; color: var(--text-muted); margin-top: 0.75rem; }
+    @media (max-width: 600px) { nav { padding: 0 1rem; }  .page-header, .form-wrap { padding-left: 1rem; padding-right: 1rem; } }
+
+    
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+    }
+    /* HAMBURGER MOBILE NAV */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.2s; }
+    .mobile-menu { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; z-index: 99; flex-direction: column; gap: 0; }
+    .mobile-menu a { display: block; padding: 0.65rem 0; font-size: 15px; font-weight: 500; color: var(--text-mid); border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a.btn-nav-mobile { color: var(--blue); font-weight: 600; border-bottom: none; margin-top: 0.25rem; }
+    .mobile-menu.open { display: flex; }
+    @media (max-width: 700px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR556L6MGE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CR556L6MGE');
+  </script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="#3461FF"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>
+    NursePay
+  </a>
+  <ul class="nav-links">
+    <li><a href="browse.html">Browse Pay</a></li>
+    <li><a href="submit.html" style="color:var(--blue)">Contribute Pay</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="per-diem.html" class="btn-nav">SF Bay Area Per Diem Jobs</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="browse.html">Browse Pay</a>
+  <a href="submit.html">Contribute Pay</a>
+  <a href="about.html">About</a>
+  <a href="per-diem.html" class="btn-nav-mobile">SF Bay Area Per Diem Jobs →</a>
+</div>
+
+<div class="page-header">
+  <h1>Share Your Pay</h1>
+  <p>Every submission helps a fellow nurse make a better decision. It takes about 2 minutes and your name is never collected.</p>
+  <div class="trust-row">
+    <div class="trust-item"><span>✓</span> 100% anonymous</div>
+    <div class="trust-item"><span>✓</span> No login required</div>
+    <div class="trust-item"><span>✓</span> Your name is never asked</div>
+    <div class="trust-item"><span>✓</span> Takes about 2 minutes</div>
+  </div>
+</div>
+
+<div class="form-wrap">
+  <div style="width:100%;height:500px;" data-fillout-id="6HymyY143Tus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
+  <script src="https://server.fillout.com/embed/v1/"></script>
+</div>
+
+<section style="background: #EEF2FF; border-top: 1px solid #C5D0FF; border-bottom: 1px solid #C5D0FF; padding: 2rem; text-align: center;">
+  <div style="max-width: 560px; margin: 0 auto;">
+    <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #3461FF; margin-bottom: 0.4rem;">Free weekly newsletter</p>
+    <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.2px;">Getting Bay Area per diem shifts on your radar?</h2>
+    <p style="font-size: 14px; color: #777; margin-bottom: 1.25rem; line-height: 1.6;">Join the Per Diem Roundup. Weekly Bay Area shifts, straight to your inbox. Free.</p>
+    <a href="newsletter.html" style="display:inline-block; background:#3461FF; color:#fff; padding:10px 24px; border-radius:7px; font-size:14px; font-weight:600; text-decoration:none;">Join the Per Diem Roundup →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="submit.html">Add Your Pay</a>
+    <a href="browse.html">Browse Pay</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+  <p class="footer-copy">© 2026 NursePay. Built by a nurse, for nurses.</p>
+</footer>
+
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger-btn');
+    if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>
