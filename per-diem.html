@@ -188,22 +188,10 @@
 
   <!-- FILTERS -->
   <div class="filter-bar">
-    <select id="f-hospital" onchange="render()">
-      <option value="">All hospitals</option>
-      <option>UCSF</option><option>Sutter</option><option>Kaiser</option>
-    </select>
-    <select id="f-role" onchange="render()">
-      <option value="">All roles</option>
-      <option>RN</option><option>APRN</option><option>LVN</option>
-    </select>
-    <select id="f-shift" onchange="render()">
-      <option value="">All shifts</option>
-      <option>Day</option><option>Noc</option><option>Variable</option>
-    </select>
-    <select id="f-city" onchange="render()">
-      <option value="">All cities</option>
-      <option>San Francisco</option><option>Oakland</option><option>Berkeley</option>
-    </select>
+    <select id="f-hospital" onchange="render()"><option value="">All hospitals</option></select>
+    <select id="f-role" onchange="render()"><option value="">All roles</option></select>
+    <select id="f-shift" onchange="render()"><option value="">All shifts</option></select>
+    <select id="f-city" onchange="render()"><option value="">All cities</option></select>
     <span class="count" id="count"></span>
   </div>
 
@@ -337,28 +325,37 @@ const CONTRACTS = {
   }
 };
 
-const JOBS = [
-  {hospital:'UCSF',role:'RN',rateKey:'RN',title:'Registered Nurse PD - Adult Infusion Center',city:'San Francisco',shift:'Day',length:'10',url:'https://careers.ucsf.edu'},
-  {hospital:'UCSF',role:'RN',rateKey:'RN',title:'Registered Nurse PD - Med-Surg (7East)',city:'San Francisco',shift:'Noc',length:'12',url:'https://careers.ucsf.edu'},
-  {hospital:'UCSF',role:'RN',rateKey:'RN',title:'Registered Nurse PD - NICU',city:'Oakland',shift:'Day',length:'12',url:'https://careers.ucsf.edu'},
-  {hospital:'UCSF',role:'RN',rateKey:'RN',title:'Registered Nurse PD - Telemetry',city:'San Francisco',shift:'Noc',length:'12',url:'https://careers.ucsf.edu'},
-  {hospital:'UCSF',role:'APRN',rateKey:'NP',title:'Nurse Practitioner PD - Pediatric Cardiac ICU',city:'San Francisco',shift:'Variable',length:'12',url:'https://careers.ucsf.edu'},
-  {hospital:'UCSF',role:'APRN',rateKey:'CRNA',title:'Nurse Anesthetist, Per Diem',city:'San Francisco',shift:'Day',length:'12',url:'https://careers.ucsf.edu'},
-  {hospital:'UCSF',role:'APRN',rateKey:'CRNASr',title:'Senior Nurse Anesthetist, Per Diem',city:'San Francisco',shift:'Day',length:'12',url:'https://careers.ucsf.edu'},
-  {hospital:'UCSF',role:'LVN',rateKey:null,title:'LVN Per Diem - Juvenile Justice System',city:'Oakland',shift:'Variable',length:'8',url:'https://careers.ucsf.edu'},
-  {hospital:'Sutter',role:'RN',rateKey:'RN',title:'Staff Nurse II, OR Circulator',city:'San Francisco',shift:'Day',length:'8-12',url:'https://jobs.sutterhealth.org'},
-  {hospital:'Sutter',role:'RN',rateKey:'RN',title:'Staff Nurse II, Transitional ICU',city:'San Francisco',shift:'Noc',length:'12',url:'https://jobs.sutterhealth.org'},
-  {hospital:'Sutter',role:'RN',rateKey:'RN',title:'Ambulatory Services Nurse II, Gastroenterology',city:'San Francisco',shift:'Day',length:'8',url:'https://jobs.sutterhealth.org'},
-  {hospital:'Sutter',role:'RN',rateKey:'RN',title:'Staff Nurse II, Surgery',city:'San Francisco',shift:'Day',length:'8-12',url:'https://jobs.sutterhealth.org'},
-  {hospital:'Sutter',role:'RN',rateKey:'RN',title:'Staff Nurse II, Pediatrics',city:'San Francisco',shift:'Variable',length:'8-12',url:'https://jobs.sutterhealth.org'},
-  {hospital:'Sutter',role:'APRN',rateKey:null,title:'Nurse Practitioner, ICU VNC Per Diem',city:'San Francisco',shift:'Day',length:'8-12',url:'https://jobs.sutterhealth.org'},
-  {hospital:'Sutter',role:'LVN',rateKey:null,title:'Licensed Vocational Nurse II, Hospice',city:'San Francisco',shift:'Day',length:'8',url:'https://jobs.sutterhealth.org'},
-  {hospital:'Kaiser',role:'RN',rateKey:'StaffNurseII',title:'Staff Nurse II Short Hour',city:'Oakland',shift:'Day',length:'12',url:'https://www.kaiserpermanentejobs.org'},
-  {hospital:'Kaiser',role:'APRN',rateKey:'NPII',title:'Certified Registered Nurse Anesthetist (CRNA)',city:'Oakland',shift:'Day',length:'',url:'https://www.kaiserpermanentejobs.org'},
-  {hospital:'Kaiser',role:'APRN',rateKey:'NPII',title:'Nurse Practitioner II SH - OB/Gyn',city:'Oakland',shift:'Day',length:'',url:'https://www.kaiserpermanentejobs.org'},
-];
-
+let JOBS = [];
 let active = null;
+
+// Fetch jobs from jobs.json
+fetch('jobs.json')
+  .then(r => r.json())
+  .then(data => {
+    JOBS = data;
+    populateFilters();
+    render();
+  })
+  .catch(() => {
+    document.getElementById('job-list').innerHTML = '<div class="no-results">Unable to load jobs. Please try again later.</div>';
+  });
+
+function populateFilters() {
+  const hospitals = [...new Set(JOBS.map(j => j.hospital).filter(Boolean))].sort();
+  const roles     = [...new Set(JOBS.map(j => j.role).filter(Boolean))].sort();
+  const shifts    = [...new Set(JOBS.map(j => j.shift).filter(Boolean))].sort();
+  const cities    = [...new Set(JOBS.map(j => j.city).filter(Boolean))].sort();
+
+  const fh = document.getElementById('f-hospital');
+  const fr = document.getElementById('f-role');
+  const fs = document.getElementById('f-shift');
+  const fc = document.getElementById('f-city');
+
+  hospitals.forEach(h => { const o = document.createElement('option'); o.value = o.text = h; fh.appendChild(o); });
+  roles.forEach(r     => { const o = document.createElement('option'); o.value = o.text = r; fr.appendChild(o); });
+  shifts.forEach(s    => { const o = document.createElement('option'); o.value = o.text = s; fs.appendChild(o); });
+  cities.forEach(c    => { const o = document.createElement('option'); o.value = o.text = c; fc.appendChild(o); });
+}
 function getC(j){ return CONTRACTS[j.hospital]; }
 function getR(j){ return j.rateKey ? CONTRACTS[j.hospital]?.roles[j.rateKey] : null; }
 function hlCol(s){ return s==='Noc'?'noc':s==='Eve'?'eve':'base'; }
@@ -478,7 +475,6 @@ document.addEventListener('click', function(e) {
   }
 });
 
-render();
 </script>
 </body>
 </html>
