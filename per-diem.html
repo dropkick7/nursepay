@@ -134,6 +134,9 @@
     .diff-note { font-size: 11px; color: var(--text-muted); margin-top: 10px; line-height: 1.6; }
     .disclaimer { margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-muted); }
     .disclaimer a { color: var(--text-muted); text-decoration: underline; }
+    .sutter-warning { display: flex; gap: 8px; align-items: flex-start; background: #FFFBEB; border-bottom: 1px solid #FDE68A; padding: 10px 16px; font-size: 11px; color: #92400E; line-height: 1.55; }
+    .sutter-warning .icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+    .p3-head-note { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
 
     /* FAQ ACCORDION */
     .faq-section { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); }
@@ -275,6 +278,11 @@
     </div>
 
     <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Why does some of the posted pay look different from the contract rates in the dropdown? <i class="ti ti-chevron-down faq-icon"></i></button>
+      <div class="faq-a">You'll notice this on Sutter listings. Sutter posts a deliberately broad pay range that buries the actual number. The contract rates in the dropdown are the real per diem rates from the Alta Bates CNA agreement — what you'd actually earn. I don't have every Sutter contract yet, so use it as a reference.</div>
+    </div>
+
+    <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Why does clicking Apply show "This job is inactive"? <i class="ti ti-chevron-down faq-icon"></i></button>
       <div class="faq-a">Per diem positions move fast. Sometimes they are posted for only a few hours. Want an email with the new weekly list? <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:var(--blue);text-decoration:underline;">Sign up above.</a></div>
     </div>
@@ -394,11 +402,17 @@ function detailHTML(j) {
   const disclaimer = r.flat ? '' : `<div class="disclaimer">Steps are not standardized across hospitals. <a href="#faq">More info</a></div>`;
   const diffNote = r.diffNote ? `<div class="diff-note">${r.diffNote}</div>` : '';
 
+  const sutterWarning = j.hospital === 'Sutter' ? `
+    <div class="sutter-warning">
+      <span class="icon">⚠️</span>
+      <span>The above advertised pay is from the actual job listing. Contract rates below are from Alta Bates (Oakland) — the only Sutter contract we have. For non-Oakland Sutter hospitals, use as a reference.</span>
+    </div>` : '';
+
   return `
+    ${sutterWarning}
     <div class="p3-head">
       <div class="p3-head-title">${r.panelTitle}</div>
       <div class="p3-head-source">Source: ${r.source}</div>
-      ${r.sourceNote ? `<div class="p3-head-note">${r.sourceNote}</div>` : ''}
     </div>
     <div class="p3-body">
       ${r.flat?'<div class="rate-note">Single flat rate. No step progression.</div>':''}
