@@ -216,7 +216,7 @@
 <div class="main">
 
   <div class="filter-bar">
-    <select id="f-hospital" onchange="render()"><option value="">All hospitals</option></select>
+    <select id="f-hospital" onchange="trackFilter('hospital', this.value); render()"><option value="">All hospitals</option></select>
     <select id="f-role" onchange="render()"><option value="">All roles</option></select>
     <select id="f-shift" onchange="render()"><option value="">All shifts</option></select>
     <select id="f-city" onchange="render()"><option value="">All cities</option></select>
