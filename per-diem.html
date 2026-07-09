@@ -436,7 +436,7 @@ function render() {
         <div>
           <div class="title-text">${j.title}</div>
           <div class="meta-grey">
-            <span class="pd-tag">Per Diem</span><span class="meta-sep">·</span>${j.role}<span class="meta-sep">·</span>${shiftLabel(j.shift)}${len}<span class="meta-sep">·</span>${j.city}<span class="meta-sep">·</span>${j.hospital}<span class="meta-sep">·</span><a class="apply-link" href="${j.url}" target="_blank" onclick="event.stopPropagation()">Apply <i class="ti ti-external-link" style="font-size:11px;"></i></a>
+            <span class="pd-tag">Per Diem</span><span class="meta-sep">·</span>${j.role}<span class="meta-sep">·</span>${shiftLabel(j.shift)}${len}<span class="meta-sep">·</span>${j.city}<span class="meta-sep">·</span>${j.hospital}<span class="meta-sep">·</span><a class="apply-link" href="${j.url}" target="_blank" onclick="event.stopPropagation(); gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' });">Apply <i class="ti ti-external-link" style="font-size:11px;"></i></a>
           </div>
         </div>
         <div class="pay-cell">
