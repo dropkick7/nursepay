@@ -408,7 +408,12 @@ function detailHTML(j) {
     </div>`;
 }
 
-function render() {
+function trackFilter(filterType, value) {
+  if (value) {
+    gtag('event', 'filter_select', { filter_type: filterType, filter_value: value });
+  }
+}
+  function render() {
   const fh=document.getElementById('f-hospital').value;
   const fr=document.getElementById('f-role').value;
   const fs=document.getElementById('f-shift').value;
