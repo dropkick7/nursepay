@@ -232,7 +232,7 @@
           <th data-col="position">Position<br>Shift</th>
           <th data-col="hourly_rate">Pay<br>$/hr</th>
           <th data-col="take_home">Est. take-home<br>after taxes &amp; rent</th>
-          <th data-col="submission_date">Submitted</th>
+          <th data-col="date">Submitted</th>
         </tr>
       </thead>
       <tbody id="table-body">
@@ -414,7 +414,7 @@ function calcPD(pocket) {
   return {extra, net: extra - BA_FLIGHTS, newPocket: pocket + extra - BA_FLIGHTS};
 }
 
-let allData = [], sortCol = 'submission_date', sortDir = 1, activeIdx = null, currentPage = 1;
+let allData = [], sortCol = 'date', sortDir = -1, activeIdx = null, currentPage = 1;
 const PAGE_SIZE = 25;
 
 function populateFilters(data) {
@@ -512,7 +512,7 @@ function renderTable() {
   function getVal(d, col) {
     if (col === 'take_home') { const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default||27)); return d.rent_2br ? afterTax - d.rent_2br : 0; }
     if (col === 'score') return calcScore(d, allData) || 0;
-    if (col === 'submission_date') {
+    if (col === 'date') {
       if (!d.submission_date) return 0;
       const s = d.submission_date.trim();
       // Normalize both formats to YYYYMMDD integer for consistent sorting
@@ -548,7 +548,7 @@ function renderTable() {
       <td><span>${d.position||'—'}</span><br><span style="font-size:11px;color:var(--text-muted)">${d.shift||'—'}</span></td>
       <td class="pay">${fmtHr(d.hourly_rate)}<span class="arrow">▼</span></td>
       <td style="color:#16A34A;font-weight:600;">${(() => { const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default||27)); return d.rent_2br ? fmt(afterTax - d.rent_2br)+'/mo' : '—'; })()}</td>
-      <td style="font-size:11px;color:var(--text-muted);">${d.submission_date ? d.submission_date.split('-').slice(1).concat(d.submission_date.split('-')[0]).join('/') : '—'}</td>
+      <td style="font-size:11px;color:var(--text-muted);">${d.date ? d.date.split('-').slice(1).concat(d.date.split('-')[0]).join('/') : '—'}</td>
     </tr>
     <tr class="detail-row" style="display:${activeIdx===i?'table-row':'none'}">
       <td class="detail-cell" colspan="7">${activeIdx===i?renderDetail(d,i):''}</td>
