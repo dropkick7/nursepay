@@ -523,7 +523,7 @@ function renderTable() {
     }
     return d[col];
   }
-  const filtered = getFiltered().sort((a,b) => { const av=getVal(a,sortCol), bv=getVal(b,sortCol); return av<bv?sortDir:av>bv?-sortDir:0; });
+  const filtered = getFiltered().sort((a,b) => { const av=getVal(a,sortCol), bv=getVal(b,sortCol); return av>bv?sortDir:av<bv?-sortDir:0; });
   const total = filtered.length;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   if (currentPage > totalPages) currentPage = totalPages;
