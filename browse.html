@@ -513,10 +513,12 @@ function renderTable() {
     if (col === 'take_home') { const {afterTax} = calcMonthly(d.hourly_rate, (getTax(d.state).default||27)); return d.rent_2br ? afterTax - d.rent_2br : 0; }
     if (col === 'score') return calcScore(d, allData) || 0;
     if (col === 'date') {
-      if (!d.submission_date) return 0;
-      const s = d.submission_date.trim();
-      // Normalize both formats to YYYYMMDD integer for consistent sorting
+      const raw = d.date || d.submission_date;
+      if (!raw) return 0;
+      const s = raw.trim();
+      // Handle MM/DD/YYYY → YYYYMMDD
       if (s.includes('/')) { const p = s.split('/'); return parseInt(p[2]+p[0].padStart(2,'0')+p[1].padStart(2,'0')); }
+      // Handle YYYY-MM-DD → YYYYMMDD
       return parseInt(s.replace(/-/g,''));
     }
     return d[col];
