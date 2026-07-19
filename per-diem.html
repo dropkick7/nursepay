@@ -64,7 +64,7 @@
     /* PAGE HEADER */
     .page-header { max-width: 680px; margin: 0 auto; padding: 2.5rem 2rem 2rem; text-align: center; border-bottom: 1px solid var(--border); }
     .updated-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; color: var(--green); background: var(--green-bg); padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
-    .updated-badge::before { content: '●'; font-size: 8px; }
+    .updated-badge::before { content: '?'; font-size: 8px; }
     .page-header h1 { font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: -0.4px; margin-bottom: 8px; line-height: 1.2; }
     .page-header p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 1.5rem; }
     .notify-note { font-size: 11.5px; color: var(--text-muted); margin-top: 0.5rem; }
@@ -222,7 +222,7 @@
     <span class="count" id="count"></span>
   </div>
 
-  <div class="updated-badge" style="margin-bottom:12px;">Updated July 2, 2026</div>
+  <div class="updated-badge" style="margin-bottom:12px;">Updated July 19, 2026</div>
   <div class="job-list" id="job-list"></div>
 
   <!-- FAQ -->
@@ -231,7 +231,7 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Where do these pay rates come from? <i class="ti ti-chevron-down faq-icon"></i></button>
-      <div class="faq-a">For Sutter Alta Bates, UCSF, and Kaiser the rates are from the actual contracts. Not HR. Not "market rate." I'm a Bay Area nurse and I got these directly from my nurse friend community. Now you have them too. Because you deserve some transparency, babe 😉</div>
+      <div class="faq-a">For Sutter Alta Bates, UCSF, and Kaiser the rates are from the actual contracts. Not HR. Not "market rate." I'm a Bay Area nurse and I got these directly from my nurse friend community. Now you have them too. Because you deserve some transparency, babe ?</div>
     </div>
 
     <div class="faq-item">
@@ -257,12 +257,12 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Why does some of the posted pay look different from the contract rates in the dropdown? <i class="ti ti-chevron-down faq-icon"></i></button>
-      <div class="faq-a">You'll notice this on Sutter listings. Sutter posts a deliberately broad pay range that buries the actual number. The contract rates in the dropdown are the real per diem rates from the Alta Bates CNA agreement — what you'd actually earn. I don't have every Sutter contract yet, so use it as a reference.</div>
+      <div class="faq-a">You'll notice this on Sutter listings. Sutter posts a deliberately broad pay range that buries the actual number. The contract rates in the dropdown are the real per diem rates from the Alta Bates CNA agreement ? what you'd actually earn. I don't have every Sutter contract yet, so use it as a reference.</div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Why does clicking Apply take me to an error page? <i class="ti ti-chevron-down faq-icon"></i></button>
-      <div class="faq-a">Looks like someone beat you to it 😅 Per diem positions move fast — check back soon for fresh listings, or <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:var(--blue);text-decoration:underline;">sign up for the weekly email alert</a> so you're first to know next time 👀</div>
+      <div class="faq-a">Looks like someone beat you to it ? Per diem positions move fast ? check back soon for fresh listings, or <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:var(--blue);text-decoration:underline;">sign up for the weekly email alert</a> so you're first to know next time ?</div>
     </div>
 
   </div>
@@ -278,7 +278,7 @@
     <a href="terms.html">Terms of Service</a>
     <a href="privacy.html">Privacy Policy</a>
   </div>
-  <p class="footer-copy">© 2026 NursePay. Built by a nurse, for nurses.</p>
+  <p class="footer-copy">? 2026 NursePay. Built by a nurse, for nurses.</p>
 </footer>
 
 <script>
@@ -368,7 +368,7 @@ function detailHTML(j) {
         ${se?`<td class="${cc('eve')}">$${isSutterFlat?(r.steps[0].h+eveVal).toFixed(2):(r.steps[0].h*(1+eveVal/100)).toFixed(2)}</td>`:''}
       </tr>`
     : r.steps.map(s=>{
-        const stepExp = r.hasExp ? `Step ${s.s} · ${s.exp}` : `Step ${s.s}`;
+        const stepExp = r.hasExp ? `Step ${s.s} ? ${s.exp}` : `Step ${s.s}`;
         return `<tr>
           <td class="col-step" style="color:#999;font-weight:500;">${stepExp}</td>
           <td class="${cc('base')}" style="font-weight:600;">$${s.h.toFixed(2)}</td>
@@ -382,8 +382,8 @@ function detailHTML(j) {
 
   const sutterWarning = j.hospital === 'Sutter' ? `
     <div class="sutter-warning">
-      <span class="icon">⚠️</span>
-      <span>The above advertised pay is from the actual job listing. Contract rates below are from Alta Bates (Oakland) — the only Sutter contract we have. For non-Oakland Sutter hospitals, use as a reference.</span>
+      <span class="icon">??</span>
+      <span>The above advertised pay is from the actual job listing. Contract rates below are from Alta Bates (Oakland) ? the only Sutter contract we have. For non-Oakland Sutter hospitals, use as a reference.</span>
     </div>` : '';
 
   return `
@@ -435,13 +435,13 @@ function trackFilter(filterType, value) {
     } else if (r) {
       rng = mn === mx ? `$${mn.toFixed(2)}/hr` : `$${mn.toFixed(2)} to $${mx.toFixed(2)}/hr`;
     }
-    const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">·</span>${j.length}hr` : '';
+    const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">?</span>${j.length}hr` : '';
     return `<div class="job-card">
       <div class="job-row" onclick="tog(${i})">
         <div>
           <div class="title-text">${j.title}</div>
           <div class="meta-grey">
-            <span class="pd-tag">Per Diem</span><span class="meta-sep">·</span>${j.role}<span class="meta-sep">·</span>${shiftLabel(j.shift)}${len}<span class="meta-sep">·</span>${j.city}<span class="meta-sep">·</span>${j.hospital}<span class="meta-sep">·</span><a class="apply-link" href="${j.url}" target="_blank" onclick="event.stopPropagation(); gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' });">Apply <i class="ti ti-external-link" style="font-size:11px;"></i></a>
+            <span class="pd-tag">Per Diem</span><span class="meta-sep">?</span>${j.role}<span class="meta-sep">?</span>${shiftLabel(j.shift)}${len}<span class="meta-sep">?</span>${j.city}<span class="meta-sep">?</span>${j.hospital}<span class="meta-sep">?</span><a class="apply-link" href="${j.url}" target="_blank" onclick="event.stopPropagation(); gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' });">Apply <i class="ti ti-external-link" style="font-size:11px;"></i></a>
           </div>
         </div>
         <div class="pay-cell">
