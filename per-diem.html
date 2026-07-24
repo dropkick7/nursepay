@@ -64,7 +64,7 @@
     /* PAGE HEADER */
     .page-header { max-width: 680px; margin: 0 auto; padding: 2.5rem 2rem 2rem; text-align: center; border-bottom: 1px solid var(--border); }
     .updated-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; color: var(--green); background: var(--green-bg); padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
-    .updated-badge::before { content: '?'; font-size: 8px; }
+    .updated-badge::before { content: '●'; font-size: 8px; }
     .page-header h1 { font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: -0.4px; margin-bottom: 8px; line-height: 1.2; }
     .page-header p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 1.5rem; }
     .notify-note { font-size: 11.5px; color: var(--text-muted); margin-top: 0.5rem; }
@@ -348,6 +348,7 @@ function populateFilters() {
 function getC(j){ return CONTRACTS[j.hospital]; }
 function getR(j){ return j.rateKey ? CONTRACTS[j.hospital]?.roles[j.rateKey] : null; }
 function hlCol(s){ return s==='Noc'?'noc':s==='Eve'?'eve':'base'; }
+function shiftIcon(s){ return s==='Day'?'☀️':s==='Noc'?'🌙':'🔄'; }
 function shiftLabel(s){ return s==='Day'?'Days':s==='Noc'?'Nights':'Variable'; }
 
 function detailHTML(j) {
@@ -435,13 +436,13 @@ function trackFilter(filterType, value) {
     } else if (r) {
       rng = mn === mx ? `$${mn.toFixed(2)}/hr` : `$${mn.toFixed(2)} to $${mx.toFixed(2)}/hr`;
     }
-    const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">?</span>${j.length}hr` : '';
+    const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">·</span>${j.length}hr` : '';
     return `<div class="job-card">
       <div class="job-row" onclick="tog(${i})">
         <div>
           <div class="title-text">${j.title}</div>
           <div class="meta-grey">
-            <span class="pd-tag">Per Diem</span><span class="meta-sep">?</span>${j.role}<span class="meta-sep">?</span>${shiftLabel(j.shift)}${len}<span class="meta-sep">?</span>${j.city}<span class="meta-sep">?</span>${j.hospital}<span class="meta-sep">?</span><a class="apply-link" href="${j.url}" target="_blank" onclick="event.stopPropagation(); gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' });">Apply <i class="ti ti-external-link" style="font-size:11px;"></i></a>
+            <span class="pd-tag">Per Diem</span><span class="meta-sep">·</span>${j.role}<span class="meta-sep">·</span>${shiftIcon(j.shift)} ${shiftLabel(j.shift)}${len}<span class="meta-sep">·</span>📍 ${j.city}<span class="meta-sep">·</span>${j.hospital}<span class="meta-sep">·</span><a class="apply-link" href="${j.url}" target="_blank" onclick="event.stopPropagation(); gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' });">Apply <i class="ti ti-external-link" style="font-size:11px;"></i></a>
           </div>
         </div>
         <div class="pay-cell">
