@@ -4,7 +4,7 @@
   <link rel="canonical" href="https://nursepay.co/per-diem.html">
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Highest Paying Per Diem Nurse Jobs in California</title>
+  <title>San Francisco Bay Area Per Diem Job Board | NursePay</title>
   <meta name="description" content="San Francisco Bay Area has the highest paying nursing jobs in California. New per diem positions at top three Bay Area hospital systems: UCSF, Sutter, and Kaiser. Updated weekly."/>
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -64,7 +64,7 @@
     /* PAGE HEADER */
     .page-header { max-width: 680px; margin: 0 auto; padding: 2.5rem 2rem 2rem; text-align: center; border-bottom: 1px solid var(--border); }
     .updated-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; color: var(--green); background: var(--green-bg); padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
-    .updated-badge::before { content: '?'; font-size: 8px; }
+    .updated-badge::before { content: '\25CF'; font-size: 8px; }
     .page-header h1 { font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: -0.4px; margin-bottom: 8px; line-height: 1.2; }
     .page-header p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 1.5rem; }
     .notify-note { font-size: 11.5px; color: var(--text-muted); margin-top: 0.5rem; }
@@ -205,8 +205,8 @@
 
 <!-- PAGE HEADER -->
 <div class="page-header">
-  <h1>San Francisco Bay Area Per Diem Jobs</h1>
-  <p>New per diem positions at UCSF, Sutter, and Kaiser. updated weekly. All in one place.</p>
+  <h1>San Francisco Bay Area Per Diem Job Board</h1>
+  <p>The highest-paying per diem shifts in the country are right here in the Bay Area. IYKYK. New jobs drop weekly.</p>
   <div class="ml-embedded" data-form="SgYTwA"></div>
   <p class="notify-note">Get notified when new jobs drop. Free. No spam.</p>
 </div>
@@ -262,7 +262,7 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Why does clicking Apply take me to an error page? <i class="ti ti-chevron-down faq-icon"></i></button>
-      <div class="faq-a">Looks like someone beat you to it ? Per diem positions move fast ? check back soon for fresh listings, or <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:var(--blue);text-decoration:underline;">sign up for the weekly email alert</a> so you're first to know next time ?</div>
+      <div class="faq-a">Looks like someone beat you to it ? Per diem positions move fast ? check back soon for fresh listings, or <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="color:var(--blue);text-decoration:underline;">sign up for the weekly email alert</a> so you're first to know next time.</div>
     </div>
 
   </div>
@@ -278,7 +278,7 @@
     <a href="terms.html">Terms of Service</a>
     <a href="privacy.html">Privacy Policy</a>
   </div>
-  <p class="footer-copy">? 2026 NursePay. Built by a nurse, for nurses.</p>
+  <p class="footer-copy">&copy; 2026 NursePay. Built by a nurse, for nurses.</p>
 </footer>
 
 <script>
@@ -348,7 +348,7 @@ function populateFilters() {
 function getC(j){ return CONTRACTS[j.hospital]; }
 function getR(j){ return j.rateKey ? CONTRACTS[j.hospital]?.roles[j.rateKey] : null; }
 function hlCol(s){ return s==='Noc'?'noc':s==='Eve'?'eve':'base'; }
-function shiftIcon(s){ return s==='Day'?'??':s==='Noc'?'?':'?'; }
+function shiftIcon(s){ if(s==="Day") return '<i class="ti ti-sun" style="font-size:11px;vertical-align:-1px;opacity:0.5;"></i>'; if(s==="Noc") return '<i class="ti ti-moon" style="font-size:11px;vertical-align:-1px;opacity:0.5;"></i>'; return '<i class="ti ti-arrows-exchange" style="font-size:11px;vertical-align:-1px;opacity:0.5;"></i>'; }
 function shiftLabel(s){ return s==='Day'?'Days':s==='Noc'?'Nights':'Variable'; }
 
 function detailHTML(j) {
@@ -436,13 +436,13 @@ function trackFilter(filterType, value) {
     } else if (r) {
       rng = mn === mx ? `$${mn.toFixed(2)}/hr` : `$${mn.toFixed(2)} to $${mx.toFixed(2)}/hr`;
     }
-    const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">?</span>${j.length}hr` : '';
+    const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">&middot;</span>${j.length}hr` : '';
     return `<div class="job-card">
       <div class="job-row" onclick="tog(${i})">
         <div>
           <div class="title-text">${j.title}</div>
           <div class="meta-grey">
-            <span class="pd-tag">Per Diem</span><span class="meta-sep">?</span>${j.role}<span class="meta-sep">?</span>${shiftIcon(j.shift)} ${shiftLabel(j.shift)}${len}<span class="meta-sep">?</span>? ${j.city}<span class="meta-sep">?</span>${j.hospital}<span class="meta-sep">?</span><a class="apply-link" href="${j.url}" target="_blank" onclick="event.stopPropagation(); gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' });">Apply <i class="ti ti-external-link" style="font-size:11px;"></i></a>
+            <span class="pd-tag">Per Diem</span><span class="meta-sep">&middot;</span>${j.role}<span class="meta-sep">&middot;</span>${shiftIcon(j.shift)} ${shiftLabel(j.shift)}${len}<span class="meta-sep">&middot;</span><i class="ti ti-map-pin" style="font-size:11px;vertical-align:-1px;opacity:0.5;"></i> ${j.city}<span class="meta-sep">&middot;</span>${j.hospital}<span class="meta-sep">&middot;</span><a class="apply-link" href="${j.url}" target="_blank" onclick="event.stopPropagation(); gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' });">Apply <i class="ti ti-external-link" style="font-size:11px;"></i></a>
           </div>
         </div>
         <div class="pay-cell">
