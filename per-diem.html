@@ -106,6 +106,8 @@
     .pay-val { font-weight: 700; color: var(--green); font-size: 14px; }
     .pay-chevron { font-size: 16px; color: var(--green); transition: transform 0.2s; }
     .pay-chevron.open { transform: rotate(180deg); }
+    .pay-rate-link { text-decoration: none; }
+    .pay-rate-link:hover .pay-val { color: var(--blue); text-decoration: underline; }
 
     /* DETAIL PANEL */
     .detail-panel { display: none; border-top: 1px solid #C5D0FF; }
@@ -461,8 +463,7 @@ function trackFilter(filterType, value) {
           </div>
         </div>
         <div class="pay-cell">
-          ${rng ? `<a href="#rates" onclick="event.stopPropagation();" style="text-decoration:none;"><span class="pay-val">${rng}</span></a>` : ''}
-          <i class="ti ti-external-link" style="font-size:14px; color:var(--text-muted); margin-left:6px;"></i>
+          ${rng ? `<a href="#rates" onclick="event.stopPropagation();" class="pay-rate-link"><span class="pay-val">${rng}</span></a>` : ''}
         </div>
       </div>
     </div>`;
