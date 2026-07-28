@@ -226,7 +226,7 @@
 
   <!-- FAQ -->
   <div class="faq-section" id="faq">
-    <h2>About these rates</h2>
+    <h2 id="rates">About these rates</h2>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Where do these pay rates come from? <i class="ti ti-chevron-down faq-icon"></i></button>
@@ -334,7 +334,13 @@ let active = null;
 
 fetch('jobs.json')
   .then(r => r.json())
-  .then(data => { JOBS = data; populateFilters(); render(); })
+  .then(data => { 
+    JOBS = data.sort((a,b) => {
+      const order = {RN:0, LVN:1, APRN:2};
+      return (order[a.role] ?? 3) - (order[b.role] ?? 3);
+    });
+    populateFilters(); render(); 
+  })
   .catch(() => {
     document.getElementById('job-list').innerHTML = '<div class="no-results">Unable to load jobs. Please try again later.</div>';
   });
@@ -446,21 +452,20 @@ function trackFilter(filterType, value) {
       rng = mn === mx ? `$${mn.toFixed(2)}/hr` : `$${mn.toFixed(2)} to $${mx.toFixed(2)}/hr`;
     }
     const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">&middot;</span>${j.length}hr` : '';
-    return `<div class="job-card">
-      <div class="job-row" onclick="tog(${i})">
+    return `<a class="job-card" href="${j.url}" target="_blank" onclick="gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' });" style="display:block; text-decoration:none; color:inherit;">
+      <div class="job-row">
         <div>
           <div class="title-text">${j.title}</div>
           <div class="meta-grey">
-            <span class="pd-tag">Per Diem</span><span class="meta-sep">&middot;</span>${j.role}<span class="meta-sep">&middot;</span>${shiftIcon(j.shift)} ${shiftLabel(j.shift)}${len}<span class="meta-sep">&middot;</span><i class="ti ti-map-pin" style="font-size:11px;vertical-align:-1px;opacity:0.5;"></i> ${j.city}<span class="meta-sep">&middot;</span>${j.hospital}<span class="meta-sep">&middot;</span><a class="apply-link" href="${j.url}" target="_blank" onclick="event.stopPropagation(); gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' });">Apply <i class="ti ti-external-link" style="font-size:11px;"></i></a>
+            <span class="pd-tag">Per Diem</span><span class="meta-sep">&middot;</span>${j.role}<span class="meta-sep">&middot;</span>${shiftIcon(j.shift)} ${shiftLabel(j.shift)}${len}<span class="meta-sep">&middot;</span><i class="ti ti-map-pin" style="font-size:11px;vertical-align:-1px;opacity:0.5;"></i> ${j.city}<span class="meta-sep">&middot;</span>${j.hospital}
           </div>
         </div>
         <div class="pay-cell">
-          ${rng ? `<span class="pay-val">${rng}</span>` : ''}
-          <i class="ti ti-chevron-down pay-chevron" id="arr-${i}"></i>
+          ${rng ? `<a href="#rates" onclick="event.stopPropagation();" style="text-decoration:none;"><span class="pay-val">${rng}</span></a>` : ''}
+          <i class="ti ti-external-link" style="font-size:14px; color:var(--text-muted); margin-left:6px;"></i>
         </div>
       </div>
-      <div class="detail-panel" id="dp-${i}">${detailHTML(j)}</div>
-    </div>`;
+    </a>`;
   }).join('');
 }
 
