@@ -452,7 +452,7 @@ function trackFilter(filterType, value) {
       rng = mn === mx ? `$${mn.toFixed(2)}/hr` : `$${mn.toFixed(2)} to $${mx.toFixed(2)}/hr`;
     }
     const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">&middot;</span>${j.length}hr` : '';
-    return `<a class="job-card" href="${j.url}" target="_blank" onclick="gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' });" style="display:block; text-decoration:none; color:inherit;">
+    return `<div class="job-card" onclick="gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' }); window.open('${j.url}', '_blank');" style="cursor:pointer;">
       <div class="job-row">
         <div>
           <div class="title-text">${j.title}</div>
@@ -465,7 +465,7 @@ function trackFilter(filterType, value) {
           <i class="ti ti-external-link" style="font-size:14px; color:var(--text-muted); margin-left:6px;"></i>
         </div>
       </div>
-    </a>`;
+    </div>`;
   }).join('');
 }
 
