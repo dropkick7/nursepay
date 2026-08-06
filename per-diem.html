@@ -57,17 +57,23 @@
     @media (max-width: 700px) { .hamburger { display: flex; } .nav-links { display: none; } }
 
     /* HERO */
-    .hero-photo { width: 100%; height: 280px; background: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1400&auto=format&fit=crop&q=80') center center / cover no-repeat; position: relative; }
-    .hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.45)); }
-    @media (max-width: 600px) { .hero-photo { height: 180px; } }
+    .hero-photo { width: 100%; height: 300px; background: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1400&auto=format&fit=crop&q=80') center center / cover no-repeat; position: relative; display: flex; align-items: center; justify-content: center; }
+    .hero-photo::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
+    .hero-text { position: relative; z-index: 1; padding: 0 2rem; text-align: center; }
+    .hero-text h1 { color: #fff; font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; letter-spacing: -0.4px; line-height: 1.2; margin-bottom: 0.6rem; }
+    .hero-text p { color: rgba(255,255,255,0.85); font-size: 14px; line-height: 1.6; max-width: 520px; margin: 0 auto; }
+    @media (max-width: 600px) { .hero-photo { height: 220px; } .hero-text h1 { font-size: 1.4rem; } }
 
     /* PAGE HEADER */
-    .page-header { max-width: 680px; margin: 0 auto; padding: 2.5rem 2rem 2rem; text-align: center; border-bottom: 1px solid var(--border); }
+    .page-header { max-width: 860px; margin: 0 auto; padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+    .signup-row { display: flex; align-items: center; gap: 1.5rem; }
+    .signup-text { font-size: 13px; color: var(--text-muted); white-space: nowrap; flex-shrink: 0; }
+    .signup-row .ml-embedded { flex: 1; }
+    @media (max-width: 600px) { .signup-row { flex-direction: column; gap: 0.5rem; text-align: center; } .signup-text { white-space: normal; } }
     .updated-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; color: var(--green); background: var(--green-bg); padding: 3px 10px; border-radius: 20px; margin-bottom: 12px; }
     .updated-badge::before { content: '\25CF'; font-size: 8px; }
     .page-header h1 { font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: -0.4px; margin-bottom: 8px; line-height: 1.2; }
     .page-header p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 1.5rem; }
-    .notify-note { font-size: 11.5px; color: var(--text-muted); margin-top: 0.5rem; }
 
     /* MAIN */
     .main { max-width: 860px; margin: 0 auto; padding: 28px 2rem 80px; }
@@ -203,13 +209,19 @@
 </div>
 
 <!-- HERO -->
-<div class="hero-photo"></div>
+<div class="hero-photo">
+  <div class="hero-text">
+    <h1>San Francisco Bay Area Per Diem Job Board</h1>
+    <p>The highest-paying per diem shifts in the country are right here in the Bay Area. IYKYK.</p>
+  </div>
+</div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
-  <h1>San Francisco Bay Area Per Diem Job Board</h1>
-  <p>The highest-paying per diem shifts in the country are right here in the Bay Area. IYKYK.</p>
-  <a href="#signup" style="font-size:12px; color:var(--blue); text-decoration:underline;">Get jobs delivered to your inbox. Free. No spam.</a>
+  <div class="signup-row">
+    <p class="signup-text">Get jobs delivered to your inbox. Once a week. Free. No spam.</p>
+    <div class="ml-embedded" data-form="SgYTwA"></div>
+  </div>
 </div>
 
 <!-- MAIN -->
