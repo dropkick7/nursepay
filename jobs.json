@@ -9,21 +9,8 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2331",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
-  },
-  {
-    "hospital": "UCSF",
-    "role": "APRN",
-    "title": "Nurse Anesthetist, Per Diem",
-    "city": "San Francisco",
-    "shift": "Day",
-    "length": "12",
-    "workStyle": "Onsite",
-    "pay": "",
-    "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/576",
-    "pulled": "2026-08-22T04:39:59.000Z",
-    "rateKey": "CRNA"
   },
   {
     "hospital": "UCSF",
@@ -35,7 +22,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/3293",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "NP"
   },
   {
@@ -48,7 +35,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/1131",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "NP"
   },
   {
@@ -61,7 +48,7 @@
     "workStyle": "Flexible",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2357",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "NP"
   },
   {
@@ -74,7 +61,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/3419",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -87,7 +74,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/3519",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -100,7 +87,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2476",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -113,7 +100,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/Burlingame-CA-United-States/3401",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -126,7 +113,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/Oakland-CA-United-States/2838",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -139,7 +126,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2793",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -152,7 +139,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2796",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -165,7 +152,20 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/Oakland-CA-United-States/2725",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "UCSF",
+    "role": "RN",
+    "title": "Registered Nurse PD - PACU (BCH-Oakland)",
+    "city": "Oakland",
+    "shift": "Variable",
+    "length": "8",
+    "workStyle": "Onsite",
+    "pay": "",
+    "url": "https://careers.ucsf.edu/careers/JobDetail/Oakland-CA-United-States/3901",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -178,7 +178,20 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/Oakland-CA-United-States/3359",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "UCSF",
+    "role": "RN",
+    "title": "Registered Nurse PD - Pediatric Perioperative Resource Team",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "Not specified",
+    "workStyle": "Onsite",
+    "pay": "",
+    "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/3903",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -191,7 +204,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/South-San-Francisco-CA-United-States/3591",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -204,7 +217,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2463",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -217,7 +230,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2711",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "RN"
   },
   {
@@ -230,21 +243,8 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2507",
-    "pulled": "2026-08-22T04:39:59.000Z",
+    "pulled": "2026-08-29T04:45:20.000Z",
     "rateKey": "CRNASr"
-  },
-  {
-    "hospital": "Sutter",
-    "role": "RN",
-    "title": "Staff Nurse II, Chemical Dependency MPI",
-    "city": "Oakland",
-    "shift": "Variable",
-    "length": "8",
-    "workStyle": "Onsite",
-    "pay": "$79.67 to $107.79/hr",
-    "url": "https://jobs.sutterhealth.org/us/en/job/R-131983/Staff-Nurse-II-Chemical-Dependency-MPI",
-    "pulled": "2026-08-22T11:02:53.000Z",
-    "rateKey": "RN"
   },
   {
     "hospital": "Sutter",
@@ -256,7 +256,7 @@
     "workStyle": "Onsite",
     "pay": "$81.26 to $109.95/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-131804/Staff-Nurse-II-Chemical-Dependency-MPI",
-    "pulled": "2026-08-22T11:02:53.000Z",
+    "pulled": "2026-08-29T11:03:23.000Z",
     "rateKey": "RN"
   },
   {
@@ -269,7 +269,7 @@
     "workStyle": "Onsite",
     "pay": "$90.93 to $127.29/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-122423/Clinical-Nurse-Educator",
-    "pulled": "2026-08-22T11:02:53.000Z",
+    "pulled": "2026-08-29T11:03:23.000Z",
     "rateKey": "RN"
   },
   {
@@ -282,7 +282,7 @@
     "workStyle": "Onsite",
     "pay": "$81.26 to $109.95/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-135666/Staff-Nurse-II-Nursery",
-    "pulled": "2026-08-22T11:02:53.000Z",
+    "pulled": "2026-08-29T11:03:23.000Z",
     "rateKey": "RN"
   },
   {
@@ -295,7 +295,7 @@
     "workStyle": "Onsite",
     "pay": "$84.50 to $114.34/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-136482/Staff-Nurse-II-Pediatric-Transport",
-    "pulled": "2026-08-22T11:02:53.000Z",
+    "pulled": "2026-08-29T11:03:23.000Z",
     "rateKey": "RN"
   },
   {
@@ -308,7 +308,7 @@
     "workStyle": "Onsite",
     "pay": "$98.38 to $142.64/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-134795/Nurse-Practitioner-ICU-Per-Diem-Mission-Bernal-Campus",
-    "pulled": "2026-08-22T11:02:53.000Z",
+    "pulled": "2026-08-29T11:03:23.000Z",
     "rateKey": null
   },
   {
@@ -321,7 +321,7 @@
     "workStyle": "Onsite",
     "pay": "$95.11 to $133.15/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-137204/Clinical-Nurse-Educator-III-NICU",
-    "pulled": "2026-08-22T11:02:53.000Z",
+    "pulled": "2026-08-29T11:03:23.000Z",
     "rateKey": "RN"
   },
   {
@@ -334,7 +334,7 @@
     "workStyle": "Onsite",
     "pay": "$83.66 to $113.22/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-136021/Staff-Nurse-II-Cardiac-Rehab-Services",
-    "pulled": "2026-08-22T11:02:53.000Z",
+    "pulled": "2026-08-29T11:03:23.000Z",
     "rateKey": "RN"
   },
   {
@@ -347,7 +347,7 @@
     "workStyle": "Onsite",
     "pay": "$81.26 to $109.95/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-136008/Staff-Nurse-II-Perioperative",
-    "pulled": "2026-08-22T11:02:53.000Z",
+    "pulled": "2026-08-29T11:03:23.000Z",
     "rateKey": "RN"
   },
   {
@@ -360,20 +360,7 @@
     "workStyle": "Onsite",
     "pay": "$80.52 to $108.95/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-127457/Staff-Nurse-II-Med-Surg",
-    "pulled": "2026-08-22T11:02:53.000Z",
-    "rateKey": "RN"
-  },
-  {
-    "hospital": "Sutter",
-    "role": "RN",
-    "title": "RN, Hospice, Per Diem, Nights & Evenings",
-    "city": "San Francisco",
-    "shift": "Variable",
-    "length": "8",
-    "workStyle": "Onsite",
-    "pay": "$71.18 to $99.65/hr",
-    "url": "https://jobs.sutterhealth.org/us/en/job/R-138897/RN-Hospice-Per-Diem-Nights-Evenings",
-    "pulled": "2026-08-22T11:02:53.000Z",
+    "pulled": "2026-08-29T11:03:23.000Z",
     "rateKey": "RN"
   }
 ]
