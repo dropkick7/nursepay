@@ -9,7 +9,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2331",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "RN"
   },
   {
@@ -22,7 +22,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/576",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "CRNA"
   },
   {
@@ -35,7 +35,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/3293",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "NP"
   },
   {
@@ -48,7 +48,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/4373",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "NP"
   },
   {
@@ -61,7 +61,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/1131",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "NP"
   },
   {
@@ -74,7 +74,33 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/3519",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "UCSF",
+    "role": "RN",
+    "title": "Per-Diem RN - Adult Internal Medicine (PD, Day)",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "12",
+    "workStyle": "Onsite",
+    "pay": "",
+    "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/4625",
+    "pulled": "2026-10-03T04:40:00.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "UCSF",
+    "role": "RN",
+    "title": "Per-Diem RN - Adult Internal Medicine (PD, Night)",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "12",
+    "workStyle": "Onsite",
+    "pay": "",
+    "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/4626",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "RN"
   },
   {
@@ -87,7 +113,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/Oakland-CA-United-States/4393",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "RN"
   },
   {
@@ -100,7 +126,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2476",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "RN"
   },
   {
@@ -113,7 +139,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/Burlingame-CA-United-States/3401",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "RN"
   },
   {
@@ -126,7 +152,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2796",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "RN"
   },
   {
@@ -139,20 +165,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/Oakland-CA-United-States/3901",
-    "pulled": "2026-09-26T04:40:02.000Z",
-    "rateKey": "RN"
-  },
-  {
-    "hospital": "UCSF",
-    "role": "RN",
-    "title": "Registered Nurse PD - PACU (BCH-Walnut Creek)",
-    "city": "Walnut Creek",
-    "shift": "Day",
-    "length": "8",
-    "workStyle": "Onsite",
-    "pay": "",
-    "url": "https://careers.ucsf.edu/careers/JobDetail/Walnut-Creek-CA-United-States/4279",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "RN"
   },
   {
@@ -165,7 +178,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/Oakland-CA-United-States/3359",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "RN"
   },
   {
@@ -178,7 +191,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/3903",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "RN"
   },
   {
@@ -191,7 +204,7 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2463",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "RN"
   },
   {
@@ -204,8 +217,21 @@
     "workStyle": "Onsite",
     "pay": "",
     "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/2507",
-    "pulled": "2026-09-26T04:40:02.000Z",
+    "pulled": "2026-10-03T04:40:00.000Z",
     "rateKey": "CRNASr"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, Operating Room Float Pool",
+    "city": "San Francisco",
+    "shift": "Variable",
+    "length": "10",
+    "workStyle": "Onsite",
+    "pay": "$84.50 to $114.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-135639/Staff-Nurse-II-Operating-Room-Float-Pool",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
   },
   {
     "hospital": "Sutter",
@@ -217,33 +243,46 @@
     "workStyle": "Onsite",
     "pay": "$84.50 to $114.34/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-140761/Staff-Nurse-II-Surgery",
-    "pulled": "2026-09-26T11:04:19.000Z",
+    "pulled": "2026-10-03T11:02:49.000Z",
     "rateKey": "RN"
   },
   {
     "hospital": "Sutter",
     "role": "RN",
-    "title": "Registered Nurse II, Oncology Per Diem",
-    "city": "San Mateo",
-    "shift": "Day",
+    "title": "Staff Nurse II, ASU/PACU",
+    "city": "San Francisco",
+    "shift": "Variable",
     "length": "8",
     "workStyle": "Onsite",
-    "pay": "$86.27 to $120.77/hr",
-    "url": "https://jobs.sutterhealth.org/us/en/job/R-140372/Registered-Nurse-II-Oncology-Per-Diem",
-    "pulled": "2026-09-26T11:04:19.000Z",
+    "pay": "$84.50 to $114.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-138990/Staff-Nurse-II-ASU-PACU",
+    "pulled": "2026-10-03T11:02:49.000Z",
     "rateKey": "RN"
   },
   {
     "hospital": "Sutter",
     "role": "RN",
-    "title": "Wound Clinic APC",
-    "city": "Burlingame",
-    "shift": "Day",
-    "length": "Not specified",
+    "title": "Staff Nurse II, Pediatrics",
+    "city": "San Francisco",
+    "shift": "Noc",
+    "length": "8",
     "workStyle": "Onsite",
-    "pay": "",
-    "url": "https://jobs.sutterhealth.org/us/en/job/R-141549/Wound-Clinic-APC",
-    "pulled": "2026-09-26T11:04:19.000Z",
+    "pay": "$84.50 to $114.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-140418/Staff-Nurse-II-Pediatrics",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, Infusion",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "10",
+    "workStyle": "Onsite",
+    "pay": "$84.50 to $114.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-140609/Staff-Nurse-II-Infusion",
+    "pulled": "2026-10-03T11:02:49.000Z",
     "rateKey": "RN"
   },
   {
@@ -251,38 +290,77 @@
     "role": "RN",
     "title": "Staff Nurse II, MSICU",
     "city": "San Francisco",
-    "shift": "Day",
+    "shift": "Noc",
     "length": "12",
     "workStyle": "Onsite",
     "pay": "$87.46 to $118.34/hr",
-    "url": "https://jobs.sutterhealth.org/us/en/job/R-140183/Staff-Nurse-II-MSICU",
-    "pulled": "2026-09-26T11:04:19.000Z",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-140179/Staff-Nurse-II-MSICU",
+    "pulled": "2026-10-03T11:02:49.000Z",
     "rateKey": "RN"
   },
   {
     "hospital": "Sutter",
     "role": "RN",
-    "title": "Staff Nurse II, Pediatric Transport",
+    "title": "Staff Nurse II, Emergency Services",
+    "city": "San Francisco",
+    "shift": "Noc",
+    "length": "12",
+    "workStyle": "Onsite",
+    "pay": "$87.46 to $118.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-141364/Staff-Nurse-II-Emergency-Services",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, Gastrointestinal",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "8",
+    "workStyle": "Onsite",
+    "pay": "$87.46 to $118.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-141174/Staff-Nurse-II-Gastrointestinal",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, Emergency Department",
     "city": "San Francisco",
     "shift": "Noc",
     "length": "12",
     "workStyle": "Onsite",
     "pay": "$84.50 to $114.34/hr",
-    "url": "https://jobs.sutterhealth.org/us/en/job/R-136482/Staff-Nurse-II-Pediatric-Transport",
-    "pulled": "2026-09-26T11:04:19.000Z",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-137988/Staff-Nurse-II-Emergency-Department",
+    "pulled": "2026-10-03T11:02:49.000Z",
     "rateKey": "RN"
   },
   {
     "hospital": "Sutter",
     "role": "RN",
-    "title": "Staff Nurse II, Cardiac Rehab Services",
-    "city": "San Mateo",
+    "title": "Staff Nurse II, Operating Room Float Pool",
+    "city": "San Francisco",
     "shift": "Variable",
-    "length": "8",
+    "length": "10",
     "workStyle": "Onsite",
-    "pay": "$83.66 to $113.22/hr",
-    "url": "https://jobs.sutterhealth.org/us/en/job/R-136021/Staff-Nurse-II-Cardiac-Rehab-Services",
-    "pulled": "2026-09-26T11:04:19.000Z",
+    "pay": "$84.50 to $114.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-135641/Staff-Nurse-II-Operating-Room-Float-Pool",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Clinical Nurse Educator III, Oncology and Med-Surg/Tele",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "Not specified",
+    "workStyle": "Onsite",
+    "pay": "",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-135869/Clinical-Nurse-Educator-III-Oncology-and-Med-Surg-Tele",
+    "pulled": "2026-10-03T11:02:49.000Z",
     "rateKey": "RN"
   },
   {
@@ -295,20 +373,124 @@
     "workStyle": "Onsite",
     "pay": "$98.38 to $142.64/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-134795/Nurse-Practitioner-ICU-Per-Diem-Mission-Bernal-Campus",
-    "pulled": "2026-09-26T11:04:19.000Z",
+    "pulled": "2026-10-03T11:02:49.000Z",
     "rateKey": null
   },
   {
     "hospital": "Sutter",
     "role": "RN",
-    "title": "Staff Nurse II, OR Circulator",
-    "city": "Novato",
+    "title": "Staff Nurse II, PICU",
+    "city": "San Francisco",
+    "shift": "Noc",
+    "length": "12",
+    "workStyle": "Onsite",
+    "pay": "$84.50 to $114.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-136488/Staff-Nurse-II-PICU",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, MSICU",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "8",
+    "workStyle": "Onsite",
+    "pay": "$84.50 to $114.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-136559/Staff-Nurse-II-MSICU",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, MSICU",
+    "city": "San Francisco",
+    "shift": "Eve",
+    "length": "8",
+    "workStyle": "Onsite",
+    "pay": "$84.50 to $114.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-136562/Staff-Nurse-II-MSICU",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, MSICU",
+    "city": "San Francisco",
+    "shift": "Noc",
+    "length": "8",
+    "workStyle": "Onsite",
+    "pay": "$84.50 to $114.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-136564/Staff-Nurse-II-MSICU",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Clinical Nurse Educator III, Interventional Services (IR, Cath Lab, EP, IES/GI)",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "Not specified",
+    "workStyle": "Onsite",
+    "pay": "",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-133196/Clinical-Nurse-Educator-III-Interventional-Services-IR-Cath-Lab-EP-IES-GI",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, MSICU",
+    "city": "San Francisco",
+    "shift": "Noc",
+    "length": "12",
+    "workStyle": "Onsite",
+    "pay": "$87.46 to $118.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-140184/Staff-Nurse-II-MSICU",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II - Emergency Department",
+    "city": "San Francisco",
     "shift": "Variable",
     "length": "12",
     "workStyle": "Onsite",
-    "pay": "$80.52 to $108.95/hr",
-    "url": "https://jobs.sutterhealth.org/us/en/job/R-138205/Staff-Nurse-II-OR-Circulator",
-    "pulled": "2026-09-26T11:04:19.000Z",
+    "pay": "$89.55 to $104.14/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-139962/Staff-Nurse-II-Emergency-Department",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, Emergency Services",
+    "city": "San Francisco",
+    "shift": "Noc",
+    "length": "12",
+    "workStyle": "Onsite",
+    "pay": "$84.50 to $114.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-139570/Staff-Nurse-II-Emergency-Services",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Clinical Nurse Educator III, Operating Room",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "Not specified",
+    "workStyle": "Onsite",
+    "pay": "",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-135397/Clinical-Nurse-Educator-III-Operating-Room",
+    "pulled": "2026-10-03T11:02:49.000Z",
     "rateKey": "RN"
   },
   {
@@ -321,20 +503,72 @@
     "workStyle": "Onsite",
     "pay": "$84.50 to $114.34/hr",
     "url": "https://jobs.sutterhealth.org/us/en/job/R-139429/Staff-Nurse-II-9-East-Oncology",
-    "pulled": "2026-09-26T11:04:19.000Z",
+    "pulled": "2026-10-03T11:02:49.000Z",
     "rateKey": "RN"
   },
   {
     "hospital": "Sutter",
-    "role": "APRN",
-    "title": "Neurosciences Nurse Practitioner (PER DIEM)",
-    "city": "Burlingame",
-    "shift": "Day",
-    "length": "8",
+    "role": "RN",
+    "title": "Staff Nurse II, Transitional Intensive Care Unit",
+    "city": "San Francisco",
+    "shift": "Noc",
+    "length": "12",
     "workStyle": "Onsite",
-    "pay": "$98.38 to $142.64/hr",
-    "url": "https://jobs.sutterhealth.org/us/en/job/R-140273/Neurosciences-Nurse-Practitioner-PER-DIEM",
-    "pulled": "2026-09-26T11:04:19.000Z",
-    "rateKey": null
+    "pay": "$84.50 to $114.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-139561/Staff-Nurse-II-Transitional-Intensive-Care-Unit",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, MSICU",
+    "city": "San Francisco",
+    "shift": "Noc",
+    "length": "12",
+    "workStyle": "Onsite",
+    "pay": "$87.46 to $118.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-140182/Staff-Nurse-II-MSICU",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, MSICU",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "12",
+    "workStyle": "Onsite",
+    "pay": "$87.46 to $118.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-140183/Staff-Nurse-II-MSICU",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, MSICU",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "12",
+    "workStyle": "Onsite",
+    "pay": "$87.46 to $118.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-140178/Staff-Nurse-II-MSICU",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
+  },
+  {
+    "hospital": "Sutter",
+    "role": "RN",
+    "title": "Staff Nurse II, MSICU",
+    "city": "San Francisco",
+    "shift": "Day",
+    "length": "12",
+    "workStyle": "Onsite",
+    "pay": "$87.46 to $118.34/hr",
+    "url": "https://jobs.sutterhealth.org/us/en/job/R-140180/Staff-Nurse-II-MSICU",
+    "pulled": "2026-10-03T11:02:49.000Z",
+    "rateKey": "RN"
   }
 ]
