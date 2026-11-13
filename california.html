@@ -172,12 +172,8 @@
 <section class="section" id="hospital-pay">
   <div class="section-label">Contract pay scales</div>
   <h2>RN pay table</h2>
-  <p class="sub">Hourly RN rates from each hospital's contract, staff or per diem. Hover a hospital to open its full pay table.</p>
+  <p class="sub">Hourly staff RN rates from each hospital's contract (Staff Nurse II scale). Hover a hospital to open its full pay table.</p>
   <div id="sample-banner" class="sample-banner" hidden>Sample numbers.</div>
-  <div class="chips">Rate type
-    <button class="chip on" id="rt-staff" type="button">Staff RN</button>
-    <button class="chip" id="rt-pd" type="button">Per diem</button>
-  </div>
   <div class="chips">Line up by
     <button class="chip on" id="m-step" type="button">Step</button>
     <button class="chip" id="m-yrs" type="button">Years, when the contract lists them</button>
@@ -245,7 +241,7 @@
 <section class="section" id="faq">
   <div class="section-label">FAQ</div>
   <h2>Common questions</h2>
-  <details><summary>Are these staff or per diem rates?</summary><p>You can switch between them above the table. Staff rates are what a staff RN earns per hour on the contract scale. Per diem rates are the contract's higher hourly rate for per diem nurses, about 25% above staff at all three hospitals. Staff is the default.</p></details>
+  <details><summary>Which nurse rates are these?</summary><p>Staff RN rates: the hourly rate on each contract's standard staff nurse scale (Staff Nurse II at Kaiser and Alta Bates, Nurse, Clinical II at UCSF). Per diem rates are higher and are on our <a href="per-diem.html" style="color:var(--teal);text-decoration:underline;">per diem jobs page</a>.</p></details>
   <details><summary>Which pays more, Kaiser, UCSF, or Alta Bates?</summary><p>Compare the pay table above step by step, or switch it to years where a contract lists experience. A step isn't the same number of years at every hospital, so check each contract's rules for moving up. Evening and night differentials are shown separately, and some are percentages while Alta Bates uses flat dollars.</p></details>
   <details><summary>How much more do evenings and nights pay?</summary><p>Each hospital's evening and night differential is listed in the pay table, and the calculator adds it to the rate for the step you pick.</p></details>
   <details><summary>Why only three hospitals?</summary><p>They're the contracts we've been able to get so far. We add a hospital when we have its real pay scale, and we don't estimate the rest.</p></details>
@@ -366,7 +362,7 @@ var _scrolled={};window.addEventListener('scroll',function(){['hospital-pay','ca
 
 function setMode(m){mode=m;cur=-1;lab.style.display='none';document.getElementById('m-step').className='chip'+(m==='step'?' on':'');document.getElementById('m-yrs').className='chip'+(m==='yrs'?' on':'');buildTable();}
 document.getElementById('m-step').onclick=function(){setMode('step');};
-document.getElementById('rt-staff').onclick=function(){setRT('staff');};document.getElementById('rt-pd').onclick=function(){setRT('pd');};
+
 document.getElementById('m-yrs').onclick=function(){setMode('yrs');};
 function colOn(i,on){t.querySelectorAll('[data-h="'+i+'"]').forEach(function(e){e.classList.toggle('ok',on);});}
 t.addEventListener('mouseover',function(e){var c=e.target.closest('[data-h]');if(!c)return;var i=+c.dataset.h;if(i===cur)return;if(cur>-1)colOn(cur,false);cur=i;colOn(i,true);
