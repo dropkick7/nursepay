@@ -85,7 +85,9 @@
     .detail { border: 1.5px solid var(--teal); border-radius: 10px; padding: 16px 18px; margin-top: 14px; background: #fff; }
     .detail h3 { font-size: 1.15rem; font-weight: 700; }
 
-    .calc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 10px; max-width: 520px; }
+    .calc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 10px; max-width: 720px; }
+    .calc-win { padding:.8rem 1rem; background:var(--teal-light); border-radius:10px; font-size:15px; color:var(--text); margin-bottom:.8rem; }
+    .win-tag { text-transform:none; font-size:11px; font-weight:600; background:var(--teal); color:#fff; border-radius:999px; padding:1px 7px; margin-left:4px; }
     #slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
     .slot { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: #fff; }
     .slot .top { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-muted); font-weight: 500; }
@@ -194,14 +196,14 @@
 <div class="soft">
 <section class="section" id="calculator">
   <div class="section-label">Calculator</div>
-  <h2>Compare pay at a glance</h2>
-  <p class="sub">Straight multiplication of the contract rate and the differential. Gross pay, before taxes. Add up to two more hospitals to compare.</p>
+  <h2>Which hospital pays the most for your job?</h2>
+  <p class="sub">Pick your shift, hours and step. We compare every hospital we have a contract for. Staff RN rates, straight pay with no overtime, gross before taxes.</p>
   <div class="calc-grid">
     <label class="f">Shift<select id="csh"><option value="d">Day</option><option value="e">Evening</option><option value="n">Night (NOC)</option></select></label>
-    <label class="f">Hours per week<input id="cw" type="number" min="1" max="60" step="1" value="36"></label>
+    <label class="f">Hours per week (24 to 60)<input id="cw" type="number" min="24" max="60" step="1" value="36"></label>
+    <label class="f">Step<select id="cstep"></select></label>
   </div>
-  <div id="slots"></div>
-  <div id="addwrap" style="margin-top:10px;"></div>
+  <p class="muted" style="font-size:12.5px;margin-top:8px;">A step isn't the same number of years at every hospital. Each column shows the experience that hospital lists for that step.</p>
   <div id="res" class="table-wrap" style="margin-top:14px;"></div>
 </section>
 </div>
@@ -355,9 +357,9 @@ document.addEventListener('click',function(e){
   else if(h==='submit.html'&&a.classList.contains('btn-primary'))gtag('event','cta_submit_pay',{page:'california'});
   else if(id==='m-step'||id==='m-yrs')gtag('event','line_up_by',{mode:id==='m-yrs'?'years':'step'});
   else if(id==='l-rn'||id==='l-all')gtag('event','map_license_filter',{filter:id==='l-all'?'all':'rn'});
-  else if(a.closest('#res')||a.closest('#addwrap'))gtag('event','calc_interact');
+  
 });
-['csh','cw'].forEach(function(i){var el=document.getElementById(i);if(el)el.addEventListener('change',function(){gtag('event','calc_change',{field:i});});});
+['csh','cw','cstep'].forEach(function(i){var el=document.getElementById(i);if(el)el.addEventListener('change',function(){gtag('event','calc_change',{field:i});});});
 var _scrolled={};window.addEventListener('scroll',function(){['hospital-pay','calculator','map-section','rent-section','faq'].forEach(function(id){var el=document.getElementById(id);if(!el||_scrolled[id])return;if(el.getBoundingClientRect().top<window.innerHeight*0.6){_scrolled[id]=1;gtag('event','section_view',{section:id});}});},{passive:true});
 
 function setMode(m){mode=m;cur=-1;lab.style.display='none';document.getElementById('m-step').className='chip'+(m==='step'?' on':'');document.getElementById('m-yrs').className='chip'+(m==='yrs'?' on':'');buildTable();}
@@ -399,36 +401,39 @@ function openDetail(i,scroll){
 
 /* ---------- calculator ---------- */
 var slots=[];
-function stepOpts(hi,sel){var x=H[hi],o='';x.steps.forEach(function(s,k){o+='<option value="'+k+'"'+(k===sel?' selected':'')+'>Step '+s.s+(s.l?' ('+esc(s.l)+')':'')+'</option>';});return o;}
 function slotUI(){
-  var g='';
-  slots.forEach(function(sl,k){
-    g+='<div class="slot"><div class="top"><span>'+(k===0?'Pay for':'Compare with')+'</span>'+(k>0?'<button class="chip" data-rm="'+k+'" type="button">Remove</button>':'')+'</div><label class="f">Hospital<select data-k="'+k+'" data-f="h">'+H.map(function(x,i){return '<option value="'+i+'"'+(i===sl.h?' selected':'')+'>'+esc(x.name)+'</option>';}).join('')+'</select></label><label class="f" style="margin-top:6px;">Step<select data-k="'+k+'" data-f="s">'+stepOpts(sl.h,sl.s)+'</select></label></div>';
-  });
-  document.getElementById('slots').innerHTML=g;
-  document.getElementById('addwrap').innerHTML=slots.length<3?'<button class="btn-outline" data-add="1" type="button">+ Add a hospital to compare</button>':'';
+  var el=document.getElementById('cstep'),keep=el.value||'5',mx=Math.max.apply(null,H.map(function(h){return h.steps.length;})),o='';
+  for(var i=1;i<=mx;i++)o+='<option value="'+i+'"'+(String(i)===keep?' selected':'')+'>Step '+i+'</option>';
+  el.innerHTML=o;
 }
 function calc(){
-  var sh=document.getElementById('csh').value,w0=+document.getElementById('cw').value||0,w=Math.min(60,Math.max(1,w0)),badW=(w0<1||w0>60);
-  var key=sh==='e'?'eve':(sh==='n'?'noc':null);
-  var cols=slots.map(function(sl){var x=H[sl.h],st=x.steps[sl.s],b=st.r,df=key?diffAmt(x,key,b):0,hr=b+df,yr=hr*w*52;return {n:x.name,c:x.color,step:st.s,b:b,df:df,hr:hr,yr:yr,mo:yr/12};});
-  var best=Math.max.apply(null,cols.map(function(c){return c.yr;}));
+  var sh=document.getElementById('csh').value,w0=+document.getElementById('cw').value||0,w=Math.min(60,Math.max(24,w0)),badW=(w0<24||w0>60);
+  var k=(+document.getElementById('cstep').value||5)-1,key=sh==='e'?'eve':(sh==='n'?'noc':null);
+  var cols=[];H.forEach(function(x){var st=x.steps[k];if(!st)return;var b=st.r,df=key?diffAmt(x,key,b):0,hr=b+df,yr=hr*w*52;cols.push({n:x.name,c:x.color,step:st.s,l:st.l,b:b,df:df,hr:hr,yr:yr,mo:yr/12});});
+  var skipped=H.filter(function(x){return !x.steps[k];}).map(function(x){return x.name;});
+  if(!cols.length){document.getElementById('res').innerHTML='<p class="muted">No hospital lists that step.</p>';return;}
+  var best=Math.max.apply(null,cols.map(function(c){return c.yr;})),worst=Math.min.apply(null,cols.map(function(c){return c.yr;}));
+  var win=cols.filter(function(c){return c.yr===best;})[0],low=cols.filter(function(c){return c.yr===worst;})[0];
+  var shn=sh==='e'?'evenings':(sh==='n'?'nights':'days');
+  var out=(badW?'<p class="muted" style="font-size:13px;margin:0 0 .6rem;">Hours per week should be between 24 and 60. Showing '+w+'.</p>':'');
+  out+='<div class="calc-win"><b>'+esc(win.n)+'</b> pays the most at step '+(k+1)+' on '+shn+', '+w+' hours a week: '+fm(win.yr)+' a year gross'+(cols.length>1?', '+fm(win.yr-low.yr)+' more than '+esc(low.n)+'.':'.')+'</div>';
   var h='<div class="scroll"><table><thead><tr><th></th>';
-  cols.forEach(function(c){h+='<th class="r"><span class="sq" style="background:'+c.c+';"></span>'+esc(c.n)+' <span style="text-transform:none;font-weight:400;">Step '+c.step+'</span></th>';});
+  cols.forEach(function(c){h+='<th class="r"><span class="sq" style="background:'+c.c+';"></span>'+esc(c.n)+(cols.length>1&&c.yr===best?' <span class="win-tag">Highest</span>':'')+'</th>';});
   h+='</tr></thead><tbody>';
-  function row(l,f,bold){h+='<tr><td>'+l+'</td>';cols.forEach(function(c){var hl=cols.length>1&&bold&&c.yr===best;h+='<td class="r mono'+(hl?' best':'')+'" style="'+(bold?'font-weight:500;':'')+'">'+(hl?'<span class="dot">●</span> ':'')+f(c)+'</td>';});h+='</tr>';}
+  function row(l,f,bold){h+='<tr><td>'+l+'</td>';cols.forEach(function(c){var hl=cols.length>1&&c.yr===best;h+='<td class="r mono'+(hl?' best':'')+'" style="'+(bold?'font-weight:500;':'')+'">'+f(c)+'</td>';});h+='</tr>';}
+  row('Experience listed for this step',function(c){return '<span style="font-family:Inter,sans-serif;font-size:12.5px;">'+(c.l?esc(c.l):'not listed')+'</span>';});
   row('Base hourly',function(c){return '$'+c.b.toFixed(2);});
   row(sh==='e'?'Evening differential':(sh==='n'?'Night (NOC) differential':'Differential'),function(c){return c.df?'+$'+c.df.toFixed(2):'none';});
   row('Hourly with differential',function(c){return '$'+c.hr.toFixed(2);});
   row('Monthly gross',function(c){return fm(c.mo);});
   row('Yearly gross',function(c){return fm(c.yr);},true);
-  if(cols.length>1){h+='<tr><td class="muted">Yearly vs '+esc(cols[0].n)+'</td>';cols.forEach(function(c,i){h+='<td class="r mono muted">'+(i===0?'—':sg(c.yr-cols[0].yr))+'</td>';});h+='</tr>';}
+  if(cols.length>1)row('Yearly vs highest',function(c){return c.yr===best?'—':sg(c.yr-best);});
   h+='</tbody></table></div>';
-  document.getElementById('res').innerHTML=(badW?'<p class="muted" style="font-size:13px;margin:0 0 .6rem;">Hours per week should be between 1 and 60. Showing '+w+'.</p>':'')+h;
+  if(skipped.length)h+='<p class="muted" style="font-size:12.5px;margin-top:8px;">'+esc(skipped.join(' and '))+(skipped.length>1?' don\'t':' doesn\'t')+' have a step '+(k+1)+'.</p>';
+  document.getElementById('res').innerHTML=out+h;
 }
-document.getElementById('slots').addEventListener('change',function(e){var k=e.target.dataset.k;if(k==null)return;k=+k;if(e.target.dataset.f==='h'){slots[k].h=+e.target.value;slots[k].s=Math.min(slots[k].s,H[slots[k].h].steps.length-1);slotUI();}else{slots[k].s=+e.target.value;}calc();});
-document.getElementById('slots').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(b){slots.splice(+b.dataset.rm,1);slotUI();calc();}});
-document.getElementById('addwrap').addEventListener('click',function(e){if(e.target.closest('[data-add]')){slots.push({h:slots.length%H.length,s:Math.min(4,H[slots.length%H.length].steps.length-1)});slotUI();calc();gtag('event','calc_compare_add');}});
+document.getElementById('csh').addEventListener('change',calc);document.getElementById('cstep').addEventListener('change',calc);
+document.getElementById('cw').addEventListener('input',calc);
 document.getElementById('csh').addEventListener('change',calc);document.getElementById('cw').addEventListener('input',calc);
 
 /* ---------- map ---------- */
@@ -528,7 +533,7 @@ Promise.all([fetch('contracts-ca.json').then(function(r){return r.json();}),fetc
   CONTRACTS=res[0];H=CONTRACTS.hospitals;H.forEach(resolveRates);H.forEach(addStaff);
   maxSteps=Math.max.apply(null,H.map(function(h){return h.steps.length;}));
   maxYears=Math.max.apply(null,H.map(function(h){return h.steps.reduce(function(m,s){return s.y!=null?Math.max(m,s.y):m;},0);}));
-  slots=[{h:0,s:Math.min(4,H[0].steps.length-1)}];
+  
   if(CONTRACTS.sample)document.getElementById('sample-banner').hidden=false;
   document.getElementById('chip-contracts').textContent=H.length;
   buildTable();origCards();slotUI();calc();
