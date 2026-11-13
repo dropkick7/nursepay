@@ -4,8 +4,8 @@
   <link rel="canonical" href="https://nursepay.co/california.html">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>California RN Pay by Hospital: Kaiser, UCSF &amp; Sutter Alta Bates Per Diem Pay Scales | NursePay</title>
-  <meta name="description" content="California RN pay by hospital. Compare Kaiser, UCSF, and Sutter Alta Bates per diem contract pay scales by step, see evening and night differentials, and browse real anonymous salary submissions from California nurses." />
+  <title>California RN Pay by Hospital: Kaiser, UCSF &amp; Sutter Alta Bates RN Pay Tables | NursePay</title>
+  <meta name="description" content="California RN pay by hospital. Compare Kaiser, UCSF, and Sutter Alta Bates RN contract pay tables by step, see evening and night differentials, and browse real anonymous salary submissions from California nurses." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
@@ -159,15 +159,9 @@
 </div>
 
 <section class="hero">
-  <svg class="hero-shapes" viewBox="0 0 150 150" aria-hidden="true">
-    <path d="M10 70a30 30 0 0 1 30-30v30z" fill="#CBD2DC"/><path d="M40 40a30 30 0 0 1 30 30H40z" fill="#F9E04B"/>
-    <path d="M85 10h55a55 55 0 0 1-55 55z" fill="#F9E04B"/>
-    <path d="M80 75l50 0-50 50z" fill="#3461FF"/><path d="M80 75l50 50H80z" fill="#8F9EFF"/>
-    <path d="M10 140a35 35 0 0 1 35-35v35z" fill="#F4B0CF"/><circle cx="76" cy="52" r="8" fill="#F9E04B"/>
-  </svg>
   <div class="section-label">California</div>
   <h1>California RN pay <span>by hospital.</span></h1>
-  <p>Per diem RN contract rates from Kaiser, UCSF, and Sutter Alta Bates, plus what California nurses report, city by city. Nothing estimated.</p>
+  <p>RN contract pay tables from three Bay Area hospitals: Kaiser, UCSF and Sutter Alta Bates. Plus real California pay submissions from nurses. Nothing estimated here.</p>
 </section>
 <div class="trust-bar">
   <span>✓ <b id="chip-contracts">3</b> contract pay scales</span>
@@ -177,9 +171,13 @@
 
 <section class="section" id="hospital-pay">
   <div class="section-label">Contract pay scales</div>
-  <h2>Per diem pay table</h2>
-  <p class="sub">Per diem RN hourly rates from each hospital's contract. Hover a hospital to open its full pay table.</p>
+  <h2>RN pay table</h2>
+  <p class="sub">Hourly RN rates from each hospital's contract, staff or per diem. Hover a hospital to open its full pay table.</p>
   <div id="sample-banner" class="sample-banner" hidden>Sample numbers.</div>
+  <div class="chips">Rate type
+    <button class="chip on" id="rt-staff" type="button">Staff RN</button>
+    <button class="chip" id="rt-pd" type="button">Per diem</button>
+  </div>
   <div class="chips">Line up by
     <button class="chip on" id="m-step" type="button">Step</button>
     <button class="chip" id="m-yrs" type="button">Years, when the contract lists them</button>
@@ -214,7 +212,7 @@
 
 <section class="section" id="map-section">
   <div class="section-label">Real submissions</div>
-  <h2>What nurses report, city by city</h2>
+  <h2>Real CA pay submissions by real nurses</h2>
   <p class="sub">Every California salary submission, on the map. Hover for a summary and click to see the submissions behind it. Squares are hospitals with contract data.</p>
   <div class="chips">Show
     <button class="chip on" id="l-rn" type="button">RNs</button>
@@ -247,7 +245,7 @@
 <section class="section" id="faq">
   <div class="section-label">FAQ</div>
   <h2>Common questions</h2>
-  <details><summary>Are these per diem or staff nurse rates?</summary><p>Per diem. Each rate comes from the hospital's per diem pay scale in its contract. Don't compare them directly to a staff nurse's hourly wage.</p></details>
+  <details><summary>Are these staff or per diem rates?</summary><p>You can switch between them above the table. Staff rates are what a staff RN earns per hour on the contract scale. Per diem rates are the contract's higher hourly rate for per diem nurses, about 25% above staff at all three hospitals. Staff is the default.</p></details>
   <details><summary>Which pays more, Kaiser, UCSF, or Alta Bates?</summary><p>Compare the pay table above step by step, or switch it to years where a contract lists experience. A step isn't the same number of years at every hospital, so check each contract's rules for moving up. Evening and night differentials are shown separately, and some are percentages while Alta Bates uses flat dollars.</p></details>
   <details><summary>How much more do evenings and nights pay?</summary><p>Each hospital's evening and night differential is listed in the pay table, and the calculator adds it to the rate for the step you pick.</p></details>
   <details><summary>Why only three hospitals?</summary><p>They're the contracts we've been able to get so far. We add a hospital when we have its real pay scale, and we don't estimate the rest.</p></details>
@@ -271,7 +269,6 @@
     <div class="footer-links">
       <a href="submit.html">Add Your Pay</a>
       <a href="browse.html">Browse Pay</a>
-      <a href="california.html">California Pay</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="terms.html">Terms of Service</a>
@@ -282,14 +279,24 @@
 </footer>
 
 <script>
-var CONTRACTS = null, H = [];
+var CONTRACTS = null, H = [], RT = 'staff';
+function addStaff(x){
+  x.steps_pd=x.steps;
+  if(x.staff_rates){var f2=x._f||1;x.steps_staff=x.steps_pd.map(function(s,i){return {s:s.s,y:s.y,l:s.l,r:Math.round(x.staff_rates[i]*f2*100)/100};});}
+  else if(x.staff_from_pd){x.steps_staff=x.steps_pd.map(function(s){return {s:s.s,y:s.y,l:s.l,r:Math.round(s.r/x.staff_from_pd*100)/100};});}
+  else x.steps_staff=x.steps_pd;
+  x.steps=x['steps_'+RT];
+}
+function setRT(rt){RT=rt;H.forEach(function(x){x.steps=x['steps_'+rt];});
+  document.getElementById('rt-staff').className='chip'+(rt==='staff'?' on':'');document.getElementById('rt-pd').className='chip'+(rt==='pd'?' on':'');
+  document.getElementById('detail').innerHTML='';buildTable();origCards();slotUI();calc();rent();gtag('event','rate_type',{type:rt});}
 function resolveRates(x){
   var now=new Date(),nx=null;
   if(x.schedule){var cur=null;x.schedule.forEach(function(e){if(new Date(e.date+'T00:00:00')<=now)cur=e;else if(!nx)nx=e;});
     cur=cur||x.schedule[0];x.steps=x.steps.map(function(s,i){return {s:s.s,y:s.y,l:s.l,r:cur.rates[i]};});x.effective=cur.label;
     if(nx){var i5=Math.min(4,x.steps.length-1);x.next_note='Next scheduled increase: '+nx.label+' (step '+(i5+1)+' goes to $'+nx.rates[i5].toFixed(2)+').';}}
   if(x.adjust){var f=1,app=[];x.adjust.forEach(function(a){if(new Date(a.date+'T00:00:00')<=now){f*=a.factor;app.push(a.label);}else if(!nx)nx=a;});
-    x.base_steps=x.steps;x.steps=x.steps.map(function(s){return {s:s.s,y:s.y,l:s.l,r:Math.round(s.r*f*100)/100};});
+    x._f=f;x.base_steps=x.steps;x.steps=x.steps.map(function(s){return {s:s.s,y:s.y,l:s.l,r:Math.round(s.r*f*100)/100};});
     x.effective=app.length?(x.base_label+' × '+(Math.round(f*10000)/10000)+' ('+app.join(' and ')+')'):x.base_label;
     if(nx)x.next_note='Next raise: '+nx.label+'.';}
 }
@@ -342,6 +349,7 @@ function buildTable(){
 }
 function setMode(m){mode=m;cur=-1;lab.style.display='none';document.getElementById('m-step').className='chip'+(m==='step'?' on':'');document.getElementById('m-yrs').className='chip'+(m==='yrs'?' on':'');buildTable();}
 document.getElementById('m-step').onclick=function(){setMode('step');};
+document.getElementById('rt-staff').onclick=function(){setRT('staff');};document.getElementById('rt-pd').onclick=function(){setRT('pd');};
 document.getElementById('m-yrs').onclick=function(){setMode('yrs');};
 function colOn(i,on){t.querySelectorAll('[data-h="'+i+'"]').forEach(function(e){e.classList.toggle('ok',on);});}
 t.addEventListener('mouseover',function(e){var c=e.target.closest('[data-h]');if(!c)return;var i=+c.dataset.h;if(i===cur)return;if(cur>-1)colOn(cur,false);cur=i;colOn(i,true);
@@ -357,7 +365,7 @@ function origCards(){
 function extraDiffs(x){return (x.diff&&x.diff.extra||[]).map(function(d){return '<tr><td colspan="2">'+esc(d.name)+'</td><td class="r mono">'+(d.t==='pct'?'+'+d.v+'%':'+$'+Number(d.v).toFixed(2))+'</td></tr>';}).join('');}
 function openDetail(i,scroll){
   var x=H[i],y=hasYears(x),rl=CONTRACTS.rate_label||'';
-  var d='<div class="detail" id="d-'+x.id+'"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;"><h3><span class="sq" style="background:'+x.color+';"></span>'+esc(x.name)+' RN '+esc(rl)+' pay table</h3><span class="mono muted" style="font-size:12px;">nursepay.co/california.html#'+x.id+'</span></div>';
+  var d='<div class="detail" id="d-'+x.id+'"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;"><h3><span class="sq" style="background:'+x.color+';"></span>'+esc(x.name)+' RN '+(RT==='pd'?'per diem ':'')+'pay table</h3><span class="mono muted" style="font-size:12px;">nursepay.co/california.html#'+x.id+'</span></div>';
   d+='<p class="muted" style="font-size:13px;margin:4px 0 10px;">'+esc(x.contract||'')+(x.campus?' ('+esc(x.campus)+')':'')+'. Effective '+esc(x.effective||'')+'. '+(x.source?'<a href="'+esc(x.source)+'" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline;">View original contract</a>':'')+'</p>';
   d+='<div class="table-wrap"><div class="scroll"><table><thead><tr><th>Step</th>'+(y?'<th>Experience</th>':'')+'<th class="r">Hourly</th><th class="r">Monthly gross at 36 hrs</th></tr></thead><tbody>';
   x.steps.forEach(function(s){d+='<tr><td>Step '+s.s+'</td>'+(y?'<td>'+esc(s.l||'—')+'</td>':'')+'<td class="r mono">$'+s.r.toFixed(2)+'</td><td class="r mono">'+fm(s.r*156)+'</td></tr>';});
@@ -365,6 +373,7 @@ function openDetail(i,scroll){
   d+='<tr><td colspan="'+cs+'" class="muted" style="font-size:12px;background:var(--bg-soft);">Differentials</td></tr><tr><td colspan="'+(cs-1)+'">Evening</td><td class="r mono">'+diffLabel(x,'eve')+'</td></tr><tr><td colspan="'+(cs-1)+'">Night (NOC)</td><td class="r mono">'+diffLabel(x,'noc')+'</td></tr>';
   d+=(x.diff&&x.diff.extra||[]).map(function(e){return '<tr><td colspan="'+(cs-1)+'">'+esc(e.name)+'</td><td class="r mono">'+(e.t==='pct'?'+'+e.v+'%':'+$'+Number(e.v).toFixed(2))+'</td></tr>';}).join('');
   d+='</tbody></table></div></div>';
+  if(RT==='staff'&&x.staff_note)d+='<p class="muted" style="font-size:12.5px;margin-top:8px;">'+esc(x.staff_note)+'</p>';
   if(x.next_note)d+='<p class="muted" style="font-size:12.5px;margin-top:8px;">'+esc(x.next_note)+'</p>';
   if(x.diff_note)d+='<p class="muted" style="font-size:12.5px;margin-top:8px;">'+esc(x.diff_note)+'</p>';
   if(x.increases){var inc=x.increases;d+='<div class="note" style="background:var(--teal-light);color:var(--text);"><b>Scheduled wage increases.</b> '+esc(inc.text||'')+(inc.url?' <a href="'+esc(inc.url)+'" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline;">Source'+(inc.label?': '+esc(inc.label):'')+'</a>':'')+'</div>';}
@@ -496,14 +505,14 @@ function rent(){
   var s='',any=false;
   H.forEach(function(x){var rr=by[x.city];if(!rr)return;any=true;var i=Math.min(4,x.steps.length-1),m=x.steps[i].r*156,rent=med(rr);s+='<div class="rc"><div style="font-weight:700;"><span class="sq" style="background:'+x.color+';"></span>'+esc(x.name)+'</div><div class="muted" style="font-size:12.5px;margin-top:6px;">Gross left after rent</div><div class="mono" style="font-size:20px;font-weight:500;">'+fm(m-rent)+'</div><div class="muted" style="font-size:12.5px;">Rent is '+Math.round(rent/m*100)+'% of gross · '+esc(x.city)+' 2BR '+fm(rent)+'</div></div>';});
   document.getElementById('rent').innerHTML=s;
-  document.getElementById('rent-sub').textContent=(CONTRACTS.sample?'SAMPLE contract numbers. ':'')+'Per diem rate at step 5, if you picked up 36 hours a week on days, against the median 2-bedroom rent in the hospital\'s city. Step 5 isn\'t the same number of years at every hospital.';
+  document.getElementById('rent-sub').textContent=(CONTRACTS.sample?'SAMPLE contract numbers. ':'')+(RT==='pd'?'Per diem rate':'Staff rate')+' at step 5, at 36 hours a week on days, against the median 2-bedroom rent in the hospital\'s city. Step 5 isn\'t the same number of years at every hospital.';
   document.getElementById('rent-src').textContent=any?'Monthly pay is before taxes. Rent source: Zillow Research'+(date?', as of '+date:'')+'.':'';
   if(!any)document.getElementById('rent-section').style.display='none';
 }
 
 /* ---------- init ---------- */
 Promise.all([fetch('contracts-ca.json').then(function(r){return r.json();}),fetch('nurses.json').then(function(r){return r.json();})]).then(function(res){
-  CONTRACTS=res[0];H=CONTRACTS.hospitals;H.forEach(resolveRates);
+  CONTRACTS=res[0];H=CONTRACTS.hospitals;H.forEach(resolveRates);H.forEach(addStaff);
   maxSteps=Math.max.apply(null,H.map(function(h){return h.steps.length;}));
   maxYears=Math.max.apply(null,H.map(function(h){return h.steps.reduce(function(m,s){return s.y!=null?Math.max(m,s.y):m;},0);}));
   slots=[{h:0,s:Math.min(4,H[0].steps.length-1)}];

@@ -1,6 +1,6 @@
 {
  "sample": false,
- "rate_label": "per diem",
+ "rate_label": "",
  "updated": "2026-11",
  "_readme": "One entry per hospital. steps: s=step number, y=years of experience as a number IF the contract lists it (else null), l=the contract's own experience label, r=hourly rate. diff.eve / diff.noc: t is 'pct' (percent of the step rate) or 'flat' (dollars per hour); v is the amount. diff.extra lists other differentials. increases: scheduled wage increases, {label,text,url} or null.",
  "hospitals": [
@@ -13,7 +13,7 @@
    "lat": 37.826,
    "lon": -122.259,
    "effective": "January 2026 (5.25% increase)",
-   "contract": "Kaiser CNA Appendix A, Staff Nurse II SH",
+   "contract": "Kaiser CNA Appendix A, Staff Nurse II",
    "source": "contracts/kaiser-appendix-a-2026.jpg",
    "increases": null,
    "steps": [
@@ -117,7 +117,21 @@
      }
     ]
    },
-   "diff_note": "Evening and night are flat dollar amounts, set in Appendix A as 11% and 17.5% of the Staff Nurse II step 1 rate."
+   "diff_note": "Evening and night are flat dollar amounts, set in Appendix A as 11% and 17.5% of the Staff Nurse II step 1 rate.",
+   "staff_rates": [
+    89.7516,
+    94.2396,
+    98.9511,
+    102.4993,
+    105.0366,
+    106.6123,
+    108.7666,
+    111.4672,
+    113.6967,
+    115.9702,
+    119.4493,
+    123.0328
+   ]
   },
   {
    "id": "ucsf",
@@ -247,6 +261,19 @@
      "factor": 1.04,
      "label": "Jan 1, 2029 raise of 4.0%"
     }
+   ],
+   "staff_rates": [
+    89.02,
+    92.25,
+    95.55,
+    98.98,
+    102.55,
+    104.59,
+    106.68,
+    108.83,
+    110.97,
+    113.07,
+    115.34
    ]
   },
   {
@@ -258,7 +285,7 @@
    "lat": 37.8553,
    "lon": -122.2579,
    "effective": "July 2026",
-   "contract": "CNA Agreement (ABMC / SMT), Nurse-Staff II Per Diem",
+   "contract": "CNA Agreement (ABMC / SMT), Nurse-Staff II",
    "source": "contracts/alta-bates-per-diem-wage-table.jpg",
    "increases": null,
    "steps": [
@@ -393,7 +420,9 @@
       147.23
      ]
     }
-   ]
+   ],
+   "staff_from_pd": 1.25,
+   "staff_note": "Staff rates here are the contract's per diem rates divided by 1.25, because the contract table lists a 25.00% per diem premium. We don't have the printed staff table yet."
   }
  ]
 }
