@@ -409,7 +409,7 @@ function slotUI(){
   document.getElementById('addwrap').innerHTML=slots.length<3?'<button class="btn-outline" data-add="1" type="button">+ Add a hospital to compare</button>':'';
 }
 function calc(){
-  var sh=document.getElementById('csh').value,w=Math.max(0,+document.getElementById('cw').value||0);
+  var sh=document.getElementById('csh').value,w0=+document.getElementById('cw').value||0,w=Math.min(60,Math.max(1,w0)),badW=(w0<1||w0>60);
   var key=sh==='e'?'eve':(sh==='n'?'noc':null);
   var cols=slots.map(function(sl){var x=H[sl.h],st=x.steps[sl.s],b=st.r,df=key?diffAmt(x,key,b):0,hr=b+df,yr=hr*w*52;return {n:x.name,c:x.color,step:st.s,b:b,df:df,hr:hr,yr:yr,mo:yr/12};});
   var best=Math.max.apply(null,cols.map(function(c){return c.yr;}));
@@ -424,7 +424,7 @@ function calc(){
   row('Yearly gross',function(c){return fm(c.yr);},true);
   if(cols.length>1){h+='<tr><td class="muted">Yearly vs '+esc(cols[0].n)+'</td>';cols.forEach(function(c,i){h+='<td class="r mono muted">'+(i===0?'—':sg(c.yr-cols[0].yr))+'</td>';});h+='</tr>';}
   h+='</tbody></table></div>';
-  document.getElementById('res').innerHTML=h;
+  document.getElementById('res').innerHTML=(badW?'<p class="muted" style="font-size:13px;margin:0 0 .6rem;">Hours per week should be between 1 and 60. Showing '+w+'.</p>':'')+h;
 }
 document.getElementById('slots').addEventListener('change',function(e){var k=e.target.dataset.k;if(k==null)return;k=+k;if(e.target.dataset.f==='h'){slots[k].h=+e.target.value;slots[k].s=Math.min(slots[k].s,H[slots[k].h].steps.length-1);slotUI();}else{slots[k].s=+e.target.value;}calc();});
 document.getElementById('slots').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(b){slots.splice(+b.dataset.rm,1);slotUI();calc();}});
