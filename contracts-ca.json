@@ -421,8 +421,60 @@
      ]
     }
    ],
-   "staff_from_pd": 1.25,
-   "staff_note": "Staff rates here are the contract's per diem rates divided by 1.25, because the contract table lists a 25.00% per diem premium. We don't have the printed staff table yet."
+   "staff_schedule": [
+    {
+     "date": "2026-07-12",
+     "label": "July 12, 2026",
+     "rates": [
+      81.26,
+      84.3,
+      87.45,
+      90.74,
+      94.14,
+      97.67,
+      100.11,
+      102.61,
+      105.18,
+      107.8,
+      109.95
+     ]
+    },
+    {
+     "date": "2026-11-15",
+     "label": "November 15, 2026",
+     "rates": [
+      84.11,
+      87.25,
+      90.51,
+      93.92,
+      97.44,
+      101.09,
+      103.61,
+      106.2,
+      108.86,
+      111.57,
+      113.8
+     ]
+    },
+    {
+     "date": "2027-05-16",
+     "label": "May 16, 2027",
+     "rates": [
+      87.05,
+      90.3,
+      93.68,
+      97.21,
+      100.85,
+      104.63,
+      107.24,
+      109.92,
+      112.67,
+      115.47,
+      117.78
+     ]
+    }
+   ],
+   "source_staff": "contracts/alta-bates-staff-wage-table.jpg"
   }
  ]
 }

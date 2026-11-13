@@ -145,7 +145,6 @@
   </a>
   <ul class="nav-links">
     <li><a href="browse.html">Browse Pay</a></li>
-    <li><a href="california.html" style="color:var(--teal)">California Pay</a></li>
     <li><a href="submit.html">Contribute Pay</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="per-diem.html" class="btn-nav">SF Bay Area Per Diem Jobs</a></li>
@@ -154,7 +153,6 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="browse.html">Browse Pay</a>
-  <a href="california.html" style="color:var(--teal)">California Pay</a>
   <a href="submit.html">Contribute Pay</a>
   <a href="about.html">About</a>
   <a href="per-diem.html">SF Bay Area Per Diem Jobs →</a>
@@ -284,11 +282,14 @@
 var CONTRACTS = null, H = [], RT = 'staff';
 function addStaff(x){
   x.steps_pd=x.steps;
-  if(x.staff_rates){var f2=x._f||1;x.steps_staff=x.steps_pd.map(function(s,i){return {s:s.s,y:s.y,l:s.l,r:Math.round(x.staff_rates[i]*f2*100)/100};});}
-  else if(x.staff_from_pd){x.steps_staff=x.steps_pd.map(function(s){return {s:s.s,y:s.y,l:s.l,r:Math.round(s.r/x.staff_from_pd*100)/100};});}
+  if(x.staff_schedule){var now=new Date(),cur=null,nx=null;x.staff_schedule.forEach(function(e){if(new Date(e.date+'T00:00:00')<=now)cur=e;else if(!nx)nx=e;});cur=cur||x.staff_schedule[0];
+    x.steps_staff=x.steps_pd.map(function(s,i){return {s:s.s,y:s.y,l:s.l,r:cur.rates[i]};});
+    if(nx){var i5=Math.min(4,x.steps_staff.length-1);x.next_staff='Next scheduled increase: '+nx.label+' (step '+(i5+1)+' goes to $'+nx.rates[i5].toFixed(2)+').';}}
+  else if(x.staff_rates){var f2=x._f||1;x.steps_staff=x.steps_pd.map(function(s,i){return {s:s.s,y:s.y,l:s.l,r:Math.round(x.staff_rates[i]*f2*100)/100};});}
   else x.steps_staff=x.steps_pd;
   x.steps=x['steps_'+RT];
 }
+function srcFor(x){return (RT==='staff'&&x.source_staff)?x.source_staff:x.source;}
 function setRT(rt){RT=rt;H.forEach(function(x){x.steps=x['steps_'+rt];});
   document.getElementById('rt-staff').className='chip'+(rt==='staff'?' on':'');document.getElementById('rt-pd').className='chip'+(rt==='pd'?' on':'');
   document.getElementById('detail').innerHTML='';buildTable();origCards();slotUI();calc();rent();gtag('event','rate_type',{type:rt});}
@@ -374,7 +375,7 @@ t.addEventListener('mouseover',function(e){var c=e.target.closest('[data-h]');if
 t.addEventListener('mouseleave',function(){if(cur>-1)colOn(cur,false);cur=-1;lab.style.display='none';});
 t.addEventListener('click',function(e){var c=e.target.closest('[data-h]');if(c)openDetail(+c.dataset.h,true);});
 function origCards(){
-  var g='<div class="sp"></div>'+H.map(function(x){return '<div class="oc"><div class="muted">'+esc(x.name)+' scale</div>'+(x.source?'<a href="'+esc(x.source)+'" target="_blank" rel="noopener">View original</a>':'<span class="muted">Original link coming</span>')+'<div class="muted">Effective '+esc(x.effective||'')+'</div>'+(x.increases?'<div><a href="#" data-inc="'+esc(x.id)+'">Wage increases</a></div>':'')+'</div>';}).join('');
+  var g='<div class="sp"></div>'+H.map(function(x){return '<div class="oc"><div class="muted">'+esc(x.name)+' scale</div>'+(srcFor(x)?'<a href="'+esc(srcFor(x))+'" target="_blank" rel="noopener">View original</a>':'<span class="muted">Original link coming</span>')+'<div class="muted">Effective '+esc(x.effective||'')+'</div>'+(x.increases?'<div><a href="#" data-inc="'+esc(x.id)+'">Wage increases</a></div>':'')+'</div>';}).join('');
   var el=document.getElementById('orig');el.style.gridTemplateColumns='17% repeat('+H.length+',minmax(0,1fr))';el.innerHTML=g;
   el.querySelectorAll('[data-inc]').forEach(function(a){a.onclick=function(e){e.preventDefault();var i=H.findIndex(function(x){return x.id===a.dataset.inc;});openDetail(i,true);};});
 }
@@ -382,7 +383,7 @@ function extraDiffs(x){return (x.diff&&x.diff.extra||[]).map(function(d){return 
 function openDetail(i,scroll){
   var x=H[i],y=hasYears(x),rl=CONTRACTS.rate_label||'';
   var d='<div class="detail" id="d-'+x.id+'"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;"><h3><span class="sq" style="background:'+x.color+';"></span>'+esc(x.name)+' RN '+(RT==='pd'?'per diem ':'')+'pay table</h3><span class="mono muted" style="font-size:12px;">nursepay.co/california.html#'+x.id+'</span></div>';
-  d+='<p class="muted" style="font-size:13px;margin:4px 0 10px;">'+esc(x.contract||'')+(x.campus?' ('+esc(x.campus)+')':'')+'. Effective '+esc(x.effective||'')+'. '+(x.source?'<a href="'+esc(x.source)+'" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline;">View original contract</a>':'')+'</p>';
+  d+='<p class="muted" style="font-size:13px;margin:4px 0 10px;">'+esc(x.contract||'')+(x.campus?' ('+esc(x.campus)+')':'')+'. Effective '+esc(x.effective||'')+'. '+(srcFor(x)?'<a href="'+esc(srcFor(x))+'" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline;">View original contract</a>':'')+'</p>';
   d+='<div class="table-wrap"><div class="scroll"><table><thead><tr><th>Step</th>'+(y?'<th>Experience</th>':'')+'<th class="r">Hourly</th><th class="r">Monthly gross at 36 hrs</th></tr></thead><tbody>';
   x.steps.forEach(function(s){d+='<tr><td>Step '+s.s+'</td>'+(y?'<td>'+esc(s.l||'—')+'</td>':'')+'<td class="r mono">$'+s.r.toFixed(2)+'</td><td class="r mono">'+fm(s.r*156)+'</td></tr>';});
   var cs=y?4:3;
@@ -390,7 +391,7 @@ function openDetail(i,scroll){
   d+=(x.diff&&x.diff.extra||[]).map(function(e){return '<tr><td colspan="'+(cs-1)+'">'+esc(e.name)+'</td><td class="r mono">'+(e.t==='pct'?'+'+e.v+'%':'+$'+Number(e.v).toFixed(2))+'</td></tr>';}).join('');
   d+='</tbody></table></div></div>';
   if(RT==='staff'&&x.staff_note)d+='<p class="muted" style="font-size:12.5px;margin-top:8px;">'+esc(x.staff_note)+'</p>';
-  if(x.next_note)d+='<p class="muted" style="font-size:12.5px;margin-top:8px;">'+esc(x.next_note)+'</p>';
+  var nn=(RT==='staff'&&x.next_staff)?x.next_staff:x.next_note;if(nn)d+='<p class="muted" style="font-size:12.5px;margin-top:8px;">'+esc(nn)+'</p>';
   if(x.diff_note)d+='<p class="muted" style="font-size:12.5px;margin-top:8px;">'+esc(x.diff_note)+'</p>';
   if(x.increases){var inc=x.increases;d+='<div class="note" style="background:var(--teal-light);color:var(--text);"><b>Scheduled wage increases.</b> '+esc(inc.text||'')+(inc.url?' <a href="'+esc(inc.url)+'" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline;">Source'+(inc.label?': '+esc(inc.label):'')+'</a>':'')+'</div>';}
   d+='<button class="btn-outline" id="d-back" type="button" style="margin-top:12px;">Back to comparison</button></div>';
