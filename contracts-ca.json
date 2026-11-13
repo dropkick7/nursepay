@@ -1,0 +1,399 @@
+{
+ "sample": false,
+ "rate_label": "per diem",
+ "updated": "2026-11",
+ "_readme": "One entry per hospital. steps: s=step number, y=years of experience as a number IF the contract lists it (else null), l=the contract's own experience label, r=hourly rate. diff.eve / diff.noc: t is 'pct' (percent of the step rate) or 'flat' (dollars per hour); v is the amount. diff.extra lists other differentials. increases: scheduled wage increases, {label,text,url} or null.",
+ "hospitals": [
+  {
+   "id": "kaiser",
+   "name": "Kaiser",
+   "campus": "Oakland",
+   "city": "Oakland",
+   "color": "#7B61C9",
+   "lat": 37.826,
+   "lon": -122.259,
+   "effective": "January 2026 (5.25% increase)",
+   "contract": "Kaiser CNA Appendix A, Staff Nurse II SH",
+   "source": "contracts/kaiser-appendix-a-2026.jpg",
+   "increases": null,
+   "steps": [
+    {
+     "s": 1,
+     "y": 1,
+     "l": "Year 1",
+     "r": 112.19
+    },
+    {
+     "s": 2,
+     "y": 2,
+     "l": "Year 2",
+     "r": 117.8
+    },
+    {
+     "s": 3,
+     "y": 3,
+     "l": "Year 3",
+     "r": 123.69
+    },
+    {
+     "s": 4,
+     "y": 4,
+     "l": "Year 4",
+     "r": 128.12
+    },
+    {
+     "s": 5,
+     "y": 5,
+     "l": "Year 5",
+     "r": 131.3
+    },
+    {
+     "s": 6,
+     "y": 8,
+     "l": "Year 8",
+     "r": 133.27
+    },
+    {
+     "s": 7,
+     "y": 11,
+     "l": "Year 11",
+     "r": 135.96
+    },
+    {
+     "s": 8,
+     "y": 16,
+     "l": "Year 16",
+     "r": 139.33
+    },
+    {
+     "s": 9,
+     "y": 21,
+     "l": "Year 21",
+     "r": 142.12
+    },
+    {
+     "s": 10,
+     "y": 26,
+     "l": "Year 26",
+     "r": 144.96
+    },
+    {
+     "s": 11,
+     "y": 31,
+     "l": "Year 31",
+     "r": 149.31
+    },
+    {
+     "s": 12,
+     "y": 36,
+     "l": "Year 36",
+     "r": 153.79
+    }
+   ],
+   "diff": {
+    "eve": {
+     "t": "flat",
+     "v": 9.8727
+    },
+    "noc": {
+     "t": "flat",
+     "v": 15.7065
+    },
+    "extra": [
+     {
+      "name": "Weekender add",
+      "t": "pct",
+      "v": 10
+     },
+     {
+      "name": "Float add",
+      "t": "pct",
+      "v": 5
+     },
+     {
+      "name": "Charge add",
+      "t": "pct",
+      "v": 5
+     }
+    ]
+   },
+   "diff_note": "Evening and night are flat dollar amounts, set in Appendix A as 11% and 17.5% of the Staff Nurse II step 1 rate."
+  },
+  {
+   "id": "ucsf",
+   "name": "UCSF",
+   "campus": "San Francisco",
+   "city": "San Francisco",
+   "color": "#2F80D1",
+   "lat": 37.7631,
+   "lon": -122.4577,
+   "effective": "January 2025",
+   "contract": "UC NX Bargaining Unit Contract, Registered Nurse",
+   "source": "contracts/ucsf-2025-wage-table.jpg",
+   "increases": {
+    "label": "UC-CNA contract, Article 40 (term Nov 22, 2025 to Jan 2, 2030)",
+    "text": "UC and CNA have not published new wage tables, so these rates are the January 2025 table multiplied by the contract's across-the-board raises: 5.0% on Jan 1, 2026, 5.0% on Jan 1, 2027, 4.5% on Jan 1, 2028 and 4.0% on Jan 1, 2029. Rates in effect are calculated, not printed in a table. The contract also adds a within-range step increase every July 1.",
+    "url": ""
+   },
+   "steps": [
+    {
+     "s": 1,
+     "y": 0.5,
+     "l": "6 months",
+     "r": 111.29
+    },
+    {
+     "s": 2,
+     "y": 1.5,
+     "l": "1.5 years",
+     "r": 115.29
+    },
+    {
+     "s": 3,
+     "y": 2.5,
+     "l": "2.5 years",
+     "r": 119.41
+    },
+    {
+     "s": 4,
+     "y": 3.5,
+     "l": "3.5 years",
+     "r": 123.73
+    },
+    {
+     "s": 5,
+     "y": 4.5,
+     "l": "4.5 years",
+     "r": 128.21
+    },
+    {
+     "s": 6,
+     "y": 7.5,
+     "l": "7.5 years",
+     "r": 130.72
+    },
+    {
+     "s": 7,
+     "y": 10.5,
+     "l": "10.5 years",
+     "r": 133.37
+    },
+    {
+     "s": 8,
+     "y": 15,
+     "l": "15 years",
+     "r": 136.0
+    },
+    {
+     "s": 9,
+     "y": 20,
+     "l": "20 years",
+     "r": 138.71
+    },
+    {
+     "s": 10,
+     "y": 25,
+     "l": "25 years",
+     "r": 141.34
+    },
+    {
+     "s": 11,
+     "y": 30,
+     "l": "30 years",
+     "r": 144.16
+    }
+   ],
+   "diff": {
+    "eve": {
+     "t": "pct",
+     "v": 10
+    },
+    "noc": {
+     "t": "pct",
+     "v": 16
+    },
+    "extra": [
+     {
+      "name": "Weekend",
+      "t": "pct",
+      "v": 5
+     },
+     {
+      "name": "On-call",
+      "t": "pct",
+      "v": 50
+     }
+    ]
+   },
+   "base_label": "January 2025 table",
+   "adjust": [
+    {
+     "date": "2026-01-01",
+     "factor": 1.05,
+     "label": "Jan 1, 2026 raise of 5.0%"
+    },
+    {
+     "date": "2027-01-01",
+     "factor": 1.05,
+     "label": "Jan 1, 2027 raise of 5.0%"
+    },
+    {
+     "date": "2028-01-01",
+     "factor": 1.045,
+     "label": "Jan 1, 2028 raise of 4.5%"
+    },
+    {
+     "date": "2029-01-01",
+     "factor": 1.04,
+     "label": "Jan 1, 2029 raise of 4.0%"
+    }
+   ]
+  },
+  {
+   "id": "alta-bates",
+   "name": "Alta Bates",
+   "campus": "Sutter Alta Bates Summit, Oakland",
+   "city": "Berkeley",
+   "color": "#2E9B4E",
+   "lat": 37.8553,
+   "lon": -122.2579,
+   "effective": "July 2026",
+   "contract": "CNA Agreement (ABMC / SMT), Nurse-Staff II Per Diem",
+   "source": "contracts/alta-bates-per-diem-wage-table.jpg",
+   "increases": null,
+   "steps": [
+    {
+     "s": 1,
+     "y": null,
+     "l": null,
+     "r": 101.58
+    },
+    {
+     "s": 2,
+     "y": null,
+     "l": null,
+     "r": 105.38
+    },
+    {
+     "s": 3,
+     "y": null,
+     "l": null,
+     "r": 109.31
+    },
+    {
+     "s": 4,
+     "y": null,
+     "l": null,
+     "r": 113.43
+    },
+    {
+     "s": 5,
+     "y": null,
+     "l": null,
+     "r": 117.68
+    },
+    {
+     "s": 6,
+     "y": null,
+     "l": null,
+     "r": 122.09
+    },
+    {
+     "s": 7,
+     "y": null,
+     "l": null,
+     "r": 125.14
+    },
+    {
+     "s": 8,
+     "y": null,
+     "l": null,
+     "r": 128.26
+    },
+    {
+     "s": 9,
+     "y": null,
+     "l": null,
+     "r": 131.48
+    },
+    {
+     "s": 10,
+     "y": null,
+     "l": null,
+     "r": 134.75
+    },
+    {
+     "s": 11,
+     "y": null,
+     "l": null,
+     "r": 137.44
+    }
+   ],
+   "diff": {
+    "eve": {
+     "t": "flat",
+     "v": 9.34
+    },
+    "noc": {
+     "t": "flat",
+     "v": 16.25
+    },
+    "extra": []
+   },
+   "diff_note": "Evening and night differentials are flat dollar amounts based on the Step 1 Staff Nurse II day rate, not a percentage of your step rate.",
+   "schedule": [
+    {
+     "date": "2026-07-12",
+     "label": "July 12, 2026",
+     "rates": [
+      101.58,
+      105.38,
+      109.31,
+      113.43,
+      117.68,
+      122.09,
+      125.14,
+      128.26,
+      131.48,
+      134.75,
+      137.44
+     ]
+    },
+    {
+     "date": "2026-11-15",
+     "label": "November 15, 2026",
+     "rates": [
+      105.14,
+      109.06,
+      113.14,
+      117.4,
+      121.8,
+      126.36,
+      129.51,
+      132.75,
+      136.08,
+      139.46,
+      142.25
+     ]
+    },
+    {
+     "date": "2027-05-16",
+     "label": "May 16, 2027",
+     "rates": [
+      108.81,
+      112.88,
+      117.1,
+      121.51,
+      126.06,
+      130.79,
+      134.05,
+      137.4,
+      140.84,
+      144.34,
+      147.23
+     ]
+    }
+   ]
+  }
+ ]
+}
