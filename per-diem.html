@@ -260,7 +260,7 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Are these rates current? <i class="ti ti-chevron-down faq-icon"></i></button>
-      <div class="faq-a">Rates reflect the most recently ratified contract for each hospital. UCSF NX contract effective January 2025. Sutter CNA effective July 2026. Kaiser CNA Appendix A effective January 2026. NursePay updates these tables when new contracts are ratified.</div>
+      <div class="faq-a">Rates reflect the most recently ratified contract for each hospital. UCSF: the January 2025 NX table, multiplied by the raises in the new UC-CNA contract (UC and CNA haven't published new tables yet). Sutter: the Alta Bates CNA per diem table, which updates on its scheduled dates. Kaiser: CNA Appendix A effective January 2026. NursePay updates these tables when new contracts are ratified.</div>
     </div>
 
     <div class="faq-item">
@@ -296,6 +296,7 @@
   <div class="footer-links">
     <a href="submit.html">Add Your Pay</a>
     <a href="browse.html">Browse Pay</a>
+    <a href="california.html">California Pay</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="terms.html">Terms of Service</a>
@@ -310,38 +311,55 @@ const CONTRACTS = {
     diffs: { type: 'pct', Night: 16, Evening: 10, Weekend: 5, 'On-Call': 50 },
     roles: {
       RN:     { panelTitle: 'UCSF Per Diem Registered Nurse Rates', flat: false, hasExp: true,
-        source: 'UC NX Bargaining Unit Contract, effective January 2025',
+        source: 'UC NX Bargaining Unit Contract, January 2025 table', sourceUrl: 'contracts/ucsf-2025-wage-table.jpg',
         steps: [{s:1,exp:'6 months',h:111.29},{s:2,exp:'1.5 years',h:115.29},{s:3,exp:'2.5 years',h:119.41},{s:4,exp:'3.5 years',h:123.73},{s:5,exp:'4.5 years',h:128.21},{s:6,exp:'7.5 years',h:130.72},{s:7,exp:'10.5 years',h:133.37},{s:8,exp:'15 years',h:136.00},{s:9,exp:'20 years',h:138.71},{s:10,exp:'25 years',h:141.34},{s:11,exp:'30 years',h:144.16}]},
       NP:     { panelTitle: 'UCSF Per Diem Nurse Practitioner Rates', flat: true,
-        source: 'UC NX Bargaining Unit Contract, effective January 2025', steps: [{h:135.11}]},
+        source: 'UC NX Bargaining Unit Contract, January 2025 table', sourceUrl: 'contracts/ucsf-2025-wage-table.jpg', steps: [{h:135.11}]},
       CRNA:   { panelTitle: 'UCSF Per Diem Nurse Anesthetist Rates', flat: true,
-        source: 'UC NX Bargaining Unit Contract, effective January 2025', steps: [{h:161.20}]},
+        source: 'UC NX Bargaining Unit Contract, January 2025 table', sourceUrl: 'contracts/ucsf-2025-wage-table.jpg', steps: [{h:161.20}]},
       CRNASr: { panelTitle: 'UCSF Per Diem Sr. Nurse Anesthetist Rates', flat: true,
-        source: 'UC NX Bargaining Unit Contract, effective January 2025', steps: [{h:172.88}]},
+        source: 'UC NX Bargaining Unit Contract, January 2025 table', sourceUrl: 'contracts/ucsf-2025-wage-table.jpg', steps: [{h:172.88}]},
     }
   },
   Sutter: {
     diffs: { type: 'flat', Night: 16.25, Evening: 9.34 },
     roles: {
       RN: { panelTitle: 'Sutter Per Diem Registered Nurse Rates', flat: false, hasExp: false,
-        source: 'CNA Collective Bargaining Agreement (ABMC / SMT), effective July 2026',
+        source: 'CNA Collective Bargaining Agreement (ABMC / SMT) per diem table', sourceUrl: 'contracts/alta-bates-per-diem-wage-table.jpg',
         sourceNote: 'Rates reflect Alta Bates Medical Center in Oakland. Other Sutter facilities may vary but this is a solid reference point.',
         diffNote: 'Eve and noc differentials are flat dollar amounts based on the Step 1 Staff Nurse II day rate ($81.26). not a percentage of your step rate.',
         steps: [{s:1,h:101.58},{s:2,h:105.38},{s:3,h:109.31},{s:4,h:113.43},{s:5,h:117.68},{s:6,h:122.09},{s:7,h:125.14},{s:8,h:128.26},{s:9,h:131.48},{s:10,h:134.75},{s:11,h:137.44}]},
     }
   },
   Kaiser: {
-    diffs: { type: 'pct', Night: 17.5, Evening: 5.25, Weekender: 15, Float: 5 },
+    diffs: { type: 'flat', Night: 15.7065, Evening: 9.8727 },
     roles: {
       StaffNurseII: { panelTitle: 'Kaiser Per Diem Staff Nurse II Rates', flat: false, hasExp: true,
-        source: 'Kaiser CNA Appendix A, effective January 2026',
-        steps: [{s:1,exp:'Year 1',h:112.19},{s:2,exp:'Year 3',h:123.69},{s:3,exp:'Year 5',h:126.98},{s:4,exp:'Year 8',h:130.41},{s:5,exp:'Year 11',h:134.05},{s:6,exp:'Year 16',h:140.44},{s:7,exp:'Year 21',h:143.26},{s:8,exp:'Year 26',h:146.13},{s:9,exp:'Year 31',h:149.45},{s:10,exp:'Year 36',h:153.33}]},
+        diffNote: 'Eve and noc differentials are flat dollar amounts, set in Appendix A as 11% and 17.5% of the Staff Nurse II step 1 rate.',
+        source: 'Kaiser CNA Appendix A, effective January 2026', sourceUrl: 'contracts/kaiser-appendix-a-2026.jpg',
+        steps: [{s:1,exp:'Year 1',h:112.19},{s:2,exp:'Year 2',h:117.80},{s:3,exp:'Year 3',h:123.69},{s:4,exp:'Year 4',h:128.12},{s:5,exp:'Year 5',h:131.30},{s:6,exp:'Year 8',h:133.27},{s:7,exp:'Year 11',h:135.96},{s:8,exp:'Year 16',h:139.33},{s:9,exp:'Year 21',h:142.12},{s:10,exp:'Year 26',h:144.96},{s:11,exp:'Year 31',h:149.31},{s:12,exp:'Year 36',h:153.79}]},
       NPII: { panelTitle: 'Kaiser Per Diem Nurse Practitioner Rates', flat: false, hasExp: true,
-        source: 'Kaiser CNA Appendix A, effective January 2026',
-        steps: [{s:1,exp:'Year 1',h:134.63},{s:2,exp:'Year 3',h:141.34},{s:3,exp:'Year 5',h:144.63},{s:4,exp:'Year 8',h:148.42},{s:5,exp:'Year 11',h:152.61},{s:6,exp:'Year 16',h:163.44},{s:7,exp:'Year 21',h:170.54},{s:8,exp:'Year 26',h:173.95},{s:9,exp:'Year 31',h:179.18},{s:10,exp:'Year 36',h:184.54}]},
+        source: 'Kaiser CNA Appendix A, effective January 2026', sourceUrl: 'contracts/kaiser-appendix-a-2026.jpg',
+        steps: [{s:1,exp:'Year 1',h:134.63},{s:2,exp:'Year 2',h:141.36},{s:3,exp:'Year 3',h:148.43},{s:4,exp:'Year 4',h:153.75},{s:5,exp:'Year 5',h:157.56},{s:6,exp:'Year 8',h:159.92},{s:7,exp:'Year 11',h:163.15},{s:8,exp:'Year 16',h:167.20},{s:9,exp:'Year 21',h:170.54},{s:10,exp:'Year 26',h:173.96},{s:11,exp:'Year 31',h:179.17},{s:12,exp:'Year 36',h:184.55}]},
     }
   }
 };
+
+/* Rates in effect today. UCSF: Jan 2025 table x contract raises (UC-CNA Article 40). Alta Bates: dated per diem table. */
+(function(){
+  const now = new Date();
+  const raises = [['2026-01-01',1.05],['2027-01-01',1.05],['2028-01-01',1.045],['2029-01-01',1.04]];
+  let f = 1; raises.forEach(([d,x]) => { if (new Date(d+'T00:00:00') <= now) f *= x; });
+  if (f !== 1) Object.values(CONTRACTS.UCSF.roles).forEach(r => {
+    r.steps = r.steps.map(s => Object.assign({}, s, { h: Math.round(s.h * f * 100) / 100 }));
+    r.adjNote = 'Calculated: January 2025 table &times; ' + (Math.round(f*10000)/10000) + ' for the contract raises in effect. UC and CNA have not published new tables.';
+  });
+  const pd = [['2026-07-12',[101.58,105.38,109.31,113.43,117.68,122.09,125.14,128.26,131.48,134.75,137.44]],
+              ['2026-11-15',[105.14,109.06,113.14,117.40,121.80,126.36,129.51,132.75,136.08,139.46,142.25]],
+              ['2027-05-16',[108.81,112.88,117.10,121.51,126.06,130.79,134.05,137.40,140.84,144.34,147.23]]];
+  let cur = pd[0][1]; pd.forEach(([d,v]) => { if (new Date(d+'T00:00:00') <= now) cur = v; });
+  CONTRACTS.Sutter.roles.RN.steps = cur.map((h,i) => ({ s: i+1, h }));
+})();
 
 let JOBS = [];
 let active = null;
@@ -420,7 +438,7 @@ function detailHTML(j) {
     ${sutterWarning}
     <div class="p3-head">
       <div class="p3-head-title">${r.panelTitle}</div>
-      <div class="p3-head-source">Source: ${r.source}</div>
+      <div class="p3-head-source">Source: ${r.source}${r.sourceUrl?` &middot; <a href="${r.sourceUrl}" target="_blank" rel="noopener">View original</a>`:''}${r.adjNote?`<br>${r.adjNote}`:''}</div>
     </div>
     <div class="p3-body">
       ${r.flat?'<div class="rate-note">Single flat rate. No step progression.</div>':''}
