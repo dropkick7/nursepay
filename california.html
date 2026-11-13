@@ -349,6 +349,20 @@ function buildTable(){
     ?'Steps are each hospital\'s own. A step doesn\'t mean the same number of years at every hospital. Where a contract lists experience for a step, it shows beside the rate. Switch to years to line them up.'
     :'Each rate is the highest step whose listed experience is at or below that many years, using the experience each contract lists. '+(no.length?esc(no.join(' and '))+(no.length>1?' don\'t':' doesn\'t')+' list experience, so '+(no.length>1?'they':'it')+' can\'t be lined up this way. ':'')+'Check the contract for how nurses actually move up.';
 }
+/* usage tracking (GA4) */
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a,button');if(!a)return;
+  var h=a.getAttribute('href')||'',id=a.id||'';
+  if(a.closest('#orig')&&h.indexOf('contracts/')===0)gtag('event','view_original',{source:h.replace('contracts/','')});
+  else if(h==='contact.html'&&a.classList.contains('btn-primary'))gtag('event','cta_send_contract',{page:'california'});
+  else if(h==='submit.html'&&a.classList.contains('btn-primary'))gtag('event','cta_submit_pay',{page:'california'});
+  else if(id==='m-step'||id==='m-yrs')gtag('event','line_up_by',{mode:id==='m-yrs'?'years':'step'});
+  else if(id==='l-rn'||id==='l-all')gtag('event','map_license_filter',{filter:id==='l-all'?'all':'rn'});
+  else if(a.closest('#res')||a.closest('#addwrap'))gtag('event','calc_interact');
+});
+['csh','cw'].forEach(function(i){var el=document.getElementById(i);if(el)el.addEventListener('change',function(){gtag('event','calc_change',{field:i});});});
+var _scrolled={};window.addEventListener('scroll',function(){['hospital-pay','calculator','map-section','rent-section','faq'].forEach(function(id){var el=document.getElementById(id);if(!el||_scrolled[id])return;if(el.getBoundingClientRect().top<window.innerHeight*0.6){_scrolled[id]=1;gtag('event','section_view',{section:id});}});},{passive:true});
+
 function setMode(m){mode=m;cur=-1;lab.style.display='none';document.getElementById('m-step').className='chip'+(m==='step'?' on':'');document.getElementById('m-yrs').className='chip'+(m==='yrs'?' on':'');buildTable();}
 document.getElementById('m-step').onclick=function(){setMode('step');};
 document.getElementById('rt-staff').onclick=function(){setRT('staff');};document.getElementById('rt-pd').onclick=function(){setRT('pd');};
