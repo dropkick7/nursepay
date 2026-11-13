@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="canonical" href="https://nursepay.co/contracts.html">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>California RN Contract Pay Tables: Kaiser, UCSF, Sutter Alta Bates | NursePay</title>
+  <meta name="description" content="The actual RN contract pay tables behind NursePay for Kaiser, UCSF and Sutter Alta Bates, posted as received. No estimates." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal: #3461FF; --teal-dark: #2347E0; --teal-light: #EEF2FF;
+      --text: #1a1a1a; --text-mid: #444; --text-muted: #777;
+      --border: #e5e5e5; --bg: #ffffff; --bg-soft: #f9f9f9;
+      --yellow: #F9E04B; --pink: #F4B0CF;
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); font-size: 15px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .mono { font-family: 'Roboto Mono', monospace; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #fff; z-index: 100; }
+    .logo { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; color: var(--teal); letter-spacing: -0.3px; }
+    .logo svg { width: 28px; height: 28px; }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--text-mid); font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-links .btn-nav { background: var(--teal); color: #fff; padding: 6px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; transition: background 0.15s; }
+    .nav-links .btn-nav:hover { background: var(--teal-dark); color: #fff; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+    .mobile-menu { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--border); padding: 0.75rem 1.5rem 1rem; z-index: 99; flex-direction: column; }
+    .mobile-menu a { display: block; padding: 0.65rem 0; font-size: 15px; font-weight: 500; color: var(--text-mid); border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; color: var(--teal); font-weight: 600; }
+    .mobile-menu.open { display: flex; }
+
+    .hero { max-width: 960px; margin: 0 auto; padding: 3.5rem 2rem 2.5rem; position: relative; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 1rem; max-width: 640px; }
+    .hero h1 span { color: var(--teal); }
+    .hero p { font-size: 1.05rem; color: var(--text-mid); max-width: 600px; margin-bottom: 1.25rem; }
+    .hero-shapes { position: absolute; right: 2rem; top: 2.5rem; width: 150px; height: 150px; }
+    .trust-bar { background: var(--teal-light); padding: 0.75rem 2rem; text-align: center; font-size: 13px; color: var(--teal-dark); font-weight: 500; letter-spacing: 0.02em; }
+    .trust-bar span { margin: 0 1.1rem; display: inline-block; }
+
+    .section { max-width: 960px; margin: 0 auto; padding: 2.5rem 2rem; }
+    .section-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 0.5rem; }
+    .section h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 0.5rem; }
+    .section .sub { color: var(--text-muted); font-size: 14px; margin-bottom: 1.25rem; max-width: 680px; }
+    .soft { background: var(--bg-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #fff; }
+    .scroll { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    thead th { background: var(--bg-soft); padding: 9px 14px; text-align: left; font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--border); white-space: nowrap; }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 9px 14px; vertical-align: middle; }
+    .r { text-align: right; }
+    .pay { font-weight: 600; color: var(--teal); }
+    .muted { color: var(--text-muted); }
+    .sq { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+    .btn-primary { display: inline-block; background: var(--teal); color: #fff; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; transition: background 0.15s; font-family: inherit; }
+    .btn-primary:hover { background: var(--teal-dark); color: #fff; }
+    .btn-outline { display: inline-block; border: 1.5px solid var(--teal); color: var(--teal); padding: 8px 18px; border-radius: 8px; font-size: 13.5px; font-weight: 600; background: #fff; cursor: pointer; font-family: inherit; transition: background 0.15s; }
+    .btn-outline:hover { background: var(--teal-light); }
+    .chip { border: 1px solid var(--border); background: #fff; color: var(--text-mid); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; font-weight: 500; cursor: pointer; font-family: inherit; }
+    .chip.on { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .chips { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+    select, input[type=number] { font: inherit; font-size: 14px; border: 1px solid #cfcfcf; border-radius: 8px; padding: 7px 9px; width: 100%; margin-top: 3px; background: #fff; color: var(--text); }
+    label.f { font-size: 12px; color: var(--text-muted); font-weight: 500; display: block; }
+    .note { background: #FFF8D6; border-radius: 8px; padding: 9px 14px; margin-top: 12px; font-size: 13px; color: #5a4300; }
+    .sample-banner { background: #FDEDEC; color: #922B21; border-radius: 8px; padding: 9px 14px; margin-bottom: 12px; font-size: 13px; font-weight: 600; }
+    .why { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-top: 12px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; background: #fff; }
+    .why h3 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+    .why p { font-size: 13.5px; color: var(--text-mid); max-width: 560px; }
+
+    #tw { position: relative; padding-top: 30px; }
+    #lab { position: absolute; top: 0; display: none; background: var(--text); color: #fff; font-size: 12px; font-weight: 500; padding: 4px 11px; border-radius: 999px; white-space: nowrap; transform: translateX(-50%); pointer-events: none; }
+    #cmp th[data-h], #cmp td[data-h] { cursor: pointer; }
+    #cmp td.ok, #cmp th.ok { background: var(--teal-light); }
+    .cards { display: grid; gap: 8px; margin-top: 10px; }
+    .oc { border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; font-size: 12.5px; background: #fff; }
+    .oc a { color: var(--teal); font-weight: 500; text-decoration: underline; }
+    .detail { border: 1.5px solid var(--teal); border-radius: 10px; padding: 16px 18px; margin-top: 14px; background: #fff; }
+    .detail h3 { font-size: 1.15rem; font-weight: 700; }
+
+    .calc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 10px; max-width: 520px; }
+    #slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+    .slot { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; background: #fff; }
+    .slot .top { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-muted); font-weight: 500; }
+    .best { background: var(--teal-light); }
+    .dot { color: #E0457B; }
+
+    .map-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+    #mapwrap { position: relative; }
+    #tip { position: absolute; pointer-events: none; display: none; background: #fff; border: 1px solid #cfcfcf; border-radius: 8px; padding: 7px 10px; font-size: 12.5px; line-height: 1.5; min-width: 150px; z-index: 5; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+    .stat3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .stat { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; }
+    .stat .k { font-size: 12px; color: var(--text-muted); }
+    .stat .v { font-size: 20px; font-weight: 700; }
+    .legend { font-size: 12px; color: var(--text-mid); margin-top: 14px; }
+    .legend .row { display: flex; flex-wrap: wrap; gap: 10px 14px; margin-bottom: 8px; }
+    .legend i { display: inline-block; width: 13px; height: 13px; border-radius: 50%; vertical-align: -2px; margin-right: 5px; }
+    #tbl th { cursor: pointer; user-select: none; }
+    .rent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+    .rc { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+    .aff { border: 1.5px solid var(--text); border-radius: 10px; padding: 14px 16px; margin-top: 16px; background: #fff; }
+    .aff .tag { display: inline-block; background: var(--yellow); color: var(--text); font-size: 11.5px; font-weight: 700; padding: 2px 9px; border-radius: 999px; }
+    details { border-bottom: 1px solid var(--border); padding: 12px 0; }
+    details:first-of-type { border-top: 1px solid var(--border); }
+    summary { font-weight: 600; font-size: 15px; cursor: pointer; }
+    details p { font-size: 14px; color: var(--text-mid); margin-top: 6px; max-width: 700px; }
+    .cta { background: var(--teal-light); border-radius: 14px; padding: 22px 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; position: relative; overflow: hidden; }
+    .cta h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 3px; }
+    .cta p { font-size: 14px; color: var(--text-mid); }
+    footer { border-top: 1px solid var(--border); padding: 2rem; }
+    .footer-inner { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem; align-items: center; text-align: center; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; font-size: 13px; color: var(--text-muted); }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-copy { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 700px) {
+      nav { padding: 0 1rem; } .nav-links { display: none; } .hamburger { display: flex; }
+      .hero { padding: 2.5rem 1.25rem 2rem; } .hero-shapes { display: none; }
+      .section { padding: 2rem 1.25rem; }
+      .map-grid { grid-template-columns: 1fr; }
+      .cards { grid-template-columns: 1fr !important; }
+      .cards .sp { display: none; }
+    }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR556L6MGE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CR556L6MGE');
+  </script>
+<style>
+    .cgrid { display:grid; gap:1.25rem; margin-top:1rem; }
+    .cfig { margin:0; border:1px solid var(--border); border-radius:12px; overflow:hidden; background:#fff; }
+    .cfig img { display:block; width:100%; height:auto; }
+    .cfig figcaption { padding:.75rem 1rem; font-size:13px; color:var(--text-muted); border-top:1px solid var(--border); }
+    .note-box { margin-top:1rem; padding:.9rem 1rem; background:var(--teal-light); border-radius:10px; font-size:14px; color:var(--text-mid); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">
+    <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="#3461FF"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>
+    NursePay
+  </a>
+  <ul class="nav-links">
+    <li><a href="browse.html">Browse Pay</a></li>
+    <li><a href="submit.html">Contribute Pay</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="per-diem.html" class="btn-nav">SF Bay Area Per Diem Jobs</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="browse.html">Browse Pay</a>
+  <a href="submit.html">Contribute Pay</a>
+  <a href="about.html">About</a>
+  <a href="per-diem.html">SF Bay Area Per Diem Jobs →</a>
+</div>
+
+<section class="hero" style="padding-bottom:1rem;">
+  <div class="section-label">Contracts</div>
+  <h1>The contracts <span>behind the numbers.</span></h1>
+  <p>The actual pay tables from the California RN contracts we have, posted as we received them. Tap an image to open it full size. We add more as we get them.</p>
+</section>
+<section class="section" id="kaiser" style="padding-top:1.5rem;padding-bottom:1.5rem;">
+  <h2 style="display:flex;align-items:center;gap:10px;"><span style="width:14px;height:14px;border-radius:3px;background:#7B61C9;display:inline-block;"></span>Kaiser</h2>
+  <p class="sub">Kaiser CNA contract, Appendix A. Effective January 2026.</p>
+  <div class="cgrid"><figure class="cfig"><a href="contracts/kaiser-appendix-a-2026.jpg" target="_blank" rel="noopener"><img src="contracts/kaiser-appendix-a-2026.jpg" width="2200" height="1638" loading="lazy" alt="Kaiser CNA Appendix A wage structure effective January 2026"></a><figcaption>Appendix A, wage structure, effective the first full pay period in January 2026 (5.25% increase). Includes Staff Nurse II, Staff Nurse II SH and other classifications, plus shift and other differentials.</figcaption></figure></div>
+  
+</section>
+<section class="section" id="ucsf" style="padding-top:1.5rem;padding-bottom:1.5rem;">
+  <h2 style="display:flex;align-items:center;gap:10px;"><span style="width:14px;height:14px;border-radius:3px;background:#2F80D1;display:inline-block;"></span>UCSF</h2>
+  <p class="sub">UC NX (CNA) contract, UC San Francisco. Wage table effective January 2025.</p>
+  <div class="cgrid"><figure class="cfig"><a href="contracts/ucsf-2025-wage-table.jpg" target="_blank" rel="noopener"><img src="contracts/ucsf-2025-wage-table.jpg" width="1584" height="1224" loading="lazy" alt="UC San Francisco nurse wage table effective January 2025"></a><figcaption>UC San Francisco wage table, effective January 2025. Nurse, Clinical I to IV, by step, with shift, on-call and charge differentials.</figcaption></figure></div>
+  <p class="note-box">UC and CNA have not published new wage tables. The current contract (term Nov 22, 2025 to Jan 2, 2030, Article 40) adds across-the-board raises on January 1 of each year: 5.0% in 2026, 5.0% in 2027, 4.5% in 2028 and 4.0% in 2029, plus a within-range step increase each July 1. NursePay multiplies this table by the raises in effect to show current rates.</p>
+</section>
+<section class="section" id="sutter-alta-bates" style="padding-top:1.5rem;padding-bottom:1.5rem;">
+  <h2 style="display:flex;align-items:center;gap:10px;"><span style="width:14px;height:14px;border-radius:3px;background:#2E9B4E;display:inline-block;"></span>Sutter Alta Bates</h2>
+  <p class="sub">Sutter CNA agreement (Alta Bates Summit and Summit Medical Center). Rates through May 2027.</p>
+  <div class="cgrid"><figure class="cfig"><a href="contracts/alta-bates-staff-wage-table.jpg" target="_blank" rel="noopener"><img src="contracts/alta-bates-staff-wage-table.jpg" width="2200" height="1510" loading="lazy" alt="Sutter Alta Bates Nurse-Staff II wage table by effective date"></a><figcaption>Nurse-Staff II, with every scheduled increase from March 2023 through May 16, 2027.</figcaption></figure><figure class="cfig"><a href="contracts/alta-bates-per-diem-wage-table.jpg" target="_blank" rel="noopener"><img src="contracts/alta-bates-per-diem-wage-table.jpg" width="2200" height="1279" loading="lazy" alt="Sutter Alta Bates Nurse-Staff II per diem wage table by effective date"></a><figcaption>Nurse-Staff II per diem, with scheduled increases through May 16, 2027.</figcaption></figure></div>
+  
+</section>
+<section class="section" style="padding-top:1rem;">
+  <div class="why">
+    <div><h3>Have a California RN contract or pay table?</h3><p>Send it and we will add it here. Photos are fine.</p></div>
+    <a class="btn-primary" href="contact.html">Send us a contract</a>
+  </div>
+  <p class="sub" style="margin-top:1rem;"><a href="california.html" style="color:var(--teal);text-decoration:underline;">See how these become the California RN pay table</a></p>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="logo" style="font-size:16px;">
+      <svg viewBox="0 0 28 28" fill="none" style="width:22px;height:22px;"><rect width="28" height="28" rx="7" fill="#3461FF"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>
+      NursePay
+    </a>
+    <div class="footer-links">
+      <a href="submit.html">Add Your Pay</a>
+      <a href="browse.html">Browse Pay</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <p class="footer-copy">© 2026 NursePay. Built by a nurse, for nurses.</p>
+  </div>
+</footer>
+</body>
+</html>
