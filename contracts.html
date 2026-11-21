@@ -141,7 +141,25 @@
     .cfig img { display:block; width:100%; height:auto; }
     .cfig figcaption { padding:.75rem 1rem; font-size:13px; color:var(--text-muted); border-top:1px solid var(--border); }
     .note-box { margin-top:1rem; padding:.9rem 1rem; background:var(--teal-light); border-radius:10px; font-size:14px; color:var(--text-mid); }
-  </style>
+      /* NAV: buttons + dropdowns */
+    .nav-links .btn-nav:hover { color: #fff; opacity: 0.92; }
+    .nav-links .btn-nav-outline { border: 1.5px solid var(--teal); color: var(--teal); padding: 5px 15px; border-radius: 6px; font-size: 14px; font-weight: 600; transition: all 0.15s; }
+    .nav-links .btn-nav-outline:hover { background: var(--teal-light, #EEF2FF); color: var(--teal); }
+    .has-dropdown { position: relative; padding: 19px 0; }
+    .has-dropdown > a::after { content: " \25BE"; font-size: 11px; }
+    .dropdown { display: none; position: absolute; top: 100%; left: -12px; min-width: 190px; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 6px 0; box-shadow: 0 6px 20px rgba(0,0,0,0.08); list-style: none; z-index: 101; }
+    .dropdown a { display: block; padding: 8px 16px; white-space: nowrap; }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .mobile-menu a.m-btn { text-align: center; border-radius: 8px; padding: 0.7rem 1rem; margin: 0.4rem 0; border-bottom: none; font-weight: 600; }
+    .mobile-menu a.m-btn-fill { background: var(--teal); color: #fff; }
+    .mobile-menu a.m-btn-outline { border: 1.5px solid var(--teal); color: var(--teal); }
+    .mobile-menu .m-label { display: block; padding: 0.9rem 0 0.2rem; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+    .mobile-menu a:last-child { color: var(--text-mid); font-weight: 500; }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+</style>
   <meta property="og:type" content="website" />
   <meta property="og:title" content="California RN Pay Scales 2026: Kaiser, UCSF, Alta Bates" />
   <meta property="og:description" content="Real RN pay scales from the Kaiser, UCSF and Sutter Alta Bates contracts. Hourly pay by step, night and evening differentials, and the contract photos. Nothing estimated." />
@@ -156,18 +174,36 @@
     NursePay
   </a>
   <ul class="nav-links">
-    <li><a href="browse.html">Browse Pay</a></li>
-    <li><a href="submit.html">Contribute Pay</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="per-diem.html" class="btn-nav">SF Bay Area Per Diem Jobs</a></li>
+    <li><a href="browse.html" class="btn-nav">Browse Pay</a></li>
+    <li><a href="submit.html" class="btn-nav-outline">Share Your Pay</a></li>
+    <li class="has-dropdown">
+      <a href="california.html" style="color:var(--teal)">California Nurse Pay</a>
+      <ul class="dropdown">
+        <li><a href="california.html">Compare Hospitals</a></li>
+        <li><a href="contracts.html">Wage Tables</a></li>
+      </ul>
+    </li>
+    <li><a href="per-diem.html">Per Diem Jobs</a></li>
+    <li class="has-dropdown">
+      <a href="about.html">About Me</a>
+      <ul class="dropdown">
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </li>
   </ul>
   <button class="hamburger" id="hamburger-btn" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="browse.html">Browse Pay</a>
-  <a href="submit.html">Contribute Pay</a>
+  <a href="browse.html" class="m-btn m-btn-fill">Browse Pay</a>
+  <a href="submit.html" class="m-btn m-btn-outline">Share Your Pay</a>
+  <span class="m-label">California Nurse Pay</span>
+  <a href="california.html">Compare Hospitals</a>
+  <a href="contracts.html">Wage Tables</a>
+  <a href="per-diem.html">Per Diem Jobs</a>
+  <span class="m-label">About Me</span>
   <a href="about.html">About</a>
-  <a href="per-diem.html">SF Bay Area Per Diem Jobs →</a>
+  <a href="contact.html">Contact</a>
 </div>
 
 <section class="hero" style="padding-bottom:1rem;">

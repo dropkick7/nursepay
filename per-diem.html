@@ -181,33 +181,67 @@
       nav { padding: 0 1rem; }
       .page-header, .main { padding-left: 1rem; padding-right: 1rem; }
     }
-  </style>
+      /* NAV: buttons + dropdowns */
+    .nav-links .btn-nav:hover { color: #fff; opacity: 0.92; }
+    .nav-links .btn-nav-outline { border: 1.5px solid var(--blue); color: var(--blue); padding: 5px 15px; border-radius: 6px; font-size: 14px; font-weight: 600; transition: all 0.15s; }
+    .nav-links .btn-nav-outline:hover { background: var(--blue-light, #EEF2FF); color: var(--blue); }
+    .has-dropdown { position: relative; padding: 19px 0; }
+    .has-dropdown > a::after { content: " \25BE"; font-size: 11px; }
+    .dropdown { display: none; position: absolute; top: 100%; left: -12px; min-width: 190px; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 6px 0; box-shadow: 0 6px 20px rgba(0,0,0,0.08); list-style: none; z-index: 101; }
+    .dropdown a { display: block; padding: 8px 16px; white-space: nowrap; }
+    .has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+    .mobile-menu a.m-btn { text-align: center; border-radius: 8px; padding: 0.7rem 1rem; margin: 0.4rem 0; border-bottom: none; font-weight: 600; }
+    .mobile-menu a.m-btn-fill { background: var(--blue); color: #fff; }
+    .mobile-menu a.m-btn-outline { border: 1.5px solid var(--blue); color: var(--blue); }
+    .mobile-menu .m-label { display: block; padding: 0.9rem 0 0.2rem; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+    .mobile-menu a:last-child { color: var(--text-mid); font-weight: 500; }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+</style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">
+  <a href="/" class="logo">
     <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="#3461FF"/><path d="M14 7v14M7 14h14" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>
     NursePay
   </a>
   <ul class="nav-links">
-    <li><a href="browse.html">Browse Pay</a></li>
-    <li><a href="california.html">California Pay</a></li>
-    <li><a href="submit.html">Contribute Pay</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="per-diem.html" class="btn-nav">Per Diem Jobs</a></li>
+    <li><a href="browse.html" class="btn-nav">Browse Pay</a></li>
+    <li><a href="submit.html" class="btn-nav-outline">Share Your Pay</a></li>
+    <li class="has-dropdown">
+      <a href="california.html">California Nurse Pay</a>
+      <ul class="dropdown">
+        <li><a href="california.html">Compare Hospitals</a></li>
+        <li><a href="contracts.html">Wage Tables</a></li>
+      </ul>
+    </li>
+    <li><a href="per-diem.html" style="color:var(--blue)">Per Diem Jobs</a></li>
+    <li class="has-dropdown">
+      <a href="about.html">About Me</a>
+      <ul class="dropdown">
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </li>
   </ul>
   <button class="hamburger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="browse.html">Browse Pay</a>
-  <a href="california.html">California Pay</a>
-  <a href="submit.html">Contribute Pay</a>
+  <a href="browse.html" class="m-btn m-btn-fill">Browse Pay</a>
+  <a href="submit.html" class="m-btn m-btn-outline">Share Your Pay</a>
+  <span class="m-label">California Nurse Pay</span>
+  <a href="california.html">Compare Hospitals</a>
+  <a href="contracts.html">Wage Tables</a>
+  <a href="per-diem.html">Per Diem Jobs</a>
+  <span class="m-label">About Me</span>
   <a href="about.html">About</a>
-  <a href="per-diem.html" class="btn-nav-mobile">Per Diem Jobs</a>
+  <a href="contact.html">Contact</a>
 </div>
 
 <!-- HERO -->
