@@ -530,7 +530,7 @@ function trackFilter(filterType, value) {
           </div>
         </div>
         <div class="pay-cell">
-          ${rng ? `<a href="#rates" onclick="event.stopPropagation();" class="pay-rate-link"><span class="pay-val">${rng}</span></a>` : ''}
+          ${rng ? `<a href="contracts.html#${({UCSF:'ucsf',Sutter:'sutter-alta-bates',Kaiser:'kaiser'})[j.hospital]||''}" onclick="event.stopPropagation();" class="pay-rate-link" title="See the contract this rate comes from"><span class="pay-val">${rng}</span></a>` : ''}
         </div>
       </div>
     </div>`;
