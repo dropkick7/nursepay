@@ -200,6 +200,16 @@
       .hamburger { display: flex; }
     }
     .faq-a a { color: var(--blue); text-decoration: underline; }
+    .pay-stack { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+    .pay-src { font-size: 11px; color: var(--text-muted); white-space: normal; text-align: right; }
+    .contract-bar { border-top: 1px solid var(--border); cursor: default; }
+    .contract-toggle { display: block; width: 100%; text-align: left; background: none; border: none; padding: 10px 22px; font: inherit; font-size: 13px; font-weight: 600; color: var(--blue); cursor: pointer; }
+    .contract-toggle:hover { background: var(--blue-light); }
+    .ct-chev { display: inline-block; transition: transform 0.2s; font-size: 11px; }
+    .contract-panel { border-top: 1px solid var(--border); background: #fff; }
+    .contract-link { padding: 0 22px 14px; font-size: 13px; }
+    .contract-link a { color: var(--blue); font-weight: 600; }
+    @media (max-width: 700px) { .pay-stack { align-items: flex-start; } .pay-src { text-align: left; } .contract-toggle { padding: 10px 16px; } .contract-link { padding: 0 14px 12px; } }
 </style>
 </head>
 <body>
@@ -454,7 +464,7 @@ function detailHTML(j) {
         ${se?`<td class="${cc('eve')}">$${isSutterFlat?(r.steps[0].h+eveVal).toFixed(2):(r.steps[0].h*(1+eveVal/100)).toFixed(2)}</td>`:''}
       </tr>`
     : r.steps.map(s=>{
-        const stepExp = r.hasExp ? `Step ${s.s} ? ${s.exp}` : `Step ${s.s}`;
+        const stepExp = r.hasExp ? `Step ${s.s} &middot; ${s.exp}` : `Step ${s.s}`;
         return `<tr>
           <td class="col-step" style="color:#999;font-weight:500;">${stepExp}</td>
           <td class="${cc('base')}" style="font-weight:600;">$${s.h.toFixed(2)}</td>
@@ -468,8 +478,8 @@ function detailHTML(j) {
 
   const sutterWarning = j.hospital === 'Sutter' ? `
     <div class="sutter-warning">
-      <span class="icon">??</span>
-      <span>The above advertised pay is from the actual job listing. Contract rates below are from Alta Bates (Oakland) ? the only Sutter contract we have. For non-Oakland Sutter hospitals, use as a reference.</span>
+      <span class="icon">&#9432;</span>
+      <span>The pay range above is from the job listing. The contract rates below are from the Alta Bates CNA per diem table.</span>
     </div>` : '';
 
   return `
@@ -494,6 +504,15 @@ function detailHTML(j) {
     </div>`;
 }
 
+function toggleContract(btn){
+  const p = btn.parentElement.querySelector('.contract-panel');
+  const open = p.hasAttribute('hidden');
+  if (open) p.removeAttribute('hidden'); else p.setAttribute('hidden','');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  btn.querySelector('.ct-chev').style.transform = open ? 'rotate(180deg)' : '';
+  if (open) gtag('event','contract_pay_open');
+}
+
 function trackFilter(filterType, value) {
   if (value) {
     gtag('event', 'filter_select', { filter_type: filterType, filter_value: value });
@@ -514,13 +533,16 @@ function trackFilter(filterType, value) {
   document.getElementById('job-list').innerHTML = jobs.map((j,i) => {
     const r = getR(j);
     const mn = r?r.steps[0].h:null, mx = r?r.steps[r.steps.length-1].h:null;
-    // Sutter: use posted pay from jobs.json; UCSF/Kaiser: use contract range
-    let rng = '';
-    if (j.hospital === 'Sutter' && j.pay && j.pay.trim() !== '') {
-      rng = j.pay;
-    } else if (r) {
-      rng = mn === mx ? `$${mn.toFixed(2)}/hr` : `$${mn.toFixed(2)} to $${mx.toFixed(2)}/hr`;
-    }
+    // Show the pay range from the job listing when there is one. If the listing has none, fall back to the contract range and label it.
+    const posted = j.pay && j.pay.trim() !== '';
+    let rng = '', src = '';
+    if (posted) { rng = j.pay; src = 'Pay range from the job listing'; }
+    else if (r) { rng = mn === mx ? `$${mn.toFixed(2)}/hr` : `$${mn.toFixed(2)} to $${mx.toFixed(2)}/hr`; src = mn === mx ? `Pay from the ${j.hospital} contract` : `Pay range from the ${j.hospital} contract`; }
+    const eligible = !!r && (j.hospital === 'UCSF' || j.hospital === 'Kaiser' || (j.hospital === 'Sutter' && /^(Berkeley|Oakland)$/.test(j.city)));
+    const cAnchor = j.hospital === 'UCSF' ? 'ucsf' : j.hospital === 'Kaiser' ? 'kaiser' : 'sutter-alta-bates';
+    const bar = eligible
+      ? `<div class="contract-bar" onclick="event.stopPropagation();"><button type="button" class="contract-toggle" aria-expanded="false" onclick="toggleContract(this)">${posted ? 'See contract pay' : 'See pay by step'} <span class="ct-chev">&#9662;</span></button><div class="contract-panel" hidden>${detailHTML(j)}<div class="contract-link"><a href="contracts.html#${cAnchor}">See the full contract table &rarr;</a></div></div></div>`
+      : '';
     const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">&middot;</span>${j.length}hr` : '';
     return `<div class="job-card" onclick="gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' }); window.open('${j.url}', '_blank');" style="cursor:pointer;">
       <div class="job-row">
@@ -531,9 +553,10 @@ function trackFilter(filterType, value) {
           </div>
         </div>
         <div class="pay-cell">
-          ${rng ? `<a href="${j.rateKey!=='RN'?'#rates':j.hospital==='UCSF'?'contracts.html#ucsf':j.hospital==='Kaiser'?'contracts.html#kaiser':(j.hospital==='Sutter'&&/^(Berkeley|Oakland)$/.test(j.city))?'contracts.html#sutter-alta-bates':'#rates'}" onclick="event.stopPropagation();" class="pay-rate-link"><span class="pay-val">${rng}</span></a>` : ''}
+          ${rng ? `<div class="pay-stack"><span class="pay-val">${rng}</span><span class="pay-src">${src}</span></div>` : ''}
         </div>
       </div>
+      ${bar}
     </div>`;
   }).join('');
 }
