@@ -210,6 +210,9 @@
     .contract-link { padding: 0 22px 14px; font-size: 13px; }
     .contract-link a { color: var(--blue); font-weight: 600; }
     @media (max-width: 700px) { .pay-stack { align-items: flex-start; } .pay-src { text-align: left; } .contract-toggle { padding: 10px 16px; } .contract-link { padding: 0 14px 12px; } }
+    .contract-simple { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; padding: 12px 22px; font-size: 13px; color: var(--text-muted); }
+    .contract-simple a { color: var(--blue); font-weight: 600; }
+    @media (max-width: 700px) { .contract-simple { padding: 10px 16px; } }
 </style>
 </head>
 <body>
@@ -541,7 +544,7 @@ function trackFilter(filterType, value) {
     const eligible = !!r && (j.hospital === 'UCSF' || j.hospital === 'Kaiser' || (j.hospital === 'Sutter' && /^(Berkeley|Oakland)$/.test(j.city)));
     const cAnchor = j.hospital === 'UCSF' ? 'ucsf' : j.hospital === 'Kaiser' ? 'kaiser' : 'sutter-alta-bates';
     const bar = eligible
-      ? `<div class="contract-bar" onclick="event.stopPropagation();"><button type="button" class="contract-toggle" aria-expanded="false" onclick="toggleContract(this)">${posted ? 'See contract pay' : 'See pay by step'} <span class="ct-chev">&#9662;</span></button><div class="contract-panel" hidden>${detailHTML(j)}<div class="contract-link"><a href="contracts.html#${cAnchor}">See the full contract table &rarr;</a></div></div></div>`
+      ? `<div class="contract-bar" onclick="event.stopPropagation();"><button type="button" class="contract-toggle" aria-expanded="false" onclick="toggleContract(this)">See contract pay <span class="ct-chev">&#9662;</span></button><div class="contract-panel" hidden>${`<div class="contract-simple"><span>Source: ${r.source}</span><a href="contracts.html#${cAnchor}">See the contract pay &rarr;</a></div>`}</div></div>`
       : '';
     const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">&middot;</span>${j.length}hr` : '';
     return `<div class="job-card" onclick="gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' }); window.open('${j.url}', '_blank');" style="cursor:pointer;">
