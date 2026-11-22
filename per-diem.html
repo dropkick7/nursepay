@@ -313,7 +313,7 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Are these rates current? <i class="ti ti-chevron-down faq-icon"></i></button>
-      <div class="faq-a">Rates reflect the most recently ratified contract for each hospital. <a href="contracts.html?from=per-diem#ucsf" target="_blank" rel="noopener">UCSF</a>: the January 2025 NX table, multiplied by the raises in the new UC-CNA contract (UC and CNA haven't published new tables yet). <a href="contracts.html?from=per-diem#sutter-alta-bates" target="_blank" rel="noopener">Sutter</a>: the Alta Bates CNA per diem table, which updates on its scheduled dates. <a href="contracts.html?from=per-diem#kaiser" target="_blank" rel="noopener">Kaiser</a>: CNA Appendix A effective January 2026. NursePay updates these tables when new contracts are ratified.</div>
+      <div class="faq-a">Rates reflect the most recently ratified contract for each hospital. <a href="contracts.html?from=per-diem#ucsf" target="_blank" rel="noopener">UCSF</a>: the January 2025 NX per diem table, multiplied by the raises in the new UC-CNA contract (UC and CNA haven't published new tables yet). <a href="contracts.html?from=per-diem#sutter-alta-bates" target="_blank" rel="noopener">Sutter</a>: the Alta Bates CNA per diem table, which updates on its scheduled dates. <a href="contracts.html?from=per-diem#kaiser" target="_blank" rel="noopener">Kaiser</a>: CNA Appendix A effective January 2026. NursePay updates these tables when new contracts are ratified.</div>
     </div>
 
     <div class="faq-item">
@@ -365,14 +365,14 @@ const CONTRACTS = {
     diffs: { type: 'pct', Night: 16, Evening: 10, Weekend: 5, 'On-Call': 50 },
     roles: {
       RN:     { panelTitle: 'UCSF Per Diem Registered Nurse Rates', flat: false, hasExp: true,
-        source: 'UC NX Bargaining Unit Contract, January 2025 table', sourceUrl: 'contracts/ucsf-2025-wage-table.jpg',
+        source: 'UC NX Bargaining Unit Contract, January 2025 per diem table', sourceUrl: 'contracts/ucsf-2025-per-diem-wage-table.jpg',
         steps: [{s:1,exp:'6 months',h:111.29},{s:2,exp:'1.5 years',h:115.29},{s:3,exp:'2.5 years',h:119.41},{s:4,exp:'3.5 years',h:123.73},{s:5,exp:'4.5 years',h:128.21},{s:6,exp:'7.5 years',h:130.72},{s:7,exp:'10.5 years',h:133.37},{s:8,exp:'15 years',h:136.00},{s:9,exp:'20 years',h:138.71},{s:10,exp:'25 years',h:141.34},{s:11,exp:'30 years',h:144.16}]},
       NP:     { panelTitle: 'UCSF Per Diem Nurse Practitioner Rates', flat: true,
-        source: 'UC NX Bargaining Unit Contract, January 2025 table', sourceUrl: 'contracts/ucsf-2025-wage-table.jpg', steps: [{h:135.11}]},
+        source: 'UC NX Bargaining Unit Contract, January 2025 per diem table', sourceUrl: 'contracts/ucsf-2025-per-diem-wage-table.jpg', steps: [{h:135.11}]},
       CRNA:   { panelTitle: 'UCSF Per Diem Nurse Anesthetist Rates', flat: true,
-        source: 'UC NX Bargaining Unit Contract, January 2025 table', sourceUrl: 'contracts/ucsf-2025-wage-table.jpg', steps: [{h:161.20}]},
+        source: 'UC NX Bargaining Unit Contract, January 2025 per diem table', sourceUrl: 'contracts/ucsf-2025-per-diem-wage-table.jpg', steps: [{h:161.20}]},
       CRNASr: { panelTitle: 'UCSF Per Diem Sr. Nurse Anesthetist Rates', flat: true,
-        source: 'UC NX Bargaining Unit Contract, January 2025 table', sourceUrl: 'contracts/ucsf-2025-wage-table.jpg', steps: [{h:172.88}]},
+        source: 'UC NX Bargaining Unit Contract, January 2025 per diem table', sourceUrl: 'contracts/ucsf-2025-per-diem-wage-table.jpg', steps: [{h:172.88}]},
     }
   },
   Sutter: {
