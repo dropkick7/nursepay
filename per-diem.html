@@ -297,7 +297,7 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Where do these pay rates come from? <i class="ti ti-chevron-down faq-icon"></i></button>
-      <div class="faq-a">For Sutter Alta Bates, UCSF, and Kaiser the rates are from the actual contracts. Not HR. Not "market rate." I'm a Bay Area nurse and I got these directly from my nurse friend community. Now you have them too. Because you deserve some transparency, babe. See the contract tables for <a href="contracts.html#kaiser">Kaiser</a>, <a href="contracts.html#ucsf">UCSF</a> and <a href="contracts.html#sutter-alta-bates">Sutter Alta Bates</a>. Other Sutter hospitals don't have a contract table here yet, so those listings show the pay range Sutter posted.</div>
+      <div class="faq-a">For Sutter Alta Bates, UCSF, and Kaiser the rates are from the actual contracts. Not HR. Not "market rate." I'm a Bay Area nurse and I got these directly from my nurse friend community. Now you have them too. Because you deserve some transparency, babe. See the contract tables for <a href="contracts.html?from=per-diem#kaiser" target="_blank" rel="noopener">Kaiser</a>, <a href="contracts.html?from=per-diem#ucsf" target="_blank" rel="noopener">UCSF</a> and <a href="contracts.html?from=per-diem#sutter-alta-bates" target="_blank" rel="noopener">Sutter Alta Bates</a>. Other Sutter hospitals don't have a contract table here yet, so those listings show the pay range Sutter posted.</div>
     </div>
 
     <div class="faq-item">
@@ -313,7 +313,7 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Are these rates current? <i class="ti ti-chevron-down faq-icon"></i></button>
-      <div class="faq-a">Rates reflect the most recently ratified contract for each hospital. <a href="contracts.html#ucsf">UCSF</a>: the January 2025 NX table, multiplied by the raises in the new UC-CNA contract (UC and CNA haven't published new tables yet). <a href="contracts.html#sutter-alta-bates">Sutter</a>: the Alta Bates CNA per diem table, which updates on its scheduled dates. <a href="contracts.html#kaiser">Kaiser</a>: CNA Appendix A effective January 2026. NursePay updates these tables when new contracts are ratified.</div>
+      <div class="faq-a">Rates reflect the most recently ratified contract for each hospital. <a href="contracts.html?from=per-diem#ucsf" target="_blank" rel="noopener">UCSF</a>: the January 2025 NX table, multiplied by the raises in the new UC-CNA contract (UC and CNA haven't published new tables yet). <a href="contracts.html?from=per-diem#sutter-alta-bates" target="_blank" rel="noopener">Sutter</a>: the Alta Bates CNA per diem table, which updates on its scheduled dates. <a href="contracts.html?from=per-diem#kaiser" target="_blank" rel="noopener">Kaiser</a>: CNA Appendix A effective January 2026. NursePay updates these tables when new contracts are ratified.</div>
     </div>
 
     <div class="faq-item">
@@ -323,7 +323,7 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Why does some of the posted pay look different from the contract rates in the dropdown? <i class="ti ti-chevron-down faq-icon"></i></button>
-      <div class="faq-a">You'll notice this on Sutter listings. Sutter posts a deliberately broad pay range that buries the actual number. The contract rates in the dropdown are the real per diem rates from the <a href="contracts.html#sutter-alta-bates">Alta Bates CNA agreement</a>, which is what you'd actually earn at Alta Bates. Other Sutter hospitals may have different contracts, and I don't have them yet, so use the Alta Bates numbers as a reference only. If you have a Sutter contract, send it through the <a href="contact.html">contact page</a>.</div>
+      <div class="faq-a">You'll notice this on Sutter listings. Sutter posts a deliberately broad pay range that buries the actual number. The contract rates in the dropdown are the real per diem rates from the <a href="contracts.html?from=per-diem#sutter-alta-bates" target="_blank" rel="noopener">Alta Bates CNA agreement</a>, which is what you'd actually earn at Alta Bates. Other Sutter hospitals may have different contracts, and I don't have them yet, so use the Alta Bates numbers as a reference only. If you have a Sutter contract, send it through the <a href="contact.html">contact page</a>.</div>
     </div>
 
     <div class="faq-item">
@@ -546,7 +546,7 @@ function trackFilter(filterType, value) {
     else if (r) { rng = mn === mx ? `$${mn.toFixed(2)}/hr` : `$${mn.toFixed(2)} to $${mx.toFixed(2)}/hr`; src = mn === mx ? `Pay from the ${j.hospital} contract` : `Pay range from the ${j.hospital} contract`; }
     const eligible = !!r && (j.hospital === 'UCSF' || j.hospital === 'Kaiser' || (j.hospital === 'Sutter' && /^(Berkeley|Oakland)$/.test(j.city)));
     const cAnchor = j.hospital === 'UCSF' ? 'ucsf' : j.hospital === 'Kaiser' ? 'kaiser' : 'sutter-alta-bates';
-    const cLink = (txt) => `<a class="pay-src pay-src-link" href="contracts.html#${cAnchor}" onclick="event.stopPropagation();gtag('event','contract_pay_open',{hospital:'${j.hospital}'});">${txt}</a>`;
+    const cLink = (txt) => `<a class="pay-src pay-src-link" href="contracts.html?from=per-diem#${cAnchor}" target="_blank" rel="noopener" onclick="event.stopPropagation();gtag('event','contract_pay_open',{hospital:'${j.hospital}'});">${txt}</a>`;
     let srcHtml = `<span class="pay-src">${src}</span>`;
     if (eligible) srcHtml = posted ? `<span class="pay-src">${src}</span>${cLink('See contract pay &rarr;')}` : cLink(src + ' &rarr;');
     const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">&middot;</span>${j.length}hr` : '';

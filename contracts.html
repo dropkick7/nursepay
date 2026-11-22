@@ -127,7 +127,11 @@
       .cards { grid-template-columns: 1fr !important; }
       .cards .sp { display: none; }
     }
-  </style>
+      .backbar { position: fixed; top: 72px; left: 16px; z-index: 50; }
+    .backbar[hidden] { display: none; }
+    .backbar a { display: inline-block; font-size: 14px; font-weight: 600; color: #3461FF; text-decoration: none; background: #fff; border: 1px solid #C5D0FF; border-radius: 999px; padding: 8px 16px; box-shadow: 0 2px 10px rgba(0,0,0,.12); }
+    .backbar a:hover { background: #EEF2FF; }
+</style>
   <script>try{if(location.search.indexOf("internal=1")>-1)localStorage.setItem("np_internal","1");if(location.search.indexOf("internal=0")>-1)localStorage.removeItem("np_internal");if(localStorage.getItem("np_internal")){window["ga-disable-G-CR556L6MGE"]=true;}}catch(e){}</script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-CR556L6MGE"></script>
   <script>
@@ -207,6 +211,8 @@
   <a href="contact.html">Contact</a>
 </div>
 
+<div id="backbar" class="backbar" hidden><a href="per-diem.html">&larr; Back to per diem jobs</a></div>
+
 <section class="hero" style="padding-bottom:1rem;">
   <div class="section-label">Contracts</div>
   <h1>The contracts <span>behind the numbers.</span></h1>
@@ -264,5 +270,6 @@
     <p class="footer-copy">© 2026 NursePay. Built by a nurse, for nurses.</p>
   </div>
 </footer>
+<script>try{if(/[?&]from=per-diem/.test(location.search))document.getElementById("backbar").hidden=false;}catch(e){}</script>
 </body>
 </html>
