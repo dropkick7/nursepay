@@ -201,6 +201,8 @@
     }
     .faq-a a { color: var(--blue); text-decoration: underline; }
     .pay-stack { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+    .pay-src-link { color: var(--blue); font-weight: 600; text-decoration: none; }
+    .pay-src-link:hover { text-decoration: underline; }
     .pay-src { font-size: 11px; color: var(--text-muted); white-space: normal; text-align: right; }
     .contract-bar { border-top: 1px solid var(--border); cursor: default; }
     .contract-toggle { display: block; width: 100%; text-align: left; background: none; border: none; padding: 10px 22px; font: inherit; font-size: 13px; font-weight: 600; color: var(--blue); cursor: pointer; }
@@ -543,9 +545,9 @@ function trackFilter(filterType, value) {
     else if (r) { rng = mn === mx ? `$${mn.toFixed(2)}/hr` : `$${mn.toFixed(2)} to $${mx.toFixed(2)}/hr`; src = mn === mx ? `Pay from the ${j.hospital} contract` : `Pay range from the ${j.hospital} contract`; }
     const eligible = !!r && (j.hospital === 'UCSF' || j.hospital === 'Kaiser' || (j.hospital === 'Sutter' && /^(Berkeley|Oakland)$/.test(j.city)));
     const cAnchor = j.hospital === 'UCSF' ? 'ucsf' : j.hospital === 'Kaiser' ? 'kaiser' : 'sutter-alta-bates';
-    const bar = eligible
-      ? `<div class="contract-bar" onclick="event.stopPropagation();"><button type="button" class="contract-toggle" aria-expanded="false" onclick="toggleContract(this)">See contract pay <span class="ct-chev">&#9662;</span></button><div class="contract-panel" hidden>${`<div class="contract-simple"><span>Source: ${r.source}</span><a href="contracts.html#${cAnchor}">See the contract pay &rarr;</a></div>`}</div></div>`
-      : '';
+    const cLink = (txt) => `<a class="pay-src pay-src-link" href="contracts.html#${cAnchor}" onclick="event.stopPropagation();gtag('event','contract_pay_open',{hospital:'${j.hospital}'});">${txt}</a>`;
+    let srcHtml = `<span class="pay-src">${src}</span>`;
+    if (eligible) srcHtml = posted ? `<span class="pay-src">${src}</span>${cLink('See contract pay &rarr;')}` : cLink(src + ' &rarr;');
     const len = j.length && j.length !== 'Not specified' && j.length !== 'nan' ? `<span class="meta-sep">&middot;</span>${j.length}hr` : '';
     return `<div class="job-card" onclick="gtag('event', 'apply_click', { hospital: '${j.hospital}', role: '${j.role}', job_title: '${j.title.replace(/'/g,"")}', city: '${j.city}' }); window.open('${j.url}', '_blank');" style="cursor:pointer;">
       <div class="job-row">
@@ -556,10 +558,9 @@ function trackFilter(filterType, value) {
           </div>
         </div>
         <div class="pay-cell">
-          ${rng ? `<div class="pay-stack"><span class="pay-val">${rng}</span><span class="pay-src">${src}</span></div>` : ''}
+          ${rng ? `<div class="pay-stack"><span class="pay-val">${rng}</span>${srcHtml}</div>` : ''}
         </div>
       </div>
-      ${bar}
     </div>`;
   }).join('');
 }
