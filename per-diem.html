@@ -313,7 +313,7 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Are these rates current? <i class="ti ti-chevron-down faq-icon"></i></button>
-      <div class="faq-a">Rates reflect the most recently ratified contract for each hospital. <a href="contracts.html?from=per-diem#ucsf" target="_blank" rel="noopener">UCSF</a>: the January 2025 NX per diem table, multiplied by the raises in the new UC-CNA contract (UC and CNA haven't published new tables yet). <a href="contracts.html?from=per-diem#sutter-alta-bates" target="_blank" rel="noopener">Sutter</a>: the Alta Bates CNA per diem table, which updates on its scheduled dates. <a href="contracts.html?from=per-diem#kaiser" target="_blank" rel="noopener">Kaiser</a>: CNA Appendix A effective January 2026. NursePay updates these tables when new contracts are ratified.</div>
+      <div class="faq-a">Rates reflect the most recently ratified contract for each hospital. <a href="contracts.html?from=per-diem#ucsf" target="_blank" rel="noopener">UCSF</a>: the January 2025 NX per diem table, multiplied by the raises in the new UC-CNA contract (UC and CNA haven't published new tables yet). <a href="contracts.html?from=per-diem#sutter-alta-bates" target="_blank" rel="noopener">Sutter</a>: the Alta Bates CNA per diem table, which updates on its scheduled dates. <a href="contracts.html?from=per-diem#kaiser" target="_blank" rel="noopener">Kaiser</a>: CNA Appendix A Short Hour (SH) rates, effective January 2026, which NursePay uses as the per diem rate. NursePay updates these tables when new contracts are ratified.</div>
     </div>
 
     <div class="faq-item">
@@ -390,10 +390,10 @@ const CONTRACTS = {
     roles: {
       StaffNurseII: { panelTitle: 'Kaiser Per Diem Staff Nurse II Rates', flat: false, hasExp: true,
         diffNote: 'Eve and noc differentials are flat dollar amounts, set in Appendix A as 11% and 17.5% of the Staff Nurse II step 1 rate.',
-        source: 'Kaiser CNA Appendix A, effective January 2026', sourceUrl: 'contracts/kaiser-appendix-a-2026.jpg',
+        source: 'Kaiser CNA Appendix A, Short Hour (SH) rates, effective January 2026', sourceUrl: 'contracts/kaiser-appendix-a-2026.jpg',
         steps: [{s:1,exp:'Year 1',h:112.19},{s:2,exp:'Year 2',h:117.80},{s:3,exp:'Year 3',h:123.69},{s:4,exp:'Year 4',h:128.12},{s:5,exp:'Year 5',h:131.30},{s:6,exp:'Year 8',h:133.27},{s:7,exp:'Year 11',h:135.96},{s:8,exp:'Year 16',h:139.33},{s:9,exp:'Year 21',h:142.12},{s:10,exp:'Year 26',h:144.96},{s:11,exp:'Year 31',h:149.31},{s:12,exp:'Year 36',h:153.79}]},
       NPII: { panelTitle: 'Kaiser Per Diem Nurse Practitioner Rates', flat: false, hasExp: true,
-        source: 'Kaiser CNA Appendix A, effective January 2026', sourceUrl: 'contracts/kaiser-appendix-a-2026.jpg',
+        source: 'Kaiser CNA Appendix A, Short Hour (SH) rates, effective January 2026', sourceUrl: 'contracts/kaiser-appendix-a-2026.jpg',
         steps: [{s:1,exp:'Year 1',h:134.63},{s:2,exp:'Year 2',h:141.36},{s:3,exp:'Year 3',h:148.43},{s:4,exp:'Year 4',h:153.75},{s:5,exp:'Year 5',h:157.56},{s:6,exp:'Year 8',h:159.92},{s:7,exp:'Year 11',h:163.15},{s:8,exp:'Year 16',h:167.20},{s:9,exp:'Year 21',h:170.54},{s:10,exp:'Year 26',h:173.96},{s:11,exp:'Year 31',h:179.17},{s:12,exp:'Year 36',h:184.55}]},
     }
   }
