@@ -84,7 +84,9 @@
     .content h3 { font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.35rem; }
     .content .byline { font-size: 13px; color: var(--text-muted); margin: -0.75rem 0 0.75rem; }
     .content .asof { font-size: 13px; color: var(--text-muted); }
-    .content { max-width: 760px; }
+    .content { max-width: 920px; }
+    .content > p, .content > ul, .content > h2 { max-width: 700px; }
+    .content > .story-card { max-width: 700px; }
     .story-card { display: block; border: 1px solid var(--border); border-left: 4px solid var(--blue); border-radius: 10px; padding: 1.1rem 1.25rem; margin: 1.5rem 0 0.75rem; background: var(--blue-light, #EEF2FF); color: var(--text); text-decoration: none; }
     .story-card strong { display: block; font-size: 1.05rem; margin: 0.15rem 0 0.25rem; }
     .story-card span { display: block; font-size: 14px; color: var(--text-muted); }
@@ -114,7 +116,7 @@
     .content h2.what { font-size: 1.05rem; font-weight: 600; }
     .content p.ag-note { font-size: 13.5px; color: var(--text-muted); margin: -0.25rem 0 0; }
     .ag-list { display: flex; flex-direction: column; gap: 14px; margin: 1.5rem 0 2rem; }
-    .ag-strip { display: grid; grid-template-columns: 190px 1fr 1fr 160px; gap: 0; align-items: stretch; border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.05); transition: box-shadow .15s, border-color .15s; }
+    .ag-strip { display: grid; grid-template-columns: 190px 1fr 1fr 150px; gap: 0; align-items: stretch; border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.05); transition: box-shadow .15s, border-color .15s; }
     .ag-strip:hover { box-shadow: 0 4px 14px rgba(52,97,255,.12); border-color: #c9d4ff; }
     .ag-col { padding: 0 16px; border-left: 1px solid var(--border); min-width: 0; }
     .ag-col.ag-name { padding-left: 0; border-left: none; }
@@ -128,7 +130,6 @@
     .chip-warn { border-radius: 14px; background: #FFFBEB; border-color: #FDE68A; color: #92400E; }
     .ag-reddit { display: inline-block; font-size: 12.5px; color: var(--text-muted); margin-top: 6px; }
     .ag-reddit:hover { color: var(--blue); text-decoration: underline; }
-    @media (min-width: 980px) { .ag-list { width: 920px; position: relative; left: 50%; transform: translateX(-50%); } }
     .ag-go { display: flex; align-items: center; justify-content: center; padding-right: 0 !important; }
     .ag-visit { display: inline-block; font-size: 13.5px; font-weight: 600; color: #fff; background: var(--blue); border-radius: 999px; padding: 9px 16px; white-space: nowrap; transition: background .15s; }
     .ag-visit:hover { background: var(--blue-dark); }
@@ -216,7 +217,7 @@
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3>Nursa</h3><p class="ag-shifts">Hospital shifts you pick up when and where you want.</p></div>
       <div class="ag-col"><div class="ag-h">What nurses say</div><div class="ag-chips"><span class="chip chip-good">Good pay</span></div><a class="ag-reddit" href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener">Reddit thread &rarr;</a></div>
-      <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Available shifts depend on your area</span><span class="chip chip-warn">Nurses are independent contractors (1099)</span></div></div>
+      <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Shifts depend on your area, and nurses are independent contractors (1099)</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://nursa.com" target="_blank" rel="noopener" data-agency="Nursa">Visit Nursa &rarr;</a></div>
     </div>
     <div class="ag-strip">
