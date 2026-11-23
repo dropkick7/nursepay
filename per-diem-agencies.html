@@ -105,6 +105,19 @@
     .agency-card p { flex: 1; margin-bottom: 0.9rem; }
     .agency-card .a-links { font-size: 14px; line-height: 1.7; }
     .agency-card .a-links a:hover { text-decoration: underline; }
+    .content h2.what { margin-top: 1.5rem; }
+    .ag-intro { margin-top: 1.75rem; }
+    .ag-list { display: flex; flex-direction: column; gap: 10px; margin: 1rem 0 2rem; }
+    .ag-strip { border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px 12px; background: #fff; }
+    .ag-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .ag-top h3 { margin: 0; font-size: 1.05rem; }
+    .ag-visit { font-size: 13px; font-weight: 600; color: var(--blue); white-space: nowrap; }
+    .ag-visit:hover, .ag-reddit:hover { text-decoration: underline; }
+    .ag-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .ag-h { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; }
+    .ag-cols p { font-size: 14px; line-height: 1.5; margin: 0; color: var(--text-mid); }
+    .ag-reddit { display: inline-block; margin-top: 10px; font-size: 12.5px; color: var(--text-muted); }
+    @media (max-width: 700px) { .ag-cols { grid-template-columns: 1fr; gap: 10px; } }
 </style>
   <!-- Google Analytics -->
   <script>try{if(location.search.indexOf("internal=1")>-1)localStorage.setItem("np_internal","1");if(location.search.indexOf("internal=0")>-1)localStorage.removeItem("np_internal");if(localStorage.getItem("np_internal")){window["ga-disable-G-CR556L6MGE"]=true;}}catch(e){}</script>
@@ -165,45 +178,49 @@
 
 <div class="content">
   <h1>Per Diem Nursing Agencies (Nationwide)</h1>
-  <p>Agency per diem means you pick up shifts through a company, often an app, instead of being employed by one hospital. It can mean more variety and more control over your schedule. It can also mean different pay, different taxes and fewer guarantees. Here is how I think about it.</p>
+  <h2 class="what">What is agency per diem?</h2>
+  <p>Agency per diem means you pick up shifts through a company, often an app, instead of being employed by one hospital. It can mean more variety and more control over your schedule. It can also mean different pay, different taxes and fewer guarantees.</p>
+
+  <p class="ag-intro">A few common agencies that hire per diem. I'm not getting paid to share these. Have one you like? <a href="contact.html">Let me know</a>.</p>
+  <div class="ag-list" id="agencies">
+    <div class="ag-strip">
+      <div class="ag-top"><h3>Medely</h3><a class="ag-visit" href="https://www.medely.com" target="_blank" rel="noopener" data-agency="Medely">Visit Medely &rarr;</a></div>
+      <div class="ag-cols">
+        <div><div class="ag-h">The shifts</div><p>Per diem shifts at hospitals and surgery centers.</p></div>
+        <div><div class="ag-h">What nurses say</div><p>Easy to get started, and you get paid quickly.</p></div>
+        <div><div class="ag-h">Heads up</div><p>Some facilities don't offer orientation, and some shifts want 1&ndash;2 years of experience.</p></div>
+      </div>
+      <a class="ag-reddit" href="https://www.reddit.com/r/TravelNursing/comments/svp2vb/" target="_blank" rel="noopener">See what nurses say on Reddit &rarr;</a>
+    </div>
+    <div class="ag-strip">
+      <div class="ag-top"><h3>Nursa</h3><a class="ag-visit" href="https://nursa.com" target="_blank" rel="noopener" data-agency="Nursa">Visit Nursa &rarr;</a></div>
+      <div class="ag-cols">
+        <div><div class="ag-h">The shifts</div><p>Hospital shifts you pick up when and where you want.</p></div>
+        <div><div class="ag-h">What nurses say</div><p>One nurse says the pay is good.</p></div>
+        <div><div class="ag-h">Heads up</div><p>Available shifts depend on your area.</p></div>
+      </div>
+      <a class="ag-reddit" href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener">See what nurses say on Reddit &rarr;</a>
+    </div>
+    <div class="ag-strip">
+      <div class="ag-top"><h3>Clipboard Health</h3><a class="ag-visit" href="https://www.clipboardhealth.com" target="_blank" rel="noopener" data-agency="Clipboard Health">Visit Clipboard Health &rarr;</a></div>
+      <div class="ag-cols">
+        <div><div class="ag-h">The shifts</div><p>Mostly long-term care and subacute shifts.</p></div>
+        <div><div class="ag-h">What nurses say</div><p>One LPN says the pay and number of shifts are better than other apps, and you're paid right after the shift.</p></div>
+        <div><div class="ag-h">Heads up</div><p>That's one nurse's experience.</p></div>
+      </div>
+      <a class="ag-reddit" href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener">Same Reddit thread &rarr;</a>
+    </div>
+  </div>
 
   <a class="story-card" href="per-diem-agency-experience.html">
     <span class="story-label">My story</span>
     <strong>Working per diem through an agency: my experience</strong>
-    <span>What I like, the downsides, and the pay tradeoff, from a Bay Area nurse. Read my experience &rarr;</span>
+    <span>What I like, the downsides, and the pay tradeoff. Read my experience &rarr;</span>
   </a>
   <p class="disclosure"><strong>Disclosure:</strong> I also work per diem through an agency myself, as an independent contractor.</p>
 
-  <h2>Questions to ask any agency before you sign up</h2>
-  <ul class="q-list">
-    <li><strong>How is the pay set, and can it change?</strong> Is there a fixed rate, or does it move with demand?</li>
-    <li><strong>Are you an employee or an independent contractor?</strong> Contractors handle their own taxes, including self-employment tax.</li>
-    <li><strong>Is training or shadowing paid?</strong></li>
-    <li><strong>What do you pay for yourself?</strong> Ask about CEUs, certifications and malpractice insurance.</li>
-    <li><strong>Are any shifts guaranteed?</strong> Can the agency change the model or the requirements later?</li>
-    <li><strong>What is unpaid?</strong> Driving, confirming calls with patients and charting can all happen on your own time.</li>
-  </ul>
-
-  <h2 id="agencies">Per Diem Agencies (Nationwide)</h2>
-  <p>Here are a few common agencies that hire per diem. I know they're popular with travel nurses between assignments, but they can be great side hustles too. I'm not getting paid to share these. I just wanted to create a resource. NursePay hasn't verified their pay, so always check the pay on a shift before you book.</p>
-  <p>If you have an agency you like, please <a href="contact.html">let me know</a>!</p>
-  <div class="agency-grid">
-    <div class="agency-card"><h3>Medely</h3><p>Per diem shifts at hospitals and surgery centers. Nurses say it's easy to get started and you get paid quickly. Heads up: some facilities don't offer orientation, and some shifts want 1&ndash;2 years of experience.</p><div class="a-links"><a href="https://www.medely.com" target="_blank" rel="noopener" data-agency="Medely">Visit Medely</a> &middot; <a href="https://www.reddit.com/r/TravelNursing/comments/svp2vb/" target="_blank" rel="noopener">See what nurses say on Reddit</a></div></div>
-    <div class="agency-card"><h3>Nursa</h3><p>Hospital shifts you pick up when and where you want. One nurse says the pay is good. Heads up: available shifts depend on your area.</p><div class="a-links"><a href="https://nursa.com" target="_blank" rel="noopener" data-agency="Nursa">Visit Nursa</a> &middot; <a href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener">See what nurses say on Reddit</a></div></div>
-    <div class="agency-card"><h3>Clipboard Health</h3><p>Mostly long-term care and subacute shifts. One LPN says the pay and number of shifts are better than other apps, and you're paid right after the shift. Heads up: that's one nurse's experience.</p><div class="a-links"><a href="https://www.clipboardhealth.com" target="_blank" rel="noopener" data-agency="Clipboard Health">Visit Clipboard Health</a> &middot; <a href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener">Same Reddit thread</a></div></div>
-  </div>
-
-  <h2>Have an agency story?</h2>
-  <p>If you work per diem through an agency, your experience could help another nurse decide. <a href="share-your-story.html">Share your story &rarr;</a></p>
-  <p>Looking for hospital jobs instead? <a href="per-diem.html">See SF Bay Area hospital per diem jobs &rarr;</a></p>
+  <p>Have an agency story? <a href="share-your-story.html">Share it &rarr;</a> Looking for hospital jobs? <a href="per-diem.html">See SF Bay Area per diem jobs &rarr;</a></p>
 </div>
-
-
-
-
-
-
-
 
 <!-- PER DIEM CTA -->
 <section style="background: #EEF2FF; border-top: 1px solid #C5D0FF; border-bottom: 1px solid #C5D0FF; padding: 2.5rem 2rem; text-align: center;">
