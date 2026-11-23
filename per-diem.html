@@ -421,6 +421,9 @@ let active = null;
 fetch('jobs.json')
   .then(r => r.json())
   .then(data => { 
+    // Tidy hospital names so a stray space, capital or typo in jobs.json can't create a duplicate in the filter.
+    const HOSP_ALIASES = { 'kasier':'Kaiser', 'kaiser':'Kaiser', 'ucsf':'UCSF', 'sutter':'Sutter' };
+    data.forEach(j => { if (j.hospital) { j.hospital = j.hospital.trim().replace(/\s+/g,' '); j.hospital = HOSP_ALIASES[j.hospital.toLowerCase()] || j.hospital; } });
     JOBS = data.sort((a,b) => {
       const order = {RN:0, LVN:1, APRN:2};
       return (order[a.role] ?? 3) - (order[b.role] ?? 3);
@@ -544,8 +547,9 @@ function trackFilter(filterType, value) {
     let rng = '', src = '';
     if (posted) { rng = j.pay; src = 'Pay range from the job listing'; }
     else if (r) { rng = mn === mx ? `$${mn.toFixed(2)}/hr` : `$${mn.toFixed(2)} to $${mx.toFixed(2)}/hr`; src = mn === mx ? `Pay from the ${j.hospital} contract` : `Pay range from the ${j.hospital} contract`; }
-    const eligible = !!r && (j.hospital === 'UCSF' || j.hospital === 'Kaiser' || (j.hospital === 'Sutter' && /^(Berkeley|Oakland)$/.test(j.city)));
-    const cAnchor = j.hospital === 'UCSF' ? 'ucsf' : j.hospital === 'Kaiser' ? 'kaiser' : 'sutter-alta-bates';
+    const isSFG = j.hospital === 'SF DPH (ZSFG)';
+    const eligible = isSFG || (!!r && (j.hospital === 'UCSF' || j.hospital === 'Kaiser' || (j.hospital === 'Sutter' && /^(Berkeley|Oakland)$/.test(j.city))));
+    const cAnchor = isSFG ? 'sf-dph' : j.hospital === 'UCSF' ? 'ucsf' : j.hospital === 'Kaiser' ? 'kaiser' : 'sutter-alta-bates';
     const cLink = (txt) => `<a class="pay-src pay-src-link" href="contracts.html?from=per-diem#${cAnchor}" target="_blank" rel="noopener" onclick="event.stopPropagation();gtag('event','contract_pay_open',{hospital:'${j.hospital}'});">${txt}</a>`;
     let srcHtml = `<span class="pay-src">${src}</span>`;
     if (eligible) srcHtml = posted ? `<span class="pay-src">${src}</span>${cLink('See contract pay &rarr;')}` : cLink(src + ' &rarr;');
