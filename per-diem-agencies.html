@@ -101,6 +101,10 @@
     .agency-card p { font-size: 14px; line-height: 1.55; }
     .content p a { color: var(--blue); font-weight: 600; }
     .agency-card a { font-size: 14px; font-weight: 600; color: var(--blue); }
+    .agency-card { display: flex; flex-direction: column; }
+    .agency-card p { flex: 1; margin-bottom: 0.9rem; }
+    .agency-card .a-links { font-size: 14px; line-height: 1.7; }
+    .agency-card .a-links a:hover { text-decoration: underline; }
 </style>
   <!-- Google Analytics -->
   <script>try{if(location.search.indexOf("internal=1")>-1)localStorage.setItem("np_internal","1");if(location.search.indexOf("internal=0")>-1)localStorage.removeItem("np_internal");if(localStorage.getItem("np_internal")){window["ga-disable-G-CR556L6MGE"]=true;}}catch(e){}</script>
@@ -180,12 +184,13 @@
     <li><strong>What is unpaid?</strong> Driving, confirming calls with patients and charting can all happen on your own time.</li>
   </ul>
 
-  <h2>Agencies to look at</h2>
-  <p class="muted">Facts only: what kind of work it is and how to apply. Where I might earn something from a link, it will be marked.</p>
+  <h2 id="agencies">Per Diem Agencies (Nationwide)</h2>
+  <p>Here are a few common agencies that hire per diem. I know they're popular with travel nurses between assignments, but they can be great side hustles too. I'm not getting paid to share these. I just wanted to create a resource. NursePay hasn't verified their pay, so always check the pay on a shift before you book.</p>
+  <p>If you have an agency you like, please <a href="contact.html">let me know</a>!</p>
   <div class="agency-grid">
-    <div class="agency-card"><h3>[Agency name]</h3><p class="a-meta">[Type of work &middot; where]</p><p>[One or two checkable facts about how it works.]</p><a href="#">[Link text] &rarr;</a></div>
-    <div class="agency-card"><h3>[Agency name]</h3><p class="a-meta">[Type of work &middot; where]</p><p>[One or two checkable facts about how it works.]</p><a href="#">[Link text] &rarr;</a></div>
-    <div class="agency-card"><h3>[Agency name]</h3><p class="a-meta">[Type of work &middot; where]</p><p>[One or two checkable facts about how it works.]</p><a href="#">[Link text] &rarr;</a></div>
+    <div class="agency-card"><h3>Medely</h3><p>Per diem shifts at hospitals and surgery centers. Nurses say it's easy to get started and you get paid quickly. Heads up: some facilities don't offer orientation, and some shifts want 1&ndash;2 years of experience.</p><div class="a-links"><a href="https://www.medely.com" target="_blank" rel="noopener" data-agency="Medely">Visit Medely</a> &middot; <a href="https://www.reddit.com/r/TravelNursing/comments/svp2vb/" target="_blank" rel="noopener">See what nurses say on Reddit</a></div></div>
+    <div class="agency-card"><h3>Nursa</h3><p>Hospital shifts you pick up when and where you want. One nurse says the pay is good. Heads up: available shifts depend on your area.</p><div class="a-links"><a href="https://nursa.com" target="_blank" rel="noopener" data-agency="Nursa">Visit Nursa</a> &middot; <a href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener">See what nurses say on Reddit</a></div></div>
+    <div class="agency-card"><h3>Clipboard Health</h3><p>Mostly long-term care and subacute shifts. One LPN says the pay and number of shifts are better than other apps, and you're paid right after the shift. Heads up: that's one nurse's experience.</p><div class="a-links"><a href="https://www.clipboardhealth.com" target="_blank" rel="noopener" data-agency="Clipboard Health">Visit Clipboard Health</a> &middot; <a href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener">Same Reddit thread</a></div></div>
   </div>
 
   <h2>Have an agency story?</h2>
@@ -238,6 +243,14 @@
       menu.classList.remove('open');
     }
   });
+</script>
+
+<script>
+// Test 1: count clicks on the agency links
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[data-agency]');
+  if (a && typeof gtag === 'function') gtag('event', 'agency_click', { agency: a.getAttribute('data-agency') });
+});
 </script>
 
 </body>
