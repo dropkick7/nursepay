@@ -84,7 +84,7 @@
     .content h3 { font-size: 1rem; font-weight: 700; margin: 1.5rem 0 0.35rem; }
     .content .byline { font-size: 13px; color: var(--text-muted); margin: -0.75rem 0 0.75rem; }
     .content .asof { font-size: 13px; color: var(--text-muted); }
-    .content { max-width: 920px; }
+    .content { max-width: 1040px; }
     .content > p, .content > ul, .content > h2 { max-width: 700px; }
     .content > .story-card { max-width: 700px; }
     .story-card { display: block; border: 1px solid var(--border); border-left: 4px solid var(--blue); border-radius: 10px; padding: 1.1rem 1.25rem; margin: 1.5rem 0 0.75rem; background: var(--blue-light, #EEF2FF); color: var(--text); text-decoration: none; }
@@ -116,7 +116,7 @@
     .content h2.what { font-size: 1.05rem; font-weight: 600; }
     .content p.ag-note { font-size: 13.5px; color: var(--text-muted); margin: -0.25rem 0 0; }
     .ag-list { display: flex; flex-direction: column; gap: 14px; margin: 1.5rem 0 2rem; }
-    .ag-strip { display: grid; grid-template-columns: 190px 1fr 1fr 150px; gap: 0; align-items: stretch; border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.05); transition: box-shadow .15s, border-color .15s; }
+    .ag-strip { display: grid; grid-template-columns: 170px 160px 1fr 1fr 140px; gap: 0; align-items: stretch; border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.05); transition: box-shadow .15s, border-color .15s; }
     .ag-strip:hover { box-shadow: 0 4px 14px rgba(52,97,255,.12); border-color: #c9d4ff; }
     .ag-col { padding: 0 16px; border-left: 1px solid var(--border); min-width: 0; }
     .ag-col.ag-name { padding-left: 0; border-left: none; }
@@ -124,6 +124,9 @@
     .content p.ag-shifts { margin: 4px 0 0; font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
     .ag-h { font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
     .ag-h-warn { color: #B45309; }
+    .content p.ag-where { font-size: 13.5px; line-height: 1.45; color: var(--text-mid); margin: 0; }
+    .ag-src { display: inline-block; margin-top: 6px; font-size: 12.5px; color: var(--text-muted); }
+    .ag-src:hover { color: var(--blue); text-decoration: underline; }
     .ag-chips { display: flex; flex-wrap: wrap; gap: 6px; }
     .chip { font-size: 13px; line-height: 1.35; padding: 4px 11px; border-radius: 12px; border: 1px solid var(--border); color: var(--text-mid); }
     .chip-good { background: #F0FDF4; border-color: #BBF7D0; color: #166534; }
@@ -210,36 +213,42 @@
   <div class="ag-list" id="agencies">
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3>Medely</h3><p class="ag-shifts">Per diem shifts at hospitals and surgery centers.</p></div>
+      <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">40+ U.S. markets. Check that your city is covered.</p><a class="ag-src" href="https://medely.com/blog/bridging-the-staffing-gap-medelys-plan-to-address-the-healthcare-staffing-crisis-in-las-vegas/" target="_blank" rel="noopener">Medely says so &rarr;</a></div>
       <div class="ag-col"><div class="ag-h">What nurses say</div><div class="ag-chips"><span class="chip chip-good">Easy to get started</span><span class="chip chip-good">Paid quickly</span></div><a class="ag-reddit" href="https://www.reddit.com/r/TravelNursing/comments/svp2vb/" target="_blank" rel="noopener">Reddit thread &rarr;</a></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Some facilities don't offer orientation, and some shifts want 1&ndash;2 years of experience</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://www.medely.com" target="_blank" rel="noopener" data-agency="Medely">Visit Medely &rarr;</a></div>
     </div>
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3>Nursa</h3><p class="ag-shifts">Hospital shifts you pick up when and where you want.</p></div>
+      <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">31+ states</p><a class="ag-src" href="https://nursa.com/states" target="_blank" rel="noopener">Nursa's state map &rarr;</a></div>
       <div class="ag-col"><div class="ag-h">What nurses say</div><div class="ag-chips"><span class="chip chip-good">Good pay</span></div><a class="ag-reddit" href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener">Reddit thread &rarr;</a></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Shifts depend on your area, and nurses are independent contractors (1099)</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://nursa.com" target="_blank" rel="noopener" data-agency="Nursa">Visit Nursa &rarr;</a></div>
     </div>
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3>Clipboard Health</h3><p class="ag-shifts">Mostly long-term care and subacute shifts.</p></div>
+      <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">Varies by market. Check your area in the app.</p></div>
       <div class="ag-col"><div class="ag-h">What nurses say</div><div class="ag-chips"><span class="chip chip-good">Better pay and more shifts than other apps</span><span class="chip chip-good">Paid right after the shift</span></div><a class="ag-reddit" href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener">Reddit thread &rarr;</a></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Nurses are paid as independent contractors (1099)</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://www.clipboardhealth.com" target="_blank" rel="noopener" data-agency="Clipboard Health">Visit Clipboard &rarr;</a></div>
     </div>
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3>Aya Healthcare</h3><p class="ag-shifts">Per diem shifts you book yourself in the Aya Shifts app once you're credentialed.</p></div>
+      <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">Nationwide, including California. Some facilities want you within 50 miles.</p><a class="ag-src" href="https://www.ayahealthcare.com/?p=89137" target="_blank" rel="noopener">Aya's FAQ &rarr;</a></div>
       <div class="ag-col"><div class="ag-h">The agency says</div><div class="ag-chips"><span class="chip chip-good">You pick when and where you work</span></div></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Getting through per diem compliance takes about 2&ndash;5 weeks</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://www.ayahealthcare.com" target="_blank" rel="noopener" data-agency="Aya Healthcare">Visit Aya &rarr;</a></div>
     </div>
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3>AMN Healthcare (Nursefinders)</h3><p class="ag-shifts">Per diem and local shifts. Nursefinders is AMN's per diem agency, with contracts from one day up to 13 weeks.</p></div>
+      <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">Nationwide, including California</p><a class="ag-src" href="https://www.amnhealthcare.com/careers/nursing/per-diem/why-us" target="_blank" rel="noopener">AMN's per diem page &rarr;</a></div>
       <div class="ag-col"><div class="ag-h">The agency says</div><div class="ag-chips"><span class="chip chip-good">W-2 clinician workforce</span><span class="chip chip-good">Joint Commission accredited</span></div></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Not all agencies offer the same pay and benefits, so check before you sign</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://www.amnhealthcare.com/careers/nursing/per-diem/" target="_blank" rel="noopener" data-agency="AMN Healthcare (Nursefinders)">Visit AMN &rarr;</a></div>
     </div>
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3>GrapeTree Medical Staffing</h3><p class="ag-shifts">Per diem shifts, plus local and travel long-term assignments.</p></div>
+      <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">Midwest only: about 12 states, based in Iowa</p><a class="ag-src" href="https://app.joinhandshake.com/employers/grapetree-medical-staffing-137618" target="_blank" rel="noopener">GrapeTree's profile &rarr;</a></div>
       <div class="ag-col"><div class="ag-h">The agency says</div><div class="ag-chips"><span class="chip chip-good">W-2 employment</span><span class="chip chip-good">24/7 support</span></div></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Mostly skilled nursing and assisted living facilities, not hospitals</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://www.grapetree.com" target="_blank" rel="noopener" data-agency="GrapeTree">Visit GrapeTree &rarr;</a></div>
