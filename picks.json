@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-11-23T15:20:09",
+  "picks": [
+    {
+      "ticked": false,
+      "hospital": "UCSF",
+      "title": "Nurse Anesthetist SR PD",
+      "city": "San Francisco",
+      "pay": "Not listed",
+      "pay_posted": false,
+      "blurb": "Nurse Anesthetist SR PD - UCSF, San Francisco. Pay not listed. Per diem.",
+      "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/5267"
+    },
+    {
+      "ticked": false,
+      "hospital": "Sutter",
+      "title": "Ambulatory Services RN II, Preop/PACU Per Diem",
+      "city": "Los Altos",
+      "pay": "$86.27 to $120.77/hr",
+      "pay_posted": true,
+      "blurb": "Ambulatory Services RN II, Preop/PACU Per Diem - Sutter, Los Altos. Listed pay: $86.27 to $120.77/hr. Per diem.",
+      "url": "https://jobs.sutterhealth.org/us/en/job/R-144405/Ambulatory-Services-RN-II-Preop-PACU-Per-Diem"
+    },
+    {
+      "ticked": false,
+      "hospital": "Sutter",
+      "title": "Staff Nurse II, Surgery",
+      "city": "San Francisco",
+      "pay": "$87.46 to $118.34/hr",
+      "pay_posted": true,
+      "blurb": "Staff Nurse II, Surgery - Sutter, San Francisco. Listed pay: $87.46 to $118.34/hr. Per diem.",
+      "url": "https://jobs.sutterhealth.org/us/en/job/R-143940/Staff-Nurse-II-Surgery"
+    },
+    {
+      "ticked": false,
+      "hospital": "Sutter",
+      "title": "Staff Nurse II, MSICU",
+      "city": "San Francisco",
+      "pay": "$87.46 to $118.34/hr",
+      "pay_posted": true,
+      "blurb": "Staff Nurse II, MSICU - Sutter, San Francisco. Listed pay: $87.46 to $118.34/hr. Per diem.",
+      "url": "https://jobs.sutterhealth.org/us/en/job/R-140183/Staff-Nurse-II-MSICU"
+    },
+    {
+      "ticked": false,
+      "hospital": "UCSF",
+      "title": "Per Diem Nurse - Weill Infusion",
+      "city": "San Francisco",
+      "pay": "Not listed",
+      "pay_posted": false,
+      "blurb": "Per Diem Nurse - Weill Infusion - UCSF, San Francisco. Pay not listed. Per diem.",
+      "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/3562"
+    },
+    {
+      "ticked": false,
+      "hospital": "UCSF",
+      "title": "Per-Diem Registered Nurse - Vascular Access",
+      "city": "San Francisco",
+      "pay": "Not listed",
+      "pay_posted": false,
+      "blurb": "Per-Diem Registered Nurse - Vascular Access - UCSF, San Francisco. Pay not listed. Per diem.",
+      "url": "https://careers.ucsf.edu/careers/JobDetail/San-Francisco-CA-United-States/3519"
+    }
+  ]
+}
