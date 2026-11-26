@@ -36,6 +36,16 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://nursepay.co/specialty-interviews.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://nursepay.co/side-hustles.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://nursepay.co/per-diem-agencies.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

@@ -119,6 +119,7 @@
       .card-soon:last-child > .tag { margin-top: 1.4rem; }
     }
     .card-img img.ys { object-position: 55% 50%; }
+    @media (min-width: 760px) { .cards.two { grid-template-columns: repeat(2, 1fr); } .cards.two .card-img { height: 150px; } }
     .card-soon { cursor: default; }
     .card-soon:last-child { grid-column: 1 / -1; background: var(--blue-light); }
     .card-soon:hover { border-color: var(--border); box-shadow: none; }
@@ -179,7 +180,13 @@
         <li><a href="per-diem-agencies.html">Agencies (Nationwide)</a></li>
       </ul>
     </li>
-    <li><a href="stories.html">Real Nurse Stories</a></li>
+    <li class="has-dropdown">
+        <a href="stories.html">From Real Nurses</a>
+        <ul class="dropdown">
+          <li><a href="specialty-interviews.html">Specialty Interviews</a></li>
+          <li><a href="side-hustles.html">Side Hustles</a></li>
+        </ul>
+      </li>
     <li class="has-dropdown">
       <a href="about.html">About Me</a>
       <ul class="dropdown">
@@ -199,7 +206,10 @@
   <span class="m-label">Per Diem Jobs</span>
   <a href="per-diem.html">Hospitals (SF Bay Area)</a>
   <a href="per-diem-agencies.html">Agencies (Nationwide)</a>
-  <a href="stories.html">Real Nurse Stories</a>
+  <span class="m-label">From Real Nurses</span>
+  <a href="stories.html">All stories</a>
+  <a href="specialty-interviews.html">Specialty Interviews</a>
+  <a href="side-hustles.html">Side Hustles</a>
   <span class="m-label">About Me</span>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
@@ -215,10 +225,9 @@
   <p style="color:var(--text-mid);margin:0 0 1.5rem;">This site is all about us nurses sharing our collective knowledge and lifting each other up.</p>
   <p style="color:var(--text-mid);margin:0 0 1.25rem;">Have a specialty or side hustle you'd like to share? <a href="share-your-story.html" style="color:var(--blue);font-weight:600;text-decoration:underline;">Share your story</a></p>
 
-  <div class="cards">
-    <a class="card" href="per-diem-agency-experience.html"><div class="card-img"><img class="ag" src="images/stories/agency.jpg" alt="A stethoscope, laptop, blood pressure cuff and other nursing supplies laid out on a table" loading="lazy"></div><div class="tag">Side hustle</div><h3>Working per diem through an agency</h3><p>What I like, the downsides, and the pay tradeoff.</p><span class="go">Read the story &rarr;</span></a>
-    <a class="card" href="story-elizabeth-fertility.html"><div class="card-img"><img src="images/stories/fertility.jpg" alt="White tulips next to a pregnancy test and a pacifier on a pink background" loading="lazy"></div><div class="tag">Specialty</div><h3>Elizabeth, fertility nurse</h3><p>A 9 to 5 salaried job after labor and delivery.</p><span class="go">Read her story &rarr;</span></a>
-    <a class="card" href="story-mckenzie-postpartum-per-diem.html"><div class="card-img"><img class="pp" src="images/stories/postpartum.jpg" alt="A newborn sleeping in a hospital bassinet" loading="lazy"></div><div class="tag">Specialty</div><h3>McKenzie, postpartum nurse</h3><p>Evenings, eight patients, and why she chooses per diem.</p><span class="go">Read her story &rarr;</span></a>
+  <div class="cards two">
+    <a class="card" href="specialty-interviews.html"><div class="card-img"><img src="images/stories/fertility.jpg" alt="White tulips next to a pregnancy test and a pacifier on a pink background" loading="lazy"></div><div class="tag">Specialty interviews</div><h3>What a specialty is really like</h3><p>The schedule, the patients and the hard parts, from nurses who do the work.</p><span class="go">Read the interviews &rarr;</span></a>
+    <a class="card" href="side-hustles.html"><div class="card-img"><img class="ag" src="images/stories/agency.jpg" alt="A stethoscope, laptop, blood pressure cuff and other nursing supplies laid out on a table" loading="lazy"></div><div class="tag">Side hustles</div><h3>Nurses earning outside their main job</h3><p>What it takes, what it pays and what they would tell you first.</p><span class="go">See side hustles &rarr;</span></a>
     <div class="card card-soon"><div class="card-img"><img class="ys" src="images/stories/your-story.jpg" alt="Hands typing on a laptop next to a notebook, a phone and a glass of water" loading="lazy"></div><div class="tag">Your story</div><h3>Have a story to share?</h3><p>A specialty, a side hustle, a career change. Tell me about it.</p><a class="go" href="share-your-story.html">Share your story &rarr;</a></div>
   </div>
 
@@ -238,7 +247,7 @@
     <a href="submit.html">Add Your Pay</a>
     <a href="browse.html">Browse Pay</a>
     <a href="california.html">California Pay</a>
-    <a href="stories.html">Stories</a>
+    <a href="stories.html">From Real Nurses</a>
     <a href="contracts.html">Contracts</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
