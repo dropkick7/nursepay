@@ -162,6 +162,12 @@
     .blog-go { color: var(--blue); font-weight: 600; font-size: 14px; margin-top: 0.75rem; }
     .content p.ag-note, .content p.disclosure { margin-bottom: 0.75rem; }
     .ag-table-wrap { margin-top: 0.75rem; }
+    .faq { border-bottom: 1px solid var(--border); }
+    .faq summary { cursor: pointer; font-weight: 600; font-size: 1rem; padding: 14px 28px 14px 0; list-style: none; position: relative; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; position: absolute; right: 4px; top: 11px; font-size: 22px; font-weight: 400; color: var(--blue); }
+    .faq[open] summary::after { content: "\2212"; }
+    .faq p { margin: 0 0 14px; }
 </style>
   <!-- Google Analytics -->
   <script>try{if(location.search.indexOf("internal=1")>-1)localStorage.setItem("np_internal","1");if(location.search.indexOf("internal=0")>-1)localStorage.removeItem("np_internal");if(localStorage.getItem("np_internal")){window["ga-disable-G-CR556L6MGE"]=true;}}catch(e){}</script>
@@ -284,22 +290,6 @@
   <h2 class="what">Compare the agencies at a glance</h2>
   <div class="ag-table-wrap"><table class="ag-table"><thead><tr><th>Agency</th><th>How you're paid</th><th>How fast you're paid</th><th>Where</th><th>Shifts are mostly at</th></tr></thead><tbody><tr><td>Medely</td><td>Independent contractor (1099)</td><td>Several times a week</td><td>40+ U.S. markets</td><td>Hospitals and surgery centers</td></tr><tr><td>Nursa</td><td>Independent contractor (1099)</td><td>Twice a week, or instant with Nursa Direct</td><td>31+ states</td><td>Hospitals and facilities</td></tr><tr><td>Clipboard Health</td><td>Independent contractor (1099)</td><td>Nurses report within an hour of the shift</td><td>Check your area in the app</td><td>Mostly long term care and subacute</td></tr><tr><td>Aya Healthcare</td><td>Not stated on Aya's per diem pages. Ask Aya</td><td>Weekly, Fridays</td><td>Nationwide. Some facilities want you within 50 miles</td><td>Hospitals</td></tr><tr><td>AMN Healthcare (Nursefinders)</td><td>Employee (W-2), with benefits like 401(k) and health</td><td>Weekly, Fridays</td><td>Nationwide</td><td>Hospitals and local facilities</td></tr><tr><td>GrapeTree Medical Staffing</td><td>Employee (W-2)</td><td>Weekly, with a daily pay option</td><td>Mostly Midwest: about 12 states, based in Iowa</td><td>Skilled nursing and assisted living</td></tr></tbody></table></div>
   <p class="ag-note">Details checked November 2026 from each agency's own pages. Things change, so confirm before you sign up.</p>
-  <h2 class="what">Per diem agency FAQ</h2>
-  <h3 class="faq-q">Does agency per diem pay more than a hospital per diem job?</h3>
-  <p>Not for me. In the Bay Area, my agency shifts usually pay less than my hospital job. I take the pay cut for the variety and the flexibility. Agency pay also moves: when lots of nurses are available it drops, and when a shift needs filling fast it can spike. Compare what nurses report at your hospital on <a href="browse.html">Browse Pay</a>.</p>
-  <h3 class="faq-q">What's the difference between a 1099 and a W-2 agency?</h3>
-  <p>With a 1099 app (Medely, Nursa, Clipboard Health) you're self employed. Nothing is taken out for taxes, you pay self employment tax, and some business costs can be written off. With a W-2 agency (like AMN's Nursefinders) taxes come out of your check, and some offer benefits like a 401(k). I work 1099. Check with a tax professional about your own situation.</p>
-  <h3 class="faq-q">How fast do per diem apps pay?</h3>
-  <p>It depends on the agency: Nursa pays twice a week or instantly, Medely several times a week, Aya and Nursefinders weekly on Fridays, GrapeTree weekly with a daily option. Nurses say Clipboard Health often pays within an hour.</p>
-  <h3 class="faq-q">What if a facility cancels my shift?</h3>
-  <p>Nurses mention last minute cancellations across almost every app. Before you sign up, ask the agency what you get paid if a shift is cancelled.</p>
-  <h3 class="faq-q">Is there unpaid time?</h3>
-  <p>Yes, in my experience. Driving, calling to confirm and shadowing for training were on my own time. My agency also requires CEUs, certifications and malpractice insurance, on my own time and dime.</p>
-  <h3 class="faq-q">Are small agencies riskier than big ones?</h3>
-  <p>Nurses say small agencies are riskier: no shifts, rate problems, even pay lawsuits. Bigger names with a profile you can reuse are less hassle. In California, applying directly with the facility can get you the shifts you want before they go out to an agency. <a href="per-diem.html">See Bay Area hospital jobs &rarr;</a></p>
-  <h3 class="faq-q">Why these agencies? Are you paid to list them?</h3>
-  <p>No. These are a few common agencies that hire per diem, and I'm not getting paid to share them. Have one you like? <a href="contact.html">Let me know</a>.</p>
-
   <h2 class="what">My experience with a per diem agency</h2>
   <a class="blog-card" href="per-diem-agency-experience.html">
     <span class="blog-label">From the blog &middot; My story</span>
@@ -308,6 +298,15 @@
     <span class="blog-go">Read my experience &rarr;</span>
   </a>
   <p class="disclosure"><strong>Disclosure:</strong> I also work per diem through an agency myself, as an independent contractor.</p>
+
+  <h2 class="what">Per diem agency FAQ</h2>
+  <details class="faq"><summary>Does agency per diem pay more than a hospital per diem job?</summary><p>Not for me. In the Bay Area, my agency shifts usually pay less than my hospital job. I take the pay cut for the variety and the flexibility. Agency pay also moves: when lots of nurses are available it drops, and when a shift needs filling fast it can spike. Compare what nurses report at your hospital on <a href="browse.html">Browse Pay</a>.</p></details>
+  <details class="faq"><summary>What's the difference between a 1099 and a W-2 agency?</summary><p>With a 1099 app (Medely, Nursa, Clipboard Health) you're self employed. Nothing is taken out for taxes, you pay self employment tax, and some business costs can be written off. With a W-2 agency (like AMN's Nursefinders) taxes come out of your check, and some offer benefits like a 401(k). I work 1099. Check with a tax professional about your own situation.</p></details>
+  <details class="faq"><summary>How fast do per diem apps pay?</summary><p>It depends on the agency: Nursa pays twice a week or instantly, Medely several times a week, Aya and Nursefinders weekly on Fridays, GrapeTree weekly with a daily option. Nurses say Clipboard Health often pays within an hour.</p></details>
+  <details class="faq"><summary>What if a facility cancels my shift?</summary><p>Nurses mention last minute cancellations across almost every app. Before you sign up, ask the agency what you get paid if a shift is cancelled.</p></details>
+  <details class="faq"><summary>Is there unpaid time?</summary><p>Yes, in my experience. Driving, calling to confirm and shadowing for training were on my own time. My agency also requires CEUs, certifications and malpractice insurance, on my own time and dime.</p></details>
+  <details class="faq"><summary>Are small agencies riskier than big ones?</summary><p>Nurses say small agencies are riskier: no shifts, rate problems, even pay lawsuits. Bigger names with a profile you can reuse are less hassle. In California, applying directly with the facility can get you the shifts you want before they go out to an agency. <a href="per-diem.html">See Bay Area hospital jobs &rarr;</a></p></details>
+  <details class="faq"><summary>Why these agencies? Are you paid to list them?</summary><p>No. These are a few common agencies that hire per diem, and I'm not getting paid to share them. Have one you like? <a href="contact.html">Let me know</a>.</p></details>
 
   <p>Have an agency story? <a href="share-your-story.html">Share it &rarr;</a> Looking for hospital jobs? <a href="per-diem.html">See SF Bay Area per diem jobs &rarr;</a></p>
 </div>

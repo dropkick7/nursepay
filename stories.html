@@ -100,6 +100,13 @@
     .card .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 0.4rem; }
     .card h3 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.2px; margin-bottom: 0.4rem; line-height: 1.3; }
     .card p { font-size: 14px; color: var(--text-mid); margin-bottom: 0.6rem; }
+    .card { overflow: hidden; padding: 0; }
+    .card > :not(.card-img) { margin-left: 1.4rem; margin-right: 1.4rem; }
+    .card > .tag { margin-top: 1.1rem; }
+    .card > :last-child { margin-bottom: 1.25rem; padding-bottom: 0; }
+    .card .go { display: inline-block; }
+    .card-img { height: 150px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #EEF2FF, #dfe7ff); margin: 0 !important; }
+    .card-soon:last-child .card-img { height: 90px; }
     .card-soon { cursor: default; }
     .card-soon:last-child { grid-column: 1 / -1; background: var(--blue-light); }
     .card-soon:hover { border-color: var(--border); box-shadow: none; }
@@ -194,9 +201,9 @@
   <p style="color:var(--text-mid);margin:0 0 1.25rem;">Have a specialty or side hustle you'd like to share? <a href="share-your-story.html" style="color:var(--blue);font-weight:600;text-decoration:underline;">Share your story</a></p>
 
   <div class="cards">
-    <div class="card card-soon"><div class="tag">Coming soon</div><h3>Working in fertility nursing</h3><p>A nurse shares what the work is like, what it pays and how she got there.</p></div>
-    <div class="card card-soon"><div class="tag">Coming soon</div><h3>Postpartum nursing, per diem</h3><p>How one nurse picks up per diem shifts, and what she'd tell you before you try it.</p></div>
-    <div class="card card-soon"><div class="tag">Your story</div><h3>Have a story to share?</h3><p>A specialty, a side hustle, a career change. Tell me about it.</p><a class="go" href="share-your-story.html">Share your story &rarr;</a></div>
+    <div class="card card-soon"><div class="card-img"><svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="#3461FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div><div class="tag">Coming soon</div><h3>Working in fertility nursing</h3><p>A nurse shares what the work is like, what it pays and how she got there.</p></div>
+    <div class="card card-soon"><div class="card-img"><svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="#3461FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"/></svg></div><div class="tag">Coming soon</div><h3>Postpartum nursing, per diem</h3><p>How one nurse picks up per diem shifts, and what she'd tell you before you try it.</p></div>
+    <div class="card card-soon"><div class="card-img"><svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="#3461FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="tag">Your story</div><h3>Have a story to share?</h3><p>A specialty, a side hustle, a career change. Tell me about it.</p><a class="go" href="share-your-story.html">Share your story &rarr;</a></div>
   </div>
 
 </main>
