@@ -115,7 +115,7 @@
     .content h2.what { font-size: 1.05rem; font-weight: 600; }
     .content p.ag-note { font-size: 13.5px; color: var(--text-muted); margin: -0.25rem 0 0; }
     .ag-list { display: flex; flex-direction: column; gap: 14px; margin: 1.5rem 0 2rem; }
-    .ag-strip { display: grid; grid-template-columns: 170px 160px 1fr 1fr 140px; gap: 0; align-items: stretch; border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.05); transition: box-shadow .15s, border-color .15s; }
+    .ag-strip { display: grid; grid-template-columns: 160px 150px 1.9fr 1fr 130px; gap: 0; align-items: stretch; border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.05); transition: box-shadow .15s, border-color .15s; }
     .ag-strip:hover { box-shadow: 0 4px 14px rgba(52,97,255,.12); border-color: #c9d4ff; }
     .ag-col { padding: 0 16px; border-left: 1px solid var(--border); min-width: 0; }
     .ag-col.ag-name { padding-left: 0; border-left: none; }
@@ -145,6 +145,16 @@
     .ag-table tr:last-child td { border-bottom: none; }
     .ag-table td:first-child { font-weight: 600; color: #111; }
     .content h3.faq-q { font-size: 1.02rem; margin: 1.1rem 0 0.2rem; }
+    .ag-says { min-width: 0; }
+    .ag-says .ag-chips + .ag-h { margin-top: 10px; }
+    .ag-lg { font-size: 13.5px; line-height: 1.45; color: #333; margin: 0 0 2px !important; }
+    .ag-lab { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 1px 7px; border-radius: 8px; margin-right: 4px; vertical-align: 1px; }
+    .ag-lab-good { background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; }
+    .ag-lab-bad { background: #FFFBEB; color: #92400E; border: 1px solid #FDE68A; }
+    .content p.ag-srcs { font-size: 12px; color: #888; margin: 0 0 8px; line-height: 1.5; }
+    .content p.ag-srcs a { color: #777; font-weight: 500; text-decoration: underline; }
+    .content p.ag-srcs a:hover { color: var(--blue); }
+    .ag-pattern { max-width: 700px; margin: 1rem 0 0; padding: 12px 16px; background: #f5f7ff; border: 1px solid #dfe5ff; border-radius: 12px; font-size: 14px; color: #333; }
 </style>
   <!-- Google Analytics -->
   <script>try{if(location.search.indexOf("internal=1")>-1)localStorage.setItem("np_internal","1");if(location.search.indexOf("internal=0")>-1)localStorage.removeItem("np_internal");if(localStorage.getItem("np_internal")){window["ga-disable-G-CR556L6MGE"]=true;}}catch(e){}</script>
@@ -221,51 +231,53 @@
   <p class="ag-note">Details checked November 2026 from each agency's own pages. Things change, so confirm before you sign up.</p>
   <h2 class="what">Agencies to look at</h2>
   <p class="ag-note">I'm not getting paid to list these. Details last checked November 2026.</p>
+  <p class="ag-note">Below are the good and the bad, from nurses who posted about each agency online. These are individual reviews, not a survey, and I link every one so you can read it yourself.</p>
   <div class="ag-list" id="agencies">
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3><a class="ag-name-link" href="https://www.medely.com" target="_blank" rel="noopener" data-agency="Medely">Medely</a></h3><p class="ag-shifts">Per diem shifts at hospitals and surgery centers.</p></div>
       <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">40+ U.S. markets. Check that your city is covered.</p><a class="ag-src" href="https://medely.com/blog/bridging-the-staffing-gap-medelys-plan-to-address-the-healthcare-staffing-crisis-in-las-vegas/" target="_blank" rel="noopener">Medely says so &rarr;</a></div>
-      <div class="ag-col"><div class="ag-h">What nurses say</div><div class="ag-chips"><span class="chip chip-good">Easy to get started</span><span class="chip chip-good">Paid quickly</span></div><a class="ag-reddit" href="https://www.reddit.com/r/TravelNursing/comments/svp2vb/" target="_blank" rel="noopener">Reddit thread &rarr;</a></div>
+      <div class="ag-col ag-says"><div class="ag-h">What nurses say</div><p class="ag-lg"><span class="ag-lab ag-lab-good">Good</span> Flexible, you work when you want. Pay is decent to above average. Paid fast.</p><p class="ag-srcs"><a href="https://www.reddit.com/r/TravelNursing/comments/svp2vb/" target="_blank" rel="noopener nofollow">Reddit</a> · <a href="https://www.indeed.com/cmp/Medely/reviews" target="_blank" rel="noopener nofollow">Indeed, Nov 2024 to Oct 2025</a> · <a href="https://www.glassdoor.ie/Reviews/Employee-Review-Medely-E1830736-RVW102150685.htm" target="_blank" rel="noopener nofollow">Glassdoor, Jan 2026</a></p><p class="ag-lg"><span class="ag-lab ag-lab-bad">Watch for</span> Facilities may post a shift for more hours than they need, so you may go home early. Shifts go fast.</p><p class="ag-srcs"><a href="https://www.glassdoor.sg/Reviews/Employee-Review-Medely-E1830736-RVW100704448.htm" target="_blank" rel="noopener nofollow">Glassdoor, Oct 2025</a> · <a href="https://www.indeed.com/cmp/Medely/reviews" target="_blank" rel="noopener nofollow">Indeed, Nov 2024</a></p></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Some facilities don't offer orientation, and some shifts want 1&ndash;2 years of experience</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://www.medely.com" target="_blank" rel="noopener" data-agency="Medely">Visit Medely &rarr;</a></div>
     </div>
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3><a class="ag-name-link" href="https://nursa.com/jobs/shifts" target="_blank" rel="noopener" data-agency="Nursa">Nursa</a></h3><p class="ag-shifts">Hospital shifts you pick up when and where you want.</p></div>
       <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">31+ states</p><a class="ag-src" href="https://nursa.com/states" target="_blank" rel="noopener">Nursa's state map &rarr;</a></div>
-      <div class="ag-col"><div class="ag-h">What nurses say</div><div class="ag-chips"><span class="chip chip-good">Good pay</span></div><a class="ag-reddit" href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener">Reddit thread &rarr;</a></div>
+      <div class="ag-col ag-says"><div class="ag-h">What nurses say</div><p class="ag-lg"><span class="ag-lab ag-lab-good">Good</span> Easy to pick up shifts. Paid fast, even right after you clock out.</p><p class="ag-srcs"><a href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener nofollow">Reddit</a> · <a href="https://www.glassdoor.com/Reviews/Employee-Review-Nursa-E4780510-RVW59617273.htm" target="_blank" rel="noopener nofollow">Glassdoor, Feb and May 2026</a></p><p class="ag-lg"><span class="ag-lab ag-lab-bad">Watch for</span> Fewer shifts and facilities in some areas than before. Last minute cancellations by facilities. App and support problems. 1099 taxes.</p><p class="ag-srcs"><a href="https://www.indeed.com/cmp/Nursa-3/reviews" target="_blank" rel="noopener nofollow">Indeed, Dec 2024 to Jan 2026</a> · <a href="https://www.glassdoor.com/Reviews/Employee-Review-Nursa-E4780510-RVW59617273.htm" target="_blank" rel="noopener nofollow">Glassdoor</a></p></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Shifts depend on your area, and nurses are independent contractors (1099)</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://nursa.com" target="_blank" rel="noopener" data-agency="Nursa">Visit Nursa &rarr;</a></div>
     </div>
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3><a class="ag-name-link" href="https://www.clipboardhealth.com" target="_blank" rel="noopener" data-agency="Clipboard Health">Clipboard Health</a></h3><p class="ag-shifts">Mostly long-term care and subacute shifts.</p></div>
       <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">Varies by market. Check your area in the app.</p></div>
-      <div class="ag-col"><div class="ag-h">What nurses say</div><div class="ag-chips"><span class="chip chip-good">Better pay and more shifts than other apps</span><span class="chip chip-good">Paid right after the shift</span></div><a class="ag-reddit" href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener">Reddit thread &rarr;</a></div>
+      <div class="ag-col ag-says"><div class="ag-h">What nurses say</div><p class="ag-lg"><span class="ag-lab ag-lab-good">Good</span> Very fast pay, within an hour. Lots of shift variety.</p><p class="ag-srcs"><a href="https://www.reddit.com/r/TravelNursing/comments/1jxkb2f/your_favorite_agencyplatform_for_picking_up_per/" target="_blank" rel="noopener nofollow">Reddit</a> · <a href="https://www.indeed.com/cmp/Clipboard-4/reviews?ftopic=paybenefits&ftext=shift" target="_blank" rel="noopener nofollow">Indeed, 2024 to 2025</a></p><p class="ag-lg"><span class="ag-lab ag-lab-bad">Watch for</span> Same day cancellations with no pay. A strict attendance points system that can end in deactivation. Rates dropping over time. 1099 taxes.</p><p class="ag-srcs"><a href="https://www.indeed.com/cmp/Clipboard-4/reviews?ftopic=paybenefits&ftext=shift" target="_blank" rel="noopener nofollow">Indeed, May 2024 and Feb 2025</a> · <a href="https://ie.trustpilot.com/review/www.clipboardhealth.com" target="_blank" rel="noopener nofollow">Trustpilot, 2025 to 2026</a></p></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Nurses are paid as independent contractors (1099)</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://www.clipboardhealth.com" target="_blank" rel="noopener" data-agency="Clipboard Health">Visit Clipboard &rarr;</a></div>
     </div>
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3><a class="ag-name-link" href="https://www.ayahealthcare.com/per-diem-jobs/" target="_blank" rel="noopener" data-agency="Aya Healthcare">Aya Healthcare</a></h3><p class="ag-shifts">Per diem shifts you book yourself in the Aya Shifts app once you're credentialed.</p></div>
       <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">Nationwide, including California. Some facilities want you within 50 miles.</p><a class="ag-src" href="https://www.ayahealthcare.com/?p=89137" target="_blank" rel="noopener">Aya's FAQ &rarr;</a></div>
-      <div class="ag-col"><div class="ag-h">The agency says</div><div class="ag-chips"><span class="chip chip-good">You pick when and where you work</span></div></div>
+      <div class="ag-col ag-says"><div class="ag-h">The agency says</div><div class="ag-chips"><span class="chip chip-good">You pick when and where you work</span></div><div class="ag-h">What nurses say</div><p class="ag-lg"><span class="ag-lab ag-lab-good">Good</span> Lots of per diem shifts posted in its app, per one ICU nurse.</p><p class="ag-srcs"><a href="https://apps.apple.com/us/app/-/id1314737660" target="_blank" rel="noopener nofollow">App Store reviews, Mar 2025</a></p><p class="ag-lg"><span class="ag-lab ag-lab-bad">Watch for</span> The per diem app not sending alerts, so shifts are gone before you see them. Last minute cancellations.</p><p class="ag-srcs"><a href="https://apps.apple.com/us/app/-/id1314737660" target="_blank" rel="noopener nofollow">App Store reviews, Mar to Jun 2025</a></p><p class="ag-srcs">I couldn't find many recent nurse posts about Aya per diem specifically.</p></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Getting through per diem compliance takes about 2&ndash;5 weeks</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://www.ayahealthcare.com" target="_blank" rel="noopener" data-agency="Aya Healthcare">Visit Aya &rarr;</a></div>
     </div>
     <div class="ag-strip">
       <div class="ag-col ag-name"><h3><a class="ag-name-link" href="https://amnhealthcare.com/careers/nursing/apply/per-diem-registered-nurse-nursing-jobs" target="_blank" rel="noopener" data-agency="AMN Healthcare (Nursefinders)">AMN Healthcare (Nursefinders)</a></h3><p class="ag-shifts">Per diem and local shifts. Nursefinders is AMN's per diem agency, with contracts from one day up to 13 weeks.</p></div>
       <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">Nationwide, including California</p><a class="ag-src" href="https://www.amnhealthcare.com/careers/nursing/per-diem/why-us" target="_blank" rel="noopener">AMN's per diem page &rarr;</a></div>
-      <div class="ag-col"><div class="ag-h">The agency says</div><div class="ag-chips"><span class="chip chip-good">W-2 clinician workforce</span><span class="chip chip-good">Joint Commission accredited</span></div></div>
+      <div class="ag-col ag-says"><div class="ag-h">The agency says</div><div class="ag-chips"><span class="chip chip-good">W-2 clinician workforce</span><span class="chip chip-good">Joint Commission accredited</span></div><div class="ag-h">What nurses say</div><p class="ag-lg"><span class="ag-lab ag-lab-good">Good</span> Steady hours if you want them.</p><p class="ag-srcs"><a href="https://allnurses.com/anyone-work-nursefinders-hrn-t413917/" target="_blank" rel="noopener nofollow">allnurses thread, older</a></p><p class="ag-lg"><span class="ag-lab ag-lab-bad">Watch for</span> Slow first paychecks. A recent RN review mentions a pay cut.</p><p class="ag-srcs"><a href="https://allnurses.com/anyone-work-nursefinders-hrn-t413917/" target="_blank" rel="noopener nofollow">allnurses thread, older</a> · <a href="https://www.indeed.com/cmp/Nursefinders" target="_blank" rel="noopener nofollow">Indeed, Apr 2025</a></p><p class="ag-srcs">Recent nurse posts about AMN per diem are hard to find. <a href="contact.html">Tell me yours.</a></p></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Not all agencies offer the same pay and benefits, so check before you sign</span></div></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://www.amnhealthcare.com/careers/nursing/per-diem/" target="_blank" rel="noopener" data-agency="AMN Healthcare (Nursefinders)">Visit AMN &rarr;</a></div>
     </div>
     <div class="ag-strip">
-      <div class="ag-col ag-name"><h3><a class="ag-name-link" href="https://www.grapetree.com" target="_blank" rel="noopener" data-agency="GrapeTree Medical Staffing">GrapeTree Medical Staffing</a></h3><p class="ag-shifts">Per diem shifts, plus local and travel long-term assignments.</p></div>
+      <div class="ag-col ag-name"><h3><a class="ag-name-link" href="https://www.grapetree.com" target="_blank" rel="noopener" data-agency="GrapeTree">GrapeTree Medical Staffing</a></h3><p class="ag-shifts">Per diem shifts, plus local and travel long-term assignments.</p></div>
       <div class="ag-col"><div class="ag-h">Where</div><p class="ag-where">Mostly Midwest: about 12 states, based in Iowa</p><a class="ag-src" href="https://app.joinhandshake.com/employers/grapetree-medical-staffing-137618" target="_blank" rel="noopener">GrapeTree's profile &rarr;</a></div>
-      <div class="ag-col"><div class="ag-h">The agency says</div><div class="ag-chips"><span class="chip chip-good">W-2 employment</span><span class="chip chip-good">24/7 support</span></div></div>
+      <div class="ag-col ag-says"><div class="ag-h">The agency says</div><div class="ag-chips"><span class="chip chip-good">W-2 employment</span><span class="chip chip-good">24/7 support</span></div><div class="ag-h">What nurses say</div><p class="ag-lg"><span class="ag-lab ag-lab-good">Good</span> Responsive recruiters. Flexible.</p><p class="ag-srcs"><a href="https://www.vivian.com/agencies/grapetree-medical-staffing/" target="_blank" rel="noopener nofollow">Vivian, RNs and LPNs, 2024</a></p><p class="ag-lg"><span class="ag-lab ag-lab-bad">Watch for</span> Shifts can be scarce or unsteady, especially in summer. Mixed views on pay. Points for cancelling.</p><p class="ag-srcs"><a href="https://www.glassdoor.sg/Reviews/Employee-Review-GrapeTree-Medical-Staffing-E1290778-RVW103008490.htm" target="_blank" rel="noopener nofollow">Glassdoor, Dec 2025 to Mar 2026</a></p></div>
       <div class="ag-col"><div class="ag-h ag-h-warn">Heads up</div><div class="ag-chips"><span class="chip chip-warn">Documented history of charging nurses fees for missed shifts</span><span class="chip chip-warn">Mostly skilled nursing and assisted living facilities, not hospitals</span></div><a class="ag-src" href="https://dli.mn.gov/node/7061" target="_blank" rel="noopener">Minnesota DLI &rarr;</a> <a class="ag-src" href="https://illinoisattorneygeneral.gov/news/story/attorney-general-raoul-reaches-settlement-with-medical-staffing-agency-charging-employees-fees-for-missing-work" target="_blank" rel="noopener">Illinois AG &rarr;</a></div>
       <div class="ag-col ag-go"><a class="ag-visit" href="https://www.grapetree.com" target="_blank" rel="noopener" data-agency="GrapeTree">Visit GrapeTree &rarr;</a></div>
     </div>
   </div>
 
+  <div class="ag-pattern"><strong>One thing nurses mention across almost every app:</strong> facilities cancelling or cutting shifts at the last minute. Before you sign up, ask what you get paid if a shift is cancelled.</div>
   <h2 class="what">Why I'm recommending these</h2>
   <p>These are a few common agencies that hire per diem. I'm not getting paid to share them. Have one you like? <a href="contact.html">Let me know</a>.</p>
 
@@ -276,16 +288,6 @@
     <li>In California, applying directly with the facility can get you the shifts you want before they go out to an agency. <a href="per-diem.html">See Bay Area hospital jobs &rarr;</a></li>
   </ul>
 
-  <h2 class="what">Common questions</h2>
-  <h3 class="faq-q">Is agency per diem W-2 or 1099?</h3>
-  <p>It depends on the agency. On this page, Nursa and Clipboard Health pay nurses as independent contractors (1099), while AMN Healthcare and GrapeTree say their clinicians are W-2 employees. With 1099 you pay your own self-employment tax and handle your own benefits. Ask which one applies before you sign.</p>
-  <h3 class="faq-q">Can I do agency per diem as a new nurse?</h3>
-  <p>Often not right away. Aya says its per diem positions require at least 1 year of experience since no training is offered, and some facilities want 2 years. Medely shifts can also ask for 1 to 2 years. Check the shift requirements before you apply.</p>
-  <h3 class="faq-q">How long does it take to start?</h3>
-  <p>Plan on a few weeks. Aya says most clinicians get through its per diem compliance process in 2 to 5 weeks. Other agencies vary, so ask about credentialing, background checks and any facility orientation.</p>
-  <h3 class="faq-q">Do I need to live near the facility?</h3>
-  <p>Usually yes. Aya says you must live within 1.5 to 2 hours of the facility, and some facilities want you within 50 miles. Other agencies set their own rules, so check the shift details.</p>
-  <p class="ag-note">Sources: <a href="https://www.shifts.com/?p=507" target="_blank" rel="noopener">Aya's per diem FAQ</a> for experience, start time and distance.</p>
   <h2 class="what">Here is my experience working with a per diem agency</h2>
   <a class="story-card" href="per-diem-agency-experience.html">
     <span class="story-label">My story</span>
@@ -293,6 +295,18 @@
     <span>What I like, the downsides, and the pay tradeoff. Read my experience &rarr;</span>
   </a>
   <p class="disclosure"><strong>Disclosure:</strong> I also work per diem through an agency myself, as an independent contractor.</p>
+
+  <h2 class="what">Per diem agency FAQ</h2>
+  <h3 class="faq-q">Does agency per diem pay more than a hospital per diem job?</h3>
+  <p>Not for me. In the Bay Area, my agency shifts usually pay less than my hospital job. I take the pay cut for the variety and the flexibility. Agency pay also moves: when lots of nurses are available it drops, and when a shift needs filling fast it can spike. Compare what nurses report at your hospital on <a href="browse.html">Browse Pay</a>.</p>
+  <h3 class="faq-q">What's the difference between a 1099 and a W-2 agency?</h3>
+  <p>With a 1099 app (Medely, Nursa, Clipboard Health) you're self employed. Nothing is taken out for taxes, you pay self employment tax, and some business costs can be written off. With a W-2 agency (like AMN's Nursefinders) taxes come out of your check, and some offer benefits like a 401(k). I work 1099. Check with a tax professional about your own situation.</p>
+  <h3 class="faq-q">How fast do per diem apps pay?</h3>
+  <p>It depends on the agency: Nursa pays twice a week or instantly, Medely several times a week, Aya and Nursefinders weekly on Fridays, GrapeTree weekly with a daily option. Nurses say Clipboard Health often pays within an hour.</p>
+  <h3 class="faq-q">What if a facility cancels my shift?</h3>
+  <p>Nurses mention last minute cancellations across most of these apps. Ask the agency what you get paid if a shift is cancelled, before you sign up.</p>
+  <h3 class="faq-q">Is there unpaid time?</h3>
+  <p>Yes, in my experience. Driving, calling to confirm and shadowing for training were on my own time. My agency also requires CEUs, certifications and malpractice insurance, on my own time and dime.</p>
 
   <p>Have an agency story? <a href="share-your-story.html">Share it &rarr;</a> Looking for hospital jobs? <a href="per-diem.html">See SF Bay Area per diem jobs &rarr;</a></p>
 </div>
