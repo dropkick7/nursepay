@@ -100,6 +100,10 @@
     .card .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue); margin-bottom: 0.4rem; }
     .card h3 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.2px; margin-bottom: 0.4rem; line-height: 1.3; }
     .card p { font-size: 14px; color: var(--text-mid); margin-bottom: 0.6rem; }
+    .card-soon { cursor: default; }
+    .card-soon:last-child { grid-column: 1 / -1; background: var(--blue-light); }
+    .card-soon:hover { border-color: var(--border); box-shadow: none; }
+    .soon-pill { display: inline-block; font-size: 12px; font-weight: 600; color: var(--text-muted); background: var(--bg-soft); border: 1px solid var(--border); border-radius: 999px; padding: 2px 10px; }
     .card .go { font-size: 13.5px; font-weight: 600; color: var(--blue); }
 
     .promise { margin: 0.5rem 0 1rem 1.2rem; color: var(--text-mid); max-width: 62ch; }
@@ -185,9 +189,16 @@
     <p class="lede">On this page, you'll find stories from real nurses about their specialties, side hustles and money.</p>
   </header>
 
-  <p style="color:var(--text-mid);max-width:62ch;margin:0 0 1rem;">These nurses, many of whom I was introduced to by nurses I know, were kind enough to share their stories with me in hopes of inspiring other nurses who are looking for the career path that works for them and their lives. Every story was read and approved by the nurse who shared it.</p>
-  <p style="color:var(--text-mid);max-width:62ch;margin:0 0 1.5rem;">This site is all about us nurses sharing our collective knowledge and lifting each other up.</p>
-  <p style="color:var(--text-mid);max-width:62ch;margin:0 0 1.25rem;">Have a specialty or side hustle you'd like to share? <a href="share-your-story.html" style="color:var(--blue);font-weight:600;text-decoration:underline;">Share your story</a></p>
+  <p style="color:var(--text-mid);margin:0 0 1rem;">These nurses, many of whom I was introduced to by nurses I know, were kind enough to share their stories with me in hopes of inspiring other nurses who are looking for the career path that works for them and their lives. Every story was read and approved by the nurse who shared it.</p>
+  <p style="color:var(--text-mid);margin:0 0 1.5rem;">This site is all about us nurses sharing our collective knowledge and lifting each other up.</p>
+  <p style="color:var(--text-mid);margin:0 0 1.25rem;">Have a specialty or side hustle you'd like to share? <a href="share-your-story.html" style="color:var(--blue);font-weight:600;text-decoration:underline;">Share your story</a></p>
+
+  <div class="cards">
+    <div class="card card-soon"><div class="tag">Coming soon</div><h3>Working in fertility nursing</h3><p>A nurse shares what the work is like, what it pays and how she got there.</p></div>
+    <div class="card card-soon"><div class="tag">Coming soon</div><h3>Postpartum nursing, per diem</h3><p>How one nurse picks up per diem shifts, and what she'd tell you before you try it.</p></div>
+    <div class="card card-soon"><div class="tag">Your story</div><h3>Have a story to share?</h3><p>A specialty, a side hustle, a career change. Tell me about it.</p><a class="go" href="share-your-story.html">Share your story &rarr;</a></div>
+  </div>
+
 </main>
 
 <div class="signup">
