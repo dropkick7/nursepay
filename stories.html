@@ -106,12 +106,19 @@
     .card > :last-child { margin-bottom: 1.25rem; padding-bottom: 0; }
     .card .go { display: inline-block; }
     .card-img { height: 150px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #EEF2FF, #dfe7ff); margin: 0 !important; }
-    .card-soon:last-child .card-img { height: 90px; }
+    
     @media (min-width: 760px) { .cards { grid-template-columns: repeat(3, 1fr); } .card-img { height: 120px; } .card h3 { font-size: 1.02rem; } }
     .card-img { position: relative; overflow: hidden; }
     .card-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .card-img img.ag { object-position: 50% 45%; }
     .card-img img.pp { object-position: 25% 55%; }
+    @media (min-width: 760px) {
+      .card-soon:last-child { display: grid; grid-template-columns: 240px 1fr; align-content: center; }
+      .card-soon:last-child .card-img { grid-row: 1 / span 4; height: auto; min-height: 220px; }
+      .card-soon:last-child > :not(.card-img) { grid-column: 2; }
+      .card-soon:last-child > .tag { margin-top: 1.4rem; }
+    }
+    .card-img img.ys { object-position: 50% 30%; }
     .card-soon { cursor: default; }
     .card-soon:last-child { grid-column: 1 / -1; background: var(--blue-light); }
     .card-soon:hover { border-color: var(--border); box-shadow: none; }
@@ -209,7 +216,7 @@
     <a class="card" href="per-diem-agency-experience.html"><div class="card-img"><img class="ag" src="images/stories/agency.jpg" alt="A stethoscope, laptop, blood pressure cuff and other nursing supplies laid out on a table" loading="lazy"></div><div class="tag">Side hustle</div><h3>Working per diem through an agency</h3><p>What I like, the downsides, and the pay tradeoff.</p><span class="go">Read the story &rarr;</span></a>
     <div class="card card-soon"><div class="card-img"><img src="images/stories/fertility.jpg" alt="White tulips next to a pregnancy test and a pacifier on a pink background" loading="lazy"></div><div class="tag">Coming soon</div><h3>Working in fertility nursing</h3><p>A nurse shares what the work is like, what it pays and how she got there.</p></div>
     <div class="card card-soon"><div class="card-img"><img class="pp" src="images/stories/postpartum.jpg" alt="A newborn sleeping in a hospital bassinet" loading="lazy"></div><div class="tag">Coming soon</div><h3>Postpartum nursing, per diem</h3><p>How one nurse picks up per diem shifts, and what she'd tell you before you try it.</p></div>
-    <div class="card card-soon"><div class="card-img"><svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="#3461FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="tag">Your story</div><h3>Have a story to share?</h3><p>A specialty, a side hustle, a career change. Tell me about it.</p><a class="go" href="share-your-story.html">Share your story &rarr;</a></div>
+    <div class="card card-soon"><div class="card-img"><img class="ys" src="images/stories/your-story.jpg" alt="A woman working on a laptop on a sofa while a child lies upside down beside her" loading="lazy"></div><div class="tag">Your story</div><h3>Have a story to share?</h3><p>A specialty, a side hustle, a career change. Tell me about it.</p><a class="go" href="share-your-story.html">Share your story &rarr;</a></div>
   </div>
 
 </main>
